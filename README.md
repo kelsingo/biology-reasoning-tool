@@ -95,10 +95,10 @@ Extract scientific reasoning triplets directly from PDF files in one command. Th
 
 ```bash
 python -m src.gemini-experiments.extract \
-    --input-folder ./data/gemini-experiments/pdf \
+    --input-folder ./data/gemini-experiments/taurine \
     --config-path ./configs/gemini-3-pro.yaml \
     --response-folder ./data/gemini-experiments/extraction/from-pdf/raw \
-    --output-folder ./data/gemini-experiments/extraction/from-pdf/formatted \
+    --output-folder ./data/gemini-experiments/extraction/results \
     --input-format pdf
 ```
 

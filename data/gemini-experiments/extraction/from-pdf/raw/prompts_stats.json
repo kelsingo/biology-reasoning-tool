@@ -1,9 +1,9 @@
 {
     "model": "gemini-3-pro-preview",
-    "total_requests": 8,
-    "successful_requests": 8,
+    "total_requests": 1,
+    "successful_requests": 1,
     "failed_requests": 0,
     "failed_request_ids": [],
-    "elapsed_time": 389.0428900718689,
-    "throughput": 0.02056328544783877
+    "elapsed_time": 184.5591218471527,
+    "throughput": 0.005418317935150207
 }
