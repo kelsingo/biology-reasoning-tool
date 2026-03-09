@@ -48,8 +48,8 @@ def generate_document(
 
     # Pre-build static sections
     title = f"# {data.get('article_title', 'Untitled')}\n\n"
-    abstract_text = f"## Abstract\n\n{data.get("abstract", "")}\n\n"
-    intro_text = f"## Introduction\n\n{data.get("introduction", "")}\n\n"
+    abstract_text = f"## Abstract\n\n{data.get('abstract', '')}\n\n"
+    intro_text = f"## Introduction\n\n{data.get('introduction', '')}\n\n"
 
     prefix = title
     if include_abstract: prefix += abstract_text
