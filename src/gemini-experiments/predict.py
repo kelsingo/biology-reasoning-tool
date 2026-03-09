@@ -5,8 +5,9 @@ Usage:
 python -m src.gemini-experiments.predict \
     --paper-path "./data/gemini-experiments/conversion/formatted/mechanical.json" \
     --triplets-file "./data/gemini-experiments/triplets.mechanical.csv" \
-    --output-folder "./data/gemini-experiments/prediction/" \
-    --config-path "./configs/gemini-3-pro.yaml"
+    --output-folder "./data/gemini-experiments/prediction/results/taurine" \
+    --config-path "./configs/gemini-3-pro.yaml" \ 
+    --output-file "results_v0"
 """
 
 from .templates import TEMPLATE_PREDICTION_1, TEMPLATE_PREDICTION_2
@@ -22,7 +23,7 @@ import argparse
 def build_prompt(prefix, input):
     content_type = input["type"]
     query = input["main_content"]
-    template = TEMPLATE_PREDICTION_1 if ("Q1" in content_type) else TEMPLATE_PREDICTION_2
+    template = TEMPLATE_PREDICTION_1 if ("Q1.1" in content_type or "Q1.2" in content_type) else TEMPLATE_PREDICTION_2
 
     content = f"{prefix}\n\nQUERY: {query}"
     prompt = template.replace("{{main_content}}", content)
@@ -72,30 +73,33 @@ def build_prompts(paper_path: Path, triplets_file: Path, output_folder: Path):
 
     return output_path
 
-def aggregate_results(output_folder: Path):
+def aggregate_results(output_folder: Path, output_file: str):
     
     responses_file = output_folder / "responses.jsonl"
-    results_csv = output_folder / "results.csv"
+    results_csv = output_folder / output_file
 
     results = []
-    for row in read_jsonl(responses_file):
-        response = str(row["response"])
-        parsed_json = parse_json(response)[0]
-        new_row = dict(
-            title=row.get("title"),
-            type=row.get("type"),
-            subsection=row.get("subsection"),
-            main_content=row.get("main_content"),
-            context=row.get("context"),
-            outcome=row.get("outcome"),
-            predicted_context=parsed_json["context"],
-            predicted_outcome=parsed_json["outcome"]
-        )
-        results.append(new_row)
-
+    rows = list(read_jsonl(responses_file))
+    for i in range(len(rows)):
+        try: 
+            row = rows[i]
+            response = str(row["response"])
+            parsed_json = parse_json(response)[0]
+            new_row = dict(
+                title=row.get("title"),
+                type=row.get("type"),
+                subsection=row.get("subsection"),
+                main_content=row.get("main_content"),
+                context=row.get("context"),
+                outcome=row.get("outcome"),
+                predicted_context=parsed_json["context"],
+                predicted_outcome=parsed_json["outcome"]
+            )
+            results.append(new_row)
+        except Exception as e:
+            print(f"Error at row {i}: {e}")
     # Write the results to .csv format
     pd.DataFrame(results).to_csv(results_csv, index=False)
-
     return results_csv
 
 def main():
@@ -127,6 +131,11 @@ def main():
         help="Path to model configuration file"
     )
     parser.add_argument(
+        "-of", "--output-file",
+        required=True, 
+        help="results filename"
+    )
+    parser.add_argument(
         "--aggregate-only",
         action="store_true",
         help="Skip prompt building and inference, only aggregate existing results"
@@ -138,6 +147,7 @@ def main():
     triplets_file = args.triplets_file.resolve()
     output_folder = args.output_folder.resolve()
     config_path = args.config_path.resolve()
+    output_file = args.output_file
 
     responses_file = output_folder / "responses.jsonl"
     responses_file.parent.mkdir(parents=True, exist_ok=True)
@@ -164,8 +174,8 @@ def main():
 
     # 3. Aggregate results
     print("\n--- Step 3: Aggregating Results ---")
-    results_csv = aggregate_results(output_folder)
-    print(f"Saving results to csv at: {results_csv}")
+    results_csv = aggregate_results(output_folder, output_file)
+    print(f"Saving results to csv at: {results_csv}, filename {output_file}")
 
     print("\nPipeline finished successfully.")
 
