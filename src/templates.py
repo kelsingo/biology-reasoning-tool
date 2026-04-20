@@ -320,26 +320,26 @@ Now, analyze the provided scientific paper excerpt following these instructions.
 """.strip()
 
 TEMPLATE_PREDICTION_11 = """
-# TASK: Experimental Design Generation (Type Q1)
+# TASK: Experimental Design Generation 
 
 
 ## Overview
-You will act as a Principal Investigator planning a scientific study. You will be provided with a specific research question or objective (`main_content`). Your task is to generate the logical reasoning required to design an experiment to address this objective. You must construct the "Inquiry Logic" triplet by generating the missing `context` and `outcome`.
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the "Inquiry Logic" triplet by generating the missing `context` and `outcome`.
 
 
 ## Logical Components
 
 
 1. **Input: Research Goal (`main_content`)**
-This is the specific knowledge gap, hypothesis, or objective provided to you.
+This is the specific knowledge gap, research question, or objective provided to you.
 
 
 2. **Generate: Justification (`context`)**
-You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include the DOI(s) of studies you cited. DOI(s) must correspond to a real, accessible publication.
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
 
 
 3. **Generate: Methodology (`outcome`)**
-You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., "perform RNA-seq," "use CRISPR-Cas9 to knockout X," "stain X with antibodies against Y", "Use cell line X,") rather than a vague statement.
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., "perform RNA-seq," "use CRISPR-Cas9 to knockout X," "stain X with antibodies against Y", "Use cell line X,") rather than a vague statement. 
 
 
 ## Reasoning Flow
@@ -367,31 +367,35 @@ Return your response in the following JSON format:
 
 
 TEMPLATE_PREDICTION_12 = """
-# TASK: Experimental Design Generation (Type Q1)
+# TASK: Experimental Design Generation 
 
 
 ## Overview
-You will act as a Principal Investigator planning a scientific study. You will be provided with a proposed mechanism (`main_content`). Your task is to generate the logical reasoning required to design an experiment to propose the underlying pathways or cause of that mechanism. You must construct the "Inquiry Logic" triplet by generating the missing `context` and `outcome`.
+You will act as a biologist planning a scientific study. You will be provided with a hypothesized mechanism (`main_content`). Your task is to logically construct the "Inquiry Logic" triplet by generating the missing `context` and `outcome`.
 
 
 ## Logical Components
 
 
 1. **Input: Research Goal (`main_content`)**
-This is the specific knowledge gap, hypothesis, or objective provided to you.
+This is the specific hypothesized mechanism provided to you.
 
 
 2. **Generate: Justification (`context`)**
-You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, along with the citation for your statement.
+Provide the scientific reasoning or background that makes the experiment feasible. This must:
+- Describe a **specific biological mechanism, pathway, or experimental precedent** directly relevant to the hypothesis 
+- Describe specific model systems and/or techniques that are relevant for the chosen method
+- Ensure the reasoning **naturally leads to a specific experimental approach**
+Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. Be specific, avoid vague statements.
 
 
 3. **Generate: Methodology (`outcome`)**
-You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., "perform RNA-seq," "use CRISPR-Cas9 to knockout X," "stain X with antibodies against Y", "Use cell line X,") rather than a vague statement.
+You must generate the specific operational step, assay, or technique that creates the data necessary to verify or explain the Research Goal. This should be a concrete action (e.g., "perform RNA-seq," "use CRISPR-Cas9 to knockout X," "stain X with antibodies against Y", "Use cell line X,") rather than a vague statement.
 
 
 ## Reasoning Flow
 Your generation must follow this logical path:
-*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+*Because we want to investigate [main_content], and considering [context], we will perform [outcome].*
 
 
 ## Output Format
@@ -402,6 +406,7 @@ Return your response in the following JSON format:
 {
 "main_content": "The provided input goal",
 "context": "The scientific justification or background principle used to select the method.",
+"references": "The DOI(s) of specific studies you cited in context.",
 "outcome": "The specific experimental method or assay performed."
 }
 ```
@@ -412,12 +417,105 @@ Return your response in the following JSON format:
 """.strip()
 
 
-TEMPLATE_PREDICTION_2 = """
-# TASK: Scientific Interpretation Generation (Type Q2)
+TEMPLATE_PREDICTION_21 = """
+# TASK: Scientific Interpretation Generation
 
 
 ## Overview
-You will act as a Senior Scientific Reviewer analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the "Discovery Logic" triplet by generating the missing `context` and `outcome`.
+You will act as a biologist who logically derives mechanism. You will be provided with a specific research question (`main_content`). Your task is to apply known quantitative result, mechanism, and/or experimental precedent to construct the "Discovery Logic" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Question (`main_content`)**
+This is the specific research question provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the potential mechanism or quantitative findings that are relevant to answering the Research Question. This should indicate known biological principles, pathways, or quantitative findings that can engage entities in the Research Question into a coherent causal explanation. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that formulate a **causal mechanism or pathway** connecting the key entities in the Research Question using the Established Principle. This represents the derived mechanism from the biological insights in context (e.g., "Therefore, this suggests X induces Y through pathway A"). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Since it is known that [context], we conclude that [main_content] can be explained by [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+"main_content": "The provided input observation",
+"context": "The general biological rule or established theory applied to the data.",
+"references": "The DOI(s) of specific studies you cited in context.",
+"outcome": "The specific biological interpretation or conclusion derived."
+}
+```
+
+
+**Input (Observation):**
+{{main_content}}
+""".strip()
+
+TEMPLATE_PREDICTION_22 = """
+# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist generalizing understanding about biological mechanisms. You will be provided with a specific biological mechanism. Your task is to apply related biological knowledge to derive a meaningful conclusion. You must construct the "Discovery Logic" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Biological Mechanism (`main_content`)**
+This is the specific biological mechanism provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the biological knowledge or quantitative findings that are relevant to the Biological Mechanism. This should indicate known biological principles, pathways, or experimental precedent that can be used to derive the pathway or a causal explanation underlying the Biological Mechanism. Be specific, avoid vague statement, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that formulate a **causal mechanism or pathway** integrating the Biological Mechanism and Established Principle into a coherent causal explanation. This represents the generalized mechanism derived from the observations in context and main_content (e.g., "Therefore, this suggests the pathway is upregulated," or "This indicates a transition to a mesenchymal state"). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Given [main_content], and since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+"main_content": "The provided input observation",
+"context": "The general biological rule or established theory applied to the data.",
+"references": "The DOI(s) of specific studies you cited in context.",
+"outcome": "The specific biological interpretation or conclusion derived."
+}
+```
+
+
+**Input (Observation):**
+{{main_content}}
+""".strip()
+
+# Q2.3 + Q2.4
+TEMPLATE_PREDICTION_23 = """
+# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the "Discovery Logic" triplet by generating the missing `context` and `outcome`.
 
 
 ## Logical Components
@@ -428,11 +526,14 @@ This is the specific data point, morphological description, or statistical findi
 
 
 2. **Generate: Established Principle (`context`)**
-You must generate the "lens" through which this data is interpreted. This should indicate whether the current findings are consistent or inconsistent with similar studies, or established biological rule, physical law, known functional association (e.g., "consistent with study X", "It is well established that protein X is a marker for Y," or "Changes in nuclear shape are indicative of Z" or "genomic region X is associated with function Y"). This provides the theoretical bridge between the raw number/image and its biological meaning.
+You must generate the "lens" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., "consistent with study X", "It is well established that protein X is a marker for Y," or "Changes in nuclear shape are indicative of Z" or "genomic region X is associated with function Y"). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
 
 
 3. **Generate: New Insight (`outcome`)**
-You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., "Therefore, this suggests the pathway is upregulated," or "This indicates a transition to a mesenchymal state").
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., "Therefore, this suggests the pathway is upregulated," or "This indicates a transition to a mesenchymal state"). 
 
 
 ## Reasoning Flow
@@ -448,6 +549,53 @@ Return your response in the following JSON format:
 {
 "main_content": "The provided input observation",
 "context": "The general biological rule or established theory applied to the data.",
+"references": "The DOI(s) of specific studies you cited in context.",
+"outcome": "The specific biological interpretation or conclusion derived."
+}
+```
+
+
+**Input (Observation):**
+{{main_content}}
+""".strip()
+
+TEMPLATE_PREDICTION_31 = """
+# TASK: Validation Question Generation
+
+
+## Overview
+You will act as a biologist critically evaluating a proposed biological mechanism. You are given a hypothesized mechanism (`main_content`). Your task is to generate a **control-oriented research question** by integrating this mechanism with established biological knowledge. You must construct the "Control Logic" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Biological Mechanism (`main_content`)**
+This is the proposed mechanism or hypothesis to be evaluated.
+
+
+2. **Generate: Established Principle (`context`)**
+Provide relevant biological knowledge that introduces **constraints, alternative explanations, or known regulatory mechanisms** related to the hypothesis.
+This should highlight **factors that could challenge, refine, or condition the mechanism or disvalue the hypothesis**
+Be specific, avoid vague statements. Include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate a **testable research question** that arises from combining the Biological Mechanism with the Established Principle. This question helps to rule out confounding factors, alternative pathways, or indirect effects, or to assess potential **undesired or harmful effects** of a potential therapeutic intervention where relevant. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We propose that [main_content]. However, since it is known that [context], an important question is: [outcome]*
+
+
+## Output Format
+Return your response in the following JSON format:
+```json
+{
+"main_content": "The provided input observation",
+"context": "The general biological rule or established theory applied to the data.",
+"references": "The DOI(s) of specific studies you cited in context.",
 "outcome": "The specific biological interpretation or conclusion derived."
 }
 ```
