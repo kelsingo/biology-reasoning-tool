@@ -4,13 +4,13 @@ Prediction pipeline for Q1 and Q2 triplets.
 Usage:
 python -m src.gemini-experiments.predict \
     --paper-path "./data/gemini-experiments/conversion/formatted/" \
-    --triplets-file "./data/gemini-experiments/triplets.mechanical.csv" \
-    --output-folder "./data/gemini-experiments/prediction/results/taurine" \
-    --config-path "./configs/gemini-3-pro.yaml" \ 
-    --output-file "results_v0"
+    --triplets-file "./data/gemini-experiments/triplets.selected.csv" \
+    --output-folder "./data/gemini-experiments/prediction/results/selected_introduction_first" \
+    --config-path "./configs/gemini-3-pro.yaml" \
+    --output-file "results_v0.csv" 
 """
 
-from ..templates import TEMPLATE_PREDICTION_11, TEMPLATE_PREDICTION_12, TEMPLATE_PREDICTION_2
+from ..templates import TEMPLATE_PREDICTION_11, TEMPLATE_PREDICTION_12, TEMPLATE_PREDICTION_21, TEMPLATE_PREDICTION_22, TEMPLATE_PREDICTION_23, TEMPLATE_PREDICTION_31
 from ..utils.inference_gemini import run_inference
 from ..utils.common import read_jsonl, read_json, parse_json, read_csv
 from ..utils.document_builder import generate_document
@@ -35,10 +35,23 @@ def build_prompt(paper_path, input):
     )[0].strip()
     content_type = input["type"]
     query = input["main_content"]
-    template = TEMPLATE_PREDICTION_11 if "Q1.1" in content_type else TEMPLATE_PREDICTION_12 if "Q1.2" in content_type else TEMPLATE_PREDICTION_2
+    template = ""
+    if "Q1.1" in content_type:
+        template = TEMPLATE_PREDICTION_11
+    elif "Q1.2" in content_type:
+        template = TEMPLATE_PREDICTION_12
+    elif "Q2.1" in content_type:
+        template = TEMPLATE_PREDICTION_21
+    elif "Q2.2" in content_type:
+        template = TEMPLATE_PREDICTION_22
+    elif "Q2.3" in content_type or "Q2.4" in content_type:
+        template = TEMPLATE_PREDICTION_23
+    elif "Q3.1" in content_type:
+        template = TEMPLATE_PREDICTION_31
 
-    content = f"{prefix}\n\nQUERY: {query}"
-    prompt = template.replace("{{main_content}}", content)
+    # content = f"{prefix}\n\nQUERY: {query}"
+    prompt = template.replace("{{main_content}}", query)
+    prompt = f"{prefix}\n\nGiven the context above:\n\n{prompt}"
     return prompt
 
 def build_prompts(paper_path: Path, triplets_file: Path, output_folder: Path):
@@ -87,13 +100,13 @@ def aggregate_results(output_folder: Path, output_file: str):
             response = str(row["response"])
             parsed_json = parse_json(response)[0]
             new_row = dict(
-                title=row.get("title"),
+                title=row.get("paper"),
                 type=row.get("type"),
                 subsection=row.get("subsection"),
                 main_content=row.get("main_content"),
                 context=row.get("context"),
                 outcome=row.get("outcome"),
-                predicted_reference=parsed_json.get("reference"),
+                predicted_references=parsed_json.get("references"),
                 predicted_context=parsed_json["context"],
                 predicted_outcome=parsed_json["outcome"]
             )

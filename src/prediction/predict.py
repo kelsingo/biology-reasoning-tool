@@ -83,12 +83,14 @@ def aggregate_results(output_folder: Path):
         response = str(row["response"])
         parsed_json = parse_json(response)[0]
         new_row = dict(
+            paper=row["paper"],
             type=row["type"],
             subsection=row["subsection"],
             main=row["main"],
             context=row["context"],
             outcome=row["outcome"],
             predicted_context=parsed_json["context"],
+            predicted_references=parsed_json["references"],
             predicted_outcome=parsed_json["outcome"]
         )
         results.append(new_row)

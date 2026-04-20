@@ -1,0 +1,9 @@
+title,type,subsection,main_content,context,outcome,predicted_references,predicted_context,predicted_outcome
+mechanical,Q2.4,Confinement remodels the cytoskeleton,"We noticed that in confined cells, the hyperacetylated tubulin net-
+work was often perinuclear (Fig. 2f,g) ","As the stiffest and
+largest organelle, the nucleus is vulnerable to confinement-induced
+stress, with confined migration often causing nuclear envelope rup-
+ture and DNA damage20,21. During migration through confined spaces,
+neurons assemble a perinuclear network of acetylated tubulin to pro-
+tect the nucleus22,23. ","and hypothesized that this net-
+work may provide structural support to the nucleus.","10.1038/ncb3481, 10.1038/s41580-020-0214-3","It is well established that the acetylation of alpha-tubulin increases the flexibility and mechanical resilience of microtubules, protecting them from breakage under compressive forces. Furthermore, the reorganization of these stabilized, mechanoresistant microtubules around the nucleus is a known cellular mechanism used to shield the nuclear envelope and chromatin from severe deformation, rupture, and DNA damage during confined cell migration.","Therefore, this indicates that the perinuclear accumulation of hyperacetylated tubulin is a targeted mechanoprotective adaptation. By reinforcing the perinuclear cytoskeleton, melanoma cells can shield their nucleus from the intense compressive forces of the tumor microenvironment, thereby ensuring survival and maintaining genomic integrity as they transition into an invasive phenotypic state."

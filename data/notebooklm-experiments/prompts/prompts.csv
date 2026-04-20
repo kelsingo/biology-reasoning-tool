@@ -1,0 +1,1547 @@
+prompt,paper,type,subsection,main_content,context,outcome
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+We analysed the genomic distribution of SVs and found it to be highly uneven, with significant enrichment in subtelomeric regions (two-sided Fisher exact test, P = 1.1 × 10−309). Although SNPs and indels are also enriched in these regions, the enrichment is much stronger for SVs (Fig. 2d). By computing structural diversity along the genome, we identified bursts of diversity that are often specific to a single SV type (Fig. 2e) and defined 46 SV hotspots (Supplementary Table5), including 21 translocation hotspots, nearly all in subtelomeric regions. One notable exception is a well-described reciprocal translocation between chromosomes 8 and 16, ... SSU1 gene located near the breakpoint38 (Fig. 2e). Hotspots for PAVs, CNVs and inversions often mapped to TE-rich regions or ... such as FLO39,40, CUP1 ..., and ... such as HPF1, SPA2 and NUM1 .... An inversion hotspot on chromosome 14 overlaps a 24-kb region flanked by inverted repeats, ...",yeast,Q2.3,Genomic distribution of SVs,"We analysed the genomic distribution of SVs and found it to be highly uneven, with significant enrichment in subtelomeric regions (two-sided Fisher exact test, P = 1.1 × 10−309). Although SNPs and indels are also enriched in these regions, the enrichment is much stronger for SVs (Fig. 2d). By computing structural diversity along the genome, we identified bursts of diversity that are often specific to a single SV type (Fig. 2e) and defined 46 SV hotspots (Supplementary Table5), including 21 translocation hotspots, nearly all in subtelomeric regions. One notable exception is a well-described reciprocal translocation between chromosomes 8 and 16, ... SSU1 gene located near the breakpoint38 (Fig. 2e). Hotspots for PAVs, CNVs and inversions often mapped to TE-rich regions or ... such as FLO39,40, CUP1 ..., and ... such as HPF1, SPA2 and NUM1 .... An inversion hotspot on chromosome 14 overlaps a 24-kb region flanked by inverted repeats, ...","...which confers sulfite resistance through the overexpression of the SSU1 gene located near the breakpoint38...  SV-prone genes, such as FLO39,40 CUP1 (ref.41), ... genes with tandem repeats, ...(refs. 42,43) ... probably driven by recombination44","These findings indicate that SV hotspots arise either from genome fragility, linked to Ty elements or repetitive sequences, or from adaptive pressures targeting specific genes."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To generate datasets necessary to train a machine learning model to link protein sequence to function (PAM specificity), ",crispr,Q1.1,Scalable characterization of SpCas9 PAM variants,"To generate datasets necessary to train a machine learning model to link protein sequence to function (PAM specificity), ","structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43 ... These six  amino acids modulate specificity for the 3rd and 4th PAM bases in the context of the engineered enzymes SpCas9-VRER, SpCas9-VRQR and SpG3,14,42 (Supplementary Note3). ... the residue that contacts the second guanine of the SpCas9 PAM10, largely abrogated enzyme activity (Supplementary Note 3) ...","we sought to engineer and characterize a sufficiently large collection of novel SpCas9 enzymes with altered PAM preferences. We generated a saturation mutagenesis library of SpCas9 variant enzymes using a structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43, simultaneously mutating six amino acid residues within the SpCas9 PI domain,... We selected residues D1135, S1136, G1218, E1219, R1335 and T1337 for saturation mutagenesis, and individual enzymes within the library are hereafter named according to amino acid identities at these six positions. Expansion of our library to also mutate R1333, ... . We therefore focused our efforts on altering the 3rd and 4th positions of the PAM."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Interface cells downregulated MITF
+and SOX10 and upregulated SOX9 (Fig. 1f and Extended Data Fig. 1g).
+Classical melanocyte pigmentation genes were minimally expressed
+by interface cells relative to the tumour bulk, including MITF (log2 fold
+change (FC) = −5.19), TYRP1 (log2FC = −7.75) and PMEL (log2FC = −8.78)
+(Fig. 1f, Extended Data Fig. 1g and Supplementary Table 1)... Unexpect-
+edly, interface cells also upregulated genes involved in neuronal
+development, including SOX11 (log2FC = 5.15), NNAT (log2FC = 8.61),
+NEUROD1 (log2FC = 6.22) and NEFM (log2FC = 6.19) (Fig. 1g and Sup-
+plementary Table 1). Gene set enrichment analysis (GSEA) revealed that
+transcriptional programs linked to cell fate specification and neuronal
+development were highly enriched in interface cells (Fig. 1h,i).",mechanical,Q2.3,Tumour gene expression altered by TME,"Interface cells downregulated MITF
+and SOX10 and upregulated SOX9 (Fig. 1f and Extended Data Fig. 1g).
+Classical melanocyte pigmentation genes were minimally expressed
+by interface cells relative to the tumour bulk, including MITF (log2 fold
+change (FC) = −5.19), TYRP1 (log2FC = −7.75) and PMEL (log2FC = −8.78)
+(Fig. 1f, Extended Data Fig. 1g and Supplementary Table 1)... Unexpect-
+edly, interface cells also upregulated genes involved in neuronal
+development, including SOX11 (log2FC = 5.15), NNAT (log2FC = 8.61),
+NEUROD1 (log2FC = 6.22) and NEFM (log2FC = 6.19) (Fig. 1g and Sup-
+plementary Table 1). Gene set enrichment analysis (GSEA) revealed that
+transcriptional programs linked to cell fate specification and neuronal
+development were highly enriched in interface cells (Fig. 1h,i).","Melanoma behaviour is regulated by phenotype switching, in which
+cells transition between differentiated/proliferative and undifferen-
+tiated/invasive states. The transition between the proliferative and
+invasive states is regulated by the transcription factors MITF, SOX9
+and SOX10, among others8. MITF and SOX10 regulate melanocyte dif-
+ferentiation and proliferation9,10, whereas SOX9 is associated with the
+undifferentiated invasive state11.","These
+data indicate that interface cells adopt an invasive state with markers
+of neuronal development."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Tumour
+cells invading into the TME showed elongated nuclei compared with
+the bulk tumour mass (Fig. 1j,k). ",mechanical,Q2.4,Confinement induces a neuronal state,"Tumour
+cells invading into the TME showed elongated nuclei compared with
+the bulk tumour mass (Fig. 1j,k). ","A previous study showed that tumour
+nuclei become highly elongated when squeezing through mechanically
+restrictive environments12. Although numerous factors probably influ-
+ence tumour invasion, ","we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour. To test this hypothesis,",mechanical,Q1.1,Confinement induces a neuronal state,"we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour. To test this hypothesis,","a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13","we adapted a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13 (Fig. 1l)."
+"# TASK: Validation Question Generation
+
+
+## Overview
+You will act as a biologist critically evaluating a proposed biological mechanism. You are given a hypothesized mechanism (`main_content`). Your task is to generate a **control-oriented research question** by integrating this mechanism with established biological knowledge. You must construct the ""Control Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Biological Mechanism (`main_content`)**
+This is the proposed mechanism or hypothesis to be evaluated.
+
+
+2. **Generate: Established Principle (`context`)**
+Provide relevant biological knowledge that introduces **constraints, alternative explanations, or known regulatory mechanisms** related to the hypothesis.
+This should highlight **factors that could challenge, refine, or condition the mechanism or disvalue the hypothesis**
+Be specific, avoid vague statements. Include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate a **testable research question** that arises from combining the Biological Mechanism with the Established Principle. This question helps to rule out confounding factors, alternative pathways, or indirect effects, or to assess potential **undesired or harmful effects** of a potential therapeutic intervention where relevant. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We propose that [main_content]. However, since it is known that [context], an important question is: [outcome]*
+
+
+## Output Format
+Return your response in the following JSON format:
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+These data indicate
+that confinement causes interface cells to adopt a neuronal identity. ",mechanical,Q3.1,Confinement remodels the cytoskeleton,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity. ","Neuronal development relies on microtubule (MT) architecture,
+influencing almost every aspect of neuronal structure and function14.
+The cytoskeleton often transmits force within and between cells and
+remodels in response to mechanical stimuli15. Recent reports indicate
+that the MT cytoskeleton is stabilized by force to protect confined cells
+from damage16.","We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Confinement extensively
+remodelled the MT cytoskeleton; within 2–4 h, curved MTs began encir-
+cling the cell and nuclear periphery (Fig. 2a,b)...We also observed loss of a central
+MT organizing centre with radial MTs,",mechanical,Q2.4,Confinement remodels the cytoskeleton,"Confinement extensively
+remodelled the MT cytoskeleton; within 2–4 h, curved MTs began encir-
+cling the cell and nuclear periphery (Fig. 2a,b)...We also observed loss of a central
+MT organizing centre with radial MTs,","This was reminiscent of a previous study that showed that MTs bend to prevent buckling
+or rupture in response to force16...reminiscent of neurons with
+centrosome-independent MT organization14,17.","These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons.",mechanical,Q1.1,Confinement remodels the cytoskeleton,"These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons.","Acetylated tubulin mediates neuronal architecture and function
+and marks axonal MTs18. Tubulin acetylation stabilizes MTs and thus
+the cell against mechanical pressure19. Curved MTs, such as those we
+observed in confined cells (Fig. 2a,b), are also indicative of long-lived,
+stabilized MTs19.","We performed immunofluorescence on sections from
+adult fish with transgenic BRAFV600E-driven melanomas ... Confining A375 cells in vitro"
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+We noticed that in confined cells, the hyperacetylated tubulin net-
+work was often perinuclear (Fig. 2f,g) ",mechanical,Q2.4,Confinement remodels the cytoskeleton,"We noticed that in confined cells, the hyperacetylated tubulin net-
+work was often perinuclear (Fig. 2f,g) ","As the stiffest and
+largest organelle, the nucleus is vulnerable to confinement-induced
+stress, with confined migration often causing nuclear envelope rup-
+ture and DNA damage20,21. During migration through confined spaces,
+neurons assemble a perinuclear network of acetylated tubulin to pro-
+tect the nucleus22,23. ","and hypothesized that this net-
+work may provide structural support to the nucleus."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+However, most MTs in confined and
+unconfined A375 cells were highly tyrosinated (Extended Data Fig. 4a–d), ...
+Although confined perinuclear MTs were occasionally
+tyrosinated and rarely detyrosinated (Extended Data Fig. 4a–d), there
+was no specific enrichment of these PTMs in the perinuclear network,
+as observed for acetylated MTs. Similar results were observed for poly-
+glutamylated MTs (Extended Data Fig. 4e,f). No polyglycylated MTs
+were found in either condition (Extended Data Fig. 4g,h).",mechanical,Q2.3,Confinement remodels the cytoskeleton,"However, most MTs in confined and
+unconfined A375 cells were highly tyrosinated (Extended Data Fig. 4a–d), ...
+Although confined perinuclear MTs were occasionally
+tyrosinated and rarely detyrosinated (Extended Data Fig. 4a–d), there
+was no specific enrichment of these PTMs in the perinuclear network,
+as observed for acetylated MTs. Similar results were observed for poly-
+glutamylated MTs (Extended Data Fig. 4e,f). No polyglycylated MTs
+were found in either condition (Extended Data Fig. 4g,h).","Detyrosination
+has been linked to stabilized MTs26 ... probably owing to the high concentrations of tyrosine and tyrosinase in melanoma27","This indicates
+that acetylation is the primary PTM mediating the assembly and/or
+stability of the perinuclear tubulin network."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+to determine whether the acetylated tubulin network influences
+HMGB2 upregulation.  ",mechanical,Q1.1,HMGB2 upregulation requires nesprin 2,"to determine whether the acetylated tubulin network influences
+HMGB2 upregulation.  ","Tubulin acetylation is mediated by the acetyl-
+transferase ATAT1 (ref. 31) and deacetylation by HDAC6 (ref. 32). ... HDAC6 inhibitor tubacin33","We modulated tubulin dynamics and acetylation state in confined
+cells ... We first treated A375 cells with the HDAC6 inhibitor tubacin33,"
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To stabilize MTs independent of acetylation,  ",mechanical,Q1.1,HMGB2 upregulation requires nesprin 2,"To stabilize MTs independent of acetylation,  ","which binds β-tubulin and prevents tubulin
+monomer incorporation into MT filaments and thus should not
+influence the acetylation state of HMGB2 or other proteins34.","we treated confined cells
+with paclitaxel (Taxol), "
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Homer de novo motif analysis
+identified conserved transcription factor binding motifs enriched within the promoter of open chromatin regions upon HMGB2 overex-
+pression (HMGB2OE). The top-ranked motif was an AP-1 motif (Fig. 4k;
+P = 1 × 10−49) ...
+Other highly ranked motifs included PRDM4, ... (Fig. 4k; P = 1 × 10−12), and SOX9, ... (Fig. 4k; P = 1 × 10−11).",mechanical,Q2.4,HMGB2 targets plasticity-associated loci,"Homer de novo motif analysis
+identified conserved transcription factor binding motifs enriched within the promoter of open chromatin regions upon HMGB2 overex-
+pression (HMGB2OE). The top-ranked motif was an AP-1 motif (Fig. 4k;
+P = 1 × 10−49) ...
+Other highly ranked motifs included PRDM4, ... (Fig. 4k; P = 1 × 10−12), and SOX9, ... (Fig. 4k; P = 1 × 10−11).","...implicated in melanoma and melanocyte plasticity40,41... which functions in neural
+development42 ... a critical regulator of
+the pro-invasive phenotype switch in melanoma43","These data indicate that HMGB2 upregulation increases chromatin
+accessibility at loci associated with plasticity and a neuronal pheno-
+type, promoting a confinement-induced dedifferentiation program."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To clarify potential HMGB2 targets",mechanical,Q1.1,HMGB2 targets plasticity-associated loci,To clarify potential HMGB2 targets,a double-crosslinking approach44,"we performed chromatin immu-
+noprecipitation (ChIP) sequencing (ChIP–seq) targeting HMGB2 in
+A375 cells using a double-crosslinking approach44 (Extended Data
+Fig. 11a). We generated a peak atlas by comparing peaks present in cells
+expressing baseline concentrations of HMGB2 to those not present in
+HMGB2KO cells"
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+HMGB2 robustly
+bound the promoter of Notch signalling genes in both A375 (Extended
+Data Fig. 11d and Supplementary Table 6) and SKMEL5 (Extended Data
+Fig. 12d and Supplementary Table 8) cells. Notch family genes were also
+upregulated by human interface cells (DLL1, DLL3 and DLK2; Supple-
+mentary Table 1) and confined human melanoma cells (NOTCH2NLA,
+DLK2 and DLL4; Supplementary Table 2). ",mechanical,Q2.4,HMGB2 drives invasion through Notch and BRN2,"HMGB2 robustly
+bound the promoter of Notch signalling genes in both A375 (Extended
+Data Fig. 11d and Supplementary Table 6) and SKMEL5 (Extended Data
+Fig. 12d and Supplementary Table 8) cells. Notch family genes were also
+upregulated by human interface cells (DLL1, DLL3 and DLK2; Supple-
+mentary Table 1) and confined human melanoma cells (NOTCH2NLA,
+DLK2 and DLL4; Supplementary Table 2). ","Notch signalling promotes
+melanoma invasion through brain-2 (BRN2, also known as POU3F2)
+(ref. 48), a well-characterized pro-invasive transcription factor in mela-
+noma49 that also functions in neuronal development50. ","This indicates that invasive and neuronal phenotypes in confined interface cells are
+induced by HMGB2-mediated upregulation of Notch/BRN2 signal-
+ling. "
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+Confined A375 cells downregulated many proliferation-related pathways. To visualize the influence of confinement on this trade-off,",mechanical,Q1.1,HMGB2 mediates phenotype switching,"Confined A375 cells downregulated many proliferation-related pathways. To visualize the influence of confinement on this trade-off,",FastFUCCI cell cycle sensor54,"we generated
+an A375 cell line stably expressing the FastFUCCI cell cycle sensor54."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Unconfined
+cells rapidly displayed fragmented nuclear morphology and underwent
+apoptosis, whereas confined cells were almost completely resistant
+to Taxol-induced cell death (Extended Data Fig. 13d).",mechanical,Q2.4,HMGB2 is associated with drug tolerance,"Unconfined
+cells rapidly displayed fragmented nuclear morphology and underwent
+apoptosis, whereas confined cells were almost completely resistant
+to Taxol-induced cell death (Extended Data Fig. 13d).","Taxol induces
+cancer cell death through cell cycle arrest60","indicating that confine-
+ment may cause melanoma cells to exit the cell cycle"
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To define temporal changes in non-immune bone marrow micro-
+environment populations during myeloid leukaemia progression",taurine,Q1.1,Temporal changes in leukaemia niche,"To define temporal changes in non-immune bone marrow micro-
+environment populations during myeloid leukaemia progression",which can grow in unirradiated mouse recipients,"we used bcCML LSCs...(Extended Data Fig. 1a,b). Bone marrow stromal populations
+(leukaemia−CD45−TER119−) were isolated from leukaemic cohorts at
+distinct stages of disease progression and analysed using scRNA-seq
+(Fig. 1a). "
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+This identified 13 cell surface signals common to both bcCML and AML, 18 unique to AML and 7 unique to bcCML. Of these 38 genes, 16 were misannotated as cell surface in the reference dataset19 and were removed from further analysis (Methods and Extended Data Fig. 2c,d). ... to identify ligands for these receptors, ",taurine,Q1.1,Ligand–receptor interactome,"This identified 13 cell surface signals common to both bcCML and AML, 18 unique to AML and 7 unique to bcCML. Of these 38 genes, 16 were misannotated as cell surface in the reference dataset19 and were removed from further analysis (Methods and Extended Data Fig. 2c,d). ... to identify ligands for these receptors, ",especially those that were significantly upregulated in our TME scRNA-seq data and in the human AML immune microenvironment20,We used NicheNet and the published literature ... (Extended Data Fig. 2e).
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Consistent with a functional role of taurine from the TME in leukaemia progression, taurine levels were 1.7-fold higher in leukaemic bone marrow interstitial fluid as compared to the controls (Fig. 2j).",taurine,Q2.3,TME signals support leukaemogenesis,"Consistent with a functional role of taurine from the TME in leukaemia progression, taurine levels were 1.7-fold higher in leukaemic bone marrow interstitial fluid as compared to the controls (Fig. 2j).","In mice, the majority of taurine is synthesized in the liver from cysteine24.","To determine whether taurine produced locally in the bone marrow niche is essential for leukaemia growth, "
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+These results suggest that, while TAUT loss does not impair steady-state haematopoiesis, it can impact long-term HSC self-renewal and maintenance.",taurine,Q2.4,TAUT loss impairs leukaemogenesis,"These results suggest that, while TAUT loss does not impair steady-state haematopoiesis, it can impact long-term HSC self-renewal and maintenance.","These data are consistent with previous studies showing that genetic loss of LSC-enriched genes such as CD981, STAU26, MSI228,29, BRD430 and BCL231 can impair HSC self-renewal. However, therapeutic inhibition of CD98 showed minimal toxicity in AML phase I trials1 and BCL2 inhibitors are approved for AML therapy. ",It is therefore possible that non-genetic approaches using small-molecule inhibitors or gene silencing may identify a therapeutic window for TAUT targeting in human cells.
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Our analyses of available gene expression datasets indicate that SLC6A6 expression is enriched in leukaemia stem/progenitors as compared to more mature blasts (Extended Data Fig. 8a). While SLC6A6 is broadly expressed in AML irrespective of karyotype or FAB subtype (TCGA; Extended Data Fig.8b), increased expression correlates with venetoclax resistance (BEAT-AML; Fig. 4a). SLC6A6 expression is also enriched in reactive oxygen species (ROS)-low LSCs from human monocytic AMLs (subtype clinically associated with venetoclax resistance; CD45bright SSChighCD117−CD11b+CD68+) compared with primitive AML (Fig. 4b; CD45medSSClowCD117+CD11b−CD68−)32. We find increased SLC6A6 expression in leukaemia cells carrying RAS mutations as compared to wild-type cells, ... (Fig. 4c). SLC6A6 is also highly expressed in relapsed AML originating from stem/progenitor like cells compared with more committed populations34 (Extended Data Fig. 8c). ",taurine,Q2.4,TAUT is essential for human AML growth,"Our analyses of available gene expression datasets indicate that SLC6A6 expression is enriched in leukaemia stem/progenitors as compared to more mature blasts (Extended Data Fig. 8a). While SLC6A6 is broadly expressed in AML irrespective of karyotype or FAB subtype (TCGA; Extended Data Fig.8b), increased expression correlates with venetoclax resistance (BEAT-AML; Fig. 4a). SLC6A6 expression is also enriched in reactive oxygen species (ROS)-low LSCs from human monocytic AMLs (subtype clinically associated with venetoclax resistance; CD45bright SSChighCD117−CD11b+CD68+) compared with primitive AML (Fig. 4b; CD45medSSClowCD117+CD11b−CD68−)32. We find increased SLC6A6 expression in leukaemia cells carrying RAS mutations as compared to wild-type cells, ... (Fig. 4c). SLC6A6 is also highly expressed in relapsed AML originating from stem/progenitor like cells compared with more committed populations34 (Extended Data Fig. 8c). ",...consistent with data correlating RAS mutations with venetoclax resistance33,"These data collectively indicate that inhibiting SLC6A6 may be of value across AML subtypes, including those commonly associated with venetoclax resistance."
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To determine whether small-molecule inhibitors of TAUT can effectively block leukaemia growth,",taurine,Q1.1,TAUT is essential for human AML growth,"To determine whether small-molecule inhibitors of TAUT can effectively block leukaemia growth,","6-aminomethyl3-methyl-4H-1,2,4-benzothiadiazine-1,1-dioxide hydrochloride35 (TAG) and guanidinoethyl sulphonate36 (GES; ","we used two well-characterized structural analogues of taurine that inhibit uptake: 6-aminomethyl3-methyl-4H-1,2,4-benzothiadiazine-1,1-dioxide hydrochloride35 (TAG) and guanidinoethyl sulphonate36 (GES; Extended Data Fig.8d,e)."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Our untargeted metabolomic approach identified 13C label only in known taurine conjugates, N-acetyl taurine and glutaurine (Extended Data Fig.10f,g). Membrane-permeable taurine fully rescued colonies formed by Slc6a6−/− cells (Fig. 5g), and N-acetyl-taurine partly rescued this defect (Extended Data Fig.10h), ...  By contrast, glutaurine was unable to rescue the Slc6a6−/− colony formation (Extended Data Fig.10i). ",taurine,Q2.4,Taurine drives glycolysis in leukaemia,"Our untargeted metabolomic approach identified 13C label only in known taurine conjugates, N-acetyl taurine and glutaurine (Extended Data Fig.10f,g). Membrane-permeable taurine fully rescued colonies formed by Slc6a6−/− cells (Fig. 5g), and N-acetyl-taurine partly rescued this defect (Extended Data Fig.10h), ...  By contrast, glutaurine was unable to rescue the Slc6a6−/− colony formation (Extended Data Fig.10i). ",perhaps by breakdown to taurine and acetate37.,"These experiments indicate that taurine, and not a secondary metabolite, promotes leukaemia growth due to an indirect effect on glycolysis, possibly through downstream signalling."
+"# TASK: Validation Question Generation
+
+
+## Overview
+You will act as a biologist critically evaluating a proposed biological mechanism. You are given a hypothesized mechanism (`main_content`). Your task is to generate a **control-oriented research question** by integrating this mechanism with established biological knowledge. You must construct the ""Control Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Biological Mechanism (`main_content`)**
+This is the proposed mechanism or hypothesis to be evaluated.
+
+
+2. **Generate: Established Principle (`context`)**
+Provide relevant biological knowledge that introduces **constraints, alternative explanations, or known regulatory mechanisms** related to the hypothesis.
+This should highlight **factors that could challenge, refine, or condition the mechanism or disvalue the hypothesis**
+Be specific, avoid vague statements. Include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate a **testable research question** that arises from combining the Biological Mechanism with the Established Principle. This question helps to rule out confounding factors, alternative pathways, or indirect effects, or to assess potential **undesired or harmful effects** of a potential therapeutic intervention where relevant. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We propose that [main_content]. However, since it is known that [context], an important question is: [outcome]*
+
+
+## Output Format
+Return your response in the following JSON format:
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+... mTOR signalling has a key role downstream of taurine in leukaemia cells. ",taurine,Q3.1,Taurine drives glycolysis in leukaemia,... mTOR signalling has a key role downstream of taurine in leukaemia cells. ,"Amino acid availability can be sensed by RAG GTPases to facilitate mTORC1 localization to the outer lysosomal membrane40 and its interaction with RHEB GTPases41, thereby promoting mTORC1 activation. ",We hypothesized that taurine may activate mTOR by promoting its interaction with RAG GTPases.
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+we observed that cfRNA is highly frag
+mented and does not contain detectable 18S and 28S rRNA peaks 
+(Extended Data Fig. 1a), ",ultrasensitive,Q2.3,Pre-analytical factors affecting cfRNA,"we observed that cfRNA is highly frag
+mented and does not contain detectable 18S and 28S rRNA peaks 
+(Extended Data Fig. 1a), ","As previously described1,8,11, ",indicating high levels of degradation.
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts ... the deletion was not substantially enriched in patients with breast cancer compared with the background Korean population (51.0%, 844 out of 1,654 individuals, with 150 being homozygous and 694 heterozygous; P = 0.276 by two-sided chi-square test; Fig. 2g),  ",breast_cancer,Q2.3,Key mutational signatures,"A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts ... the deletion was not substantially enriched in patients with breast cancer compared with the background Korean population (51.0%, 844 out of 1,654 individuals, with 150 being homozygous and 694 heterozygous; P = 0.276 by two-sided chi-square test; Fig. 2g),  ","A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts, has been suggested to predispose to APOBEC-mediated hypermutations29 (Extended Data Fig.4a).... Contrary to previous reports30,31, ",suggesting that it is not a strong cancer-predisposing germline variant.
+"# TASK: Experimental Design Generation 
+
+
+## Overview
+You are a biologist designing an experiment to address a specific research objective. You will be provided with a specific research question or objective (`main_content`). Your task is to logically construct the ""Inquiry Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Research Goal (`main_content`)**
+This is the specific knowledge gap, research question, or objective provided to you.
+
+
+2. **Generate: Justification (`context`)**
+You must generate the scientific background or reasoning that makes the proposed experiment feasible or relevant. This should state a method that a previous study used to address the similar objective, or describe established biological principles, properties of specific model systems, or prior knowledge that serves as the foundation for the chosen method. Please state the general scientific consensus or established biological rule, and include **real, verifiable DOI(s)** that supports the stated context. 
+
+
+3. **Generate: Methodology (`outcome`)**
+You must generate the specific operational step, assay, or technique that creates the data necessary to answer the Research Goal. This should be a concrete action (e.g., ""perform RNA-seq,"" ""use CRISPR-Cas9 to knockout X,"" ""stain X with antibodies against Y"", ""Use cell line X,"") rather than a vague statement. 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*Because we want to know [main_content], and considering [context], we will perform [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input goal"",
+""context"": ""The scientific justification or background principle used to select the method."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific experimental method or assay performed.""
+}
+```
+
+
+**Input (Goal):**
+To determine the structural variation landscape, ",breast_cancer,Q1.1,Frequently rearranged genes,"To determine the structural variation landscape, ","A key mutational process in cancer is structural variation, which acts to amplify, delete or reorder chromosomal material at scales that range from single genes to entire chromosomes32","we generated a DNA interaction map between 5-Mb segments across the entire genome (Fig. 3a), along with large-scale copy number amplification patterns (CNAs; G-score)."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Another frequent interchromosomal translocation involved the ERBB2 locus on chromosome 17 and a locus on chromosome 20 (observed in 30 participants), ... (Fig. 3a, top right). ... structural variations involving the ERBB2 locus were clustered with super-enhancers genome-wide (P = 0.028 by permutation test; Fig. 3b), which translocated super-enhancers in about 90 kb from the ERBB2 locus (Fig. 3c). Tumours with extragenic structural variants in the vicinity (within 1 Mb) showed significantly higher ERBB2 gene expression levels than their gene copy number (log2 fold change >1, q-value <0.10; Fig. 3d). They often carried extragenic structural variants in the vicinity (within 1 Mb) with a cancer cell fraction (CCF) of approximately 1 (Fig. 3e), and distal breakpoints significantly enriched near breast cancer-specific super-enhancers35 (Fig. 3f).",breast_cancer,Q2.4,Frequently rearranged genes,"Another frequent interchromosomal translocation involved the ERBB2 locus on chromosome 17 and a locus on chromosome 20 (observed in 30 participants), ... (Fig. 3a, top right). ... structural variations involving the ERBB2 locus were clustered with super-enhancers genome-wide (P = 0.028 by permutation test; Fig. 3b), which translocated super-enhancers in about 90 kb from the ERBB2 locus (Fig. 3c). Tumours with extragenic structural variants in the vicinity (within 1 Mb) showed significantly higher ERBB2 gene expression levels than their gene copy number (log2 fold change >1, q-value <0.10; Fig. 3d). They often carried extragenic structural variants in the vicinity (within 1 Mb) with a cancer cell fraction (CCF) of approximately 1 (Fig. 3e), and distal breakpoints significantly enriched near breast cancer-specific super-enhancers35 (Fig. 3f).","where breast cancer super-enhancers were enriched35 ... Structural variations can influence  transcription by disrupting enhancer–promoter interactions, chromatin topology and long-range regulatory elements36. In line with this idea, ",Our observation overall suggests a possible enhancer-hijacking mechanism for transcriptional activation in breast cancer genomes.
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+Out of 75 individuals with HER2-positive tumours who received neoadjuvant TCHP regimens (docetaxel (microtubule inhibitor), carboplatin (platinum intercalator), trastuzumab and pertuzumab (anti-HER2 inhibitors)), 38 showed pathologic complete response (pCR) (Fig. 4e and Supplementary Table 4). … cases with pCR (n = 38) exhibited significantly higher ERBB2 expression (P < 0.001, two-sided Student’s t-test) and a greater frequency of ERBB2 focal amplification (P = 0.001, two-sided Fisher’s exact test; Extended Data Fig.9f–h (external validation in the TransNEO cohort46)).  ... Notably, in our cohort, tumours with ERBB2  copy number of 33 or more were significantly more likely to be ecDNA-positive (P = 0.003; Fig. 4f, right); however, ERBB2 amplification by ecDNA was not associated with pCR rates (P = 0.540). ",breast_cancer,Q2.4,Clinical effect of ERBB2 focal gain,"Out of 75 individuals with HER2-positive tumours who received neoadjuvant TCHP regimens (docetaxel (microtubule inhibitor), carboplatin (platinum intercalator), trastuzumab and pertuzumab (anti-HER2 inhibitors)), 38 showed pathologic complete response (pCR) (Fig. 4e and Supplementary Table 4). … cases with pCR (n = 38) exhibited significantly higher ERBB2 expression (P < 0.001, two-sided Student’s t-test) and a greater frequency of ERBB2 focal amplification (P = 0.001, two-sided Fisher’s exact test; Extended Data Fig.9f–h (external validation in the TransNEO cohort46)).  ... Notably, in our cohort, tumours with ERBB2  copy number of 33 or more were significantly more likely to be ecDNA-positive (P = 0.003; Fig. 4f, right); however, ERBB2 amplification by ecDNA was not associated with pCR rates (P = 0.540). ","Of note, ecDNA is generally associated with poor prognosis across multiple cancer types47.","Our observation suggests that absolute copy number. rather than the amplification mechanism, may be a more relevant predictor of therapeutic response. It also indicates that ERBB2-amplifying ecDNA may be an actionable target for anti-HER2 therapy."
+"# TASK: Scientific Interpretation Generation
+
+
+## Overview
+You will act as a biologist analyzing raw data. You will be provided with a specific empirical observation or statistical result (`main_content`). Your task is to apply scientific theory to this observation to derive a meaningful conclusion. You must construct the ""Discovery Logic"" triplet by generating the missing `context` and `outcome`.
+
+
+## Logical Components
+
+
+1. **Input: Empirical Observation (`main_content`)**
+This is the specific data point, morphological description, or statistical finding provided to you.
+
+
+2. **Generate: Established Principle (`context`)**
+You must generate the ""lens"" through which this data is interpreted. This should:
+- Indicate whether the current findings are consistent or inconsistent with similar studies AND/OR 
+- Established biological rule, physical law, known functional association (e.g., ""consistent with study X"", ""It is well established that protein X is a marker for Y,"" or ""Changes in nuclear shape are indicative of Z"" or ""genomic region X is associated with function Y""). 
+This provides the theoretical bridge between the raw number/image and its biological meaning. Be specific, avoid vague statements, and include **real, verifiable DOI(s)** that supports the stated context.
+
+
+3. **Generate: New Insight (`outcome`)**
+You must generate the novel mechanism that arises from combining the Observation with the Principle. This represents the generalized mechanism from the observations in context and main_content (e.g., ""Therefore, this suggests the pathway is upregulated,"" or ""This indicates a transition to a mesenchymal state""). 
+
+
+## Reasoning Flow
+Your generation must follow this logical path:
+*We observed [main_content]. Since it is known that [context], we conclude that [outcome].*
+
+
+## Output Format
+Return your response in the following JSON format:
+
+
+```json
+{
+""main_content"": ""The provided input observation"",
+""context"": ""The general biological rule or established theory applied to the data."",
+""references"": ""The DOI(s) of specific studies you cited in context."",
+""outcome"": ""The specific biological interpretation or conclusion derived.""
+}
+```
+
+
+**Input (Observation):**
+The timing analysis with the burden of co-amplified, pre-amplification somatic base substitutions yielded the acquisition timing of the frequent long-segmental CNAs in breast cancer in molecular time49 (Extended Data Fig. 10). Most of the recurrent long-segmental CNAs were acquired by 20% of molecular time, when recent common ancestral cells of a cancer emerge, which should be decades earlier than tumour diagnosis. ",breast_cancer,Q2.4,Long-segmental copy number gains,"The timing analysis with the burden of co-amplified, pre-amplification somatic base substitutions yielded the acquisition timing of the frequent long-segmental CNAs in breast cancer in molecular time49 (Extended Data Fig. 10). Most of the recurrent long-segmental CNAs were acquired by 20% of molecular time, when recent common ancestral cells of a cancer emerge, which should be decades earlier than tumour diagnosis. ","which is presumably acquired in early puberty, consistent with a previous report50","This implies that acquisition of the long-segmental CNAs is an early evolutionary event in breast cancer, which is presumably acquired in early puberty ... Our findings also suggest that full neoplastic transformation can take decades from the first event of genomic instability."
