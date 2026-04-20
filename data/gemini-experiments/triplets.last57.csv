@@ -1,0 +1,139 @@
+paper,subsection,type,main_content,context,outcome
+taurine,Taurine drives glycolysis in leukaemia,Q2.4,This identified profound downregulation of oncogenic MYC and mTOR pathways (Fig. 5j and Extended Data Fig. 11c).,"As mTOR signalling is known to regulate expression of glycolysisrelated genes38,",we tested whether TAUT loss impairs mTOR activation.
+taurine,Taurine drives glycolysis in leukaemia,Q2.3,"Western blot analysis showed that TAUT loss results in a 2.2- to 3-fold reduction in activated mTOR, p70S6k and pEIF4B as compared to the controls (Fig. 5k–m and Extended Data Fig. 11e). Our global phosphoproteome and total-proteome analyses also showed reduced expression of phosphorylated proteins associated with mTOR signalling, as well as 3.3-fold reduced BCL2 and 1.5-fold increased LC3A expression in the absence of TAUT (Extended Data Fig. 11f,g). Like TAUT loss, TAUT inhibition with TAG and GES downregulated glycolysis-related gene expression (Extended Data Fig.11h,i) and impaired phosphorylation of mTOR signalling (Extended Data Fig. 12a,b). Consistent with a direct impact of taurine on mTOR signalling, acute treatment in vitro and long-term taurine dosing in vivo could activate mTOR signalling (Extended Data Fig.12c–h). Inhibiting mTOR with rapamycin impaired the growth of wild-type cells but did not impact Slc6a6−/− cells in vitro or invivo (Fig. 5n and Extended Data Fig.12i,k). By contrast, mTOR activation with MHY148539 rescued the colony-forming ability of Slc6a6−/− LSCs to 60% of the control, and membrane-permeable taurine rescued mTOR activation (Fig. 5o and Extended Data Fig. 12j–l).",,"Collectively, these data indicate that mTOR signalling has a key role downstream of taurine in leukaemia cells."
+taurine,Taurine drives glycolysis in leukaemia,Q1.1,We hypothesized that taurine may activate mTOR by promoting its interaction with RAG GTPases.,"Amino acid availability can be sensed by RAG GTPases to facilitate mTORC1 localization to the outer lysosomal membrane40 and its interaction with RHEB GTPases41, thereby promoting mTORC1 activation.","To test this, we determined the effect of expressing constitutively active RAGA(Q66L) or RHEB(Q64L) on the colony-forming ability of Slc6a6 wild-type and null cells. ... Finally, we directly tested whether taurine could promote mTOR interactions with lysosomes in wild-type and Slc6a6−/− leukaemia cells expressing RAGA(Q66L) (Fig. 5q)."
+taurine,Taurine drives glycolysis in leukaemia,Q2.3,"Our experiments showed that, while RHEB(Q64L) partially rescued Slc6a6−/− colony formation, this could be fully rescued by RAGA(Q66L) (Fig. 5p). Furthermore, mTOR phosphorylation in Slc6a6−/− cells could be rescued by RAGA(Q66L) (Extended Data Fig. 12m). ... Our immunofluorescence-based analysis showed that, at the baseline, Slc6a6−/− cells have 1.2-fold lower mTOR–LAMP1 interaction, which could be fully rescued by RAGA(Q66L). Taurine supplements increased mTOR–LAMP1 co-localization to levels seen in cells expressing RAGA(Q66L). However, this interaction could not be increased further by adding taurine to RAGA(Q66L)-expressing cells (Fig. 5r,s), ",consistent with our colony-forming assays (Extended Data Fig. 12n).,"Collectively, our studies show that the taurine–TAUT axis regulates glycolysis in myeloid leukaemia cells by promoting RAG-mediated activation of mTOR signalling."
+ultrasensitive,Pre-analytical factors affecting cfRNA,Q2.4,"we observed that cfRNA is highly frag
+mented and does not contain detectable 18S and 28S rRNA peaks 
+(Extended Data Fig. 1a), ","As previously described1,8,11, ",indicating high levels of degradation. 
+ultrasensitive,Pre-analytical factors affecting cfRNA,Q2.4,"In blood 
+samples from healthy donors with no history of cancer, the median 
+concentration of cfRNA was 220 pg per millilitre plasma, representing 
+the equivalent of approximately 20 cells (n = 117; Extended Data Fig. 1b).",,We therefore began by evaluating factors that affected cfRNA recovery and downstream expression analysis (Supplementary Note). 
+ultrasensitive,Pre-analytical factors affecting cfRNA,Q1.1,"We next optimized multiple steps in 
+the assay workflow, including removal of contaminating DNA, comple
+mentary DNA (cDNA) synthesis and end repair.",,"We next optimized multiple steps in 
+the assay workflow, including removal of contaminating DNA, comple
+mentary DNA (cDNA) synthesis and end repair."
+ultrasensitive,Platelet genes are enriched in cfRNA,Q1.1,"We next characterized expression differences between cellular and 
+cfRNA ",,"by applying RARE-seq to cfRNA and matched leukocyte RNA from 
+ten healthy adults. "
+ultrasensitive,Platelet genes are enriched in cfRNA,Q2.4,"Only two haematopoietic cell types were enriched in cfRNA — erythroid 
+precursors and platelets — ",,"suggesting their contributions to the cfRNA 
+pool during erythropoiesis and megakaryocytopoiesis."
+ultrasensitive,Platelet genes are enriched in cfRNA,Q1.1,"Therefore, we investigated whether expression contributions from platelet contamination could be algorithmically eliminated. ",,"To do so, we developed an in silico approach to remove unwanted gene expression driven by varying platelet contamination levels (Fig. 1i). This approach aims to separate wanted variation (that is, cancer-associated gene expression differences) from unwanted 
+variation (that is, technical or biological noise) by performing factor analysis of expression from negative control genes for which only 
+unwanted variation is expected to be present (Methods)."
+ultrasensitive,Enhancing sensitivity of ctRNA detection,Q1.1,"We therefore hypothesized that selectively capturing genes absent from or lowly expressed in healthy control cfRNA could enhance detection of non-haematopoietic tissue or disease signatures and expand the utility of RARE-seq to a wide range of clinical applications. To test this, ",,"we identified such ‘rare abundance genes’ (RAGs) using whole-coding transcriptome RARE-seq data from healthy 
+cfRNA samples (n = 50) and RNA-seq data from healthy whole-blood 
+samples (n = 307) from the GTEx project16 (Fig. 2a).  We defined RAGs 
+based on consistent low or absent expression in cfRNA and whole blood 
+(n = 5,632 genes; Extended Data Fig. 3a and Supplementary Table 1). "
+ultrasensitive,Enhancing sensitivity of ctRNA detection,Q1.1,We next profiled five healthy cfRNA samples ,,"using both whole-coding 
+transcriptome and RAG capture panels using RARE-seq. "
+ultrasensitive,Enhancing sensitivity of ctRNA detection,Q1.1,"To score the presence of a gene signature of interest in cfRNA samples, ",,"we developed an analytical framework 
+to compute a cfRNA gene signature enrichment score by comparing the expression of pre-defined signature genes in a sample of interest to 
+a ‘meta-reference’ consisting of cfRNA samples from healthy controls and using bootstrapping to estimate its significance (Fig. 2g; Methods).  An important advantage of this approach is that unlike machine 
+learning-based methods, it does not require a large training cohort of 
+patient cfRNA samples, as it leverages existing gene expression datasets 
+to define gene signatures and associated gene-wise weights based on 
+their expression levels in the tissue or condition of interest."
+ultrasensitive,Enhancing sensitivity of ctRNA detection,Q1.1,"To experimentally confirm this result,",,"we created in vitro dilution series, by spiking NCI-H1975 RNA into healthy 
+donor cfRNA at defined concentrations. "
+ultrasensitive,Detection of non-small-cell lung cancer,Q1.1,"Having developed and optimized RARE-seq, we focused the remainder 
+of our study on generating proof-of-concept data for cfRNA analysis 
+across several clinical applications",,"Given the higher analytic sensitivity 
+observed by capturing RAGs, we used RAG-focused RARE-seq for these 
+experiments. "
+ultrasensitive,Detection of non-small-cell lung cancer,Q1.1,"First, we investigated performance for tumour-naive 
+detection of lung adenocarcinomas (LUADs), the most common type 
+of non-small-cell lung cancer (NSCLC).",,"We analysed cfRNA from 139 
+patients with LUAD (n = 20 patients with stage I, n = 8 patients with 
+stage II, n = 15 patients with stage III and n = 96 patients with stage IV)  
+and 50 controls without cancer, including 26 risk-matched controls 
+with a history of substantial tobacco exposure collected at the time 
+of low-dose computed tomography (LDCT) screening for lung cancer."
+ultrasensitive,Detection of non-small-cell lung cancer,Q1.1,"To further quantify the enrichment of LUAD-derived transcripts, 
+",,"we applied the cfRNA enrichment score framework developed above using a LUAD-specific gene signature (LUAD Sig; n = 72 genes) identi
+fied using RNA-seq data from LUAD tumours within TCGA17, LUAD cell 
+lines from the Cancer Cell Line Encyclopedia (CCLE)18, whole blood 
+(GTEx16) and meta-reference cfRNA controls (Methods). "
+ultrasensitive,Detection of non-small-cell lung cancer,Q1.1,We also explored the ability to genotype cancer-derived somatic mutations using RARE-seq.,,"We therefore developed a custom ctRNA genotyping approach to detect clinically actionable variants, including single-nucleotide variants (SNVs), insertions or deletions (indels), splice variants and gene fusions, in recurrent NSCLC oncogenes. To ensure specificity, putative variants were censored if their 
+variant allele frequency did not significantly exceed the background 
+error rate observed in a subset of withheld controls (n = 50; Extended 
+Data Fig. 5a; Methods). Performance was assessed in 136 patients with 
+stage IV LUAD with known variants from previous tumour or ctDNA 
+genotyping, as well as 97 healthy and LDCT controls (Supplementary 
+Table 4)."
+ultrasensitive,Identifying resistance to EGFR therapies,Q1.1,"We next assessed the performance of RARE-seq for identifying 
+genetic mechanisms of resistance.",,"To detect MET pathway activa
+tion caused by MET amplification using ctRNA, we developed a MET 
+amplification signature (METamp Sig) containing nine genes differen
+tially expressed in three EGFR-mutant NSCLC cell lines with acquired 
+resistance due to MET amplification (Methods). "
+ultrasensitive,Tissue-of-origin determination in ctRNA,Q1.1,"We also wanted to test whether the same RARE-seq assay could be 
+used to detect other cancer types.",,"We therefore analysed plasma 
+samples from patients with three types of other carcinomas: pancre
+atic adenocarcinoma (PAAD; n = 10 patients with stage IV), prostate 
+adenocarcinoma (PRAD; n = 1 patient with stage III and n = 8 patients 
+with stage IV) and liver hepatocellular carcinoma (LIHC; n = 3 patients 
+with stage I, n = 5 patients with stage II and n = 2 patients with stage IV).  
+Cancer-specific gene signatures were generated for each cancer type 
+and evaluated using the cfRNA enrichment score framework (Sup
+plementary Table 7)."
+ultrasensitive,Application to non-malignant conditions,Q1.1,"We also explored several potential applications of RARE-seq beyond 
+oncological settings, by first testing whether cfRNA expression might 
+reveal lung injury caused by benign pulmonary conditions.",,"We profiled cfRNA from 3 patients with chronic obstructive pulmonary disorder, 7 patients with active COVID-19 infections (n = 13 timepoints) 
+and 19 patients admitted to the intensive care unit with evidence of pulmonary injury (including 9 patients with acute respiratory distress syndrome)."
+ultrasensitive,Application to non-malignant conditions,Q2.4,"Across these diverse pulmonary conditions, lung-derived 
+cfRNA was detectable in 49% of patients using a normal lung gene 
+expression signature derived from GTEx16 (Fig. 5d and Supplemen
+tary Table 8). By contrast, among adult participants without known 
+pulmonary conditions (n = 42), lung cfRNA was detected in 14%, with 
+detection being significantly more frequent in current smokers than in 
+former- or never-smokers (45.5% versus 3.6%, P = 0.004; Fig. 5e).",,"This result suggests that lung cfRNA is induced by ongoing injury to pulmonary epithelium caused by recent exposure to tobacco smoke23,24. "
+ultrasensitive,Application to non-malignant conditions,Q2.4,"Conversely, in patients with known pulmonary conditions, detection 
+was significantly greater in those who were on a ventilator at the time 
+of blood collection (Fig. 5f), ",,"probably reflecting the severity of the 
+pulmonary condition as well as insult to pulmonary epithelium from 
+mechanical ventilation25."
+ultrasensitive,Application to non-malignant conditions,Q1.1,"...we explored whether RARE-seq might have 
+utility for simultaneously tracking RNA-based treatments and their 
+effects on the host. To do so, ",,"we longitudinally profiled plasma from 
+five individuals receiving mRNA-based COVID-19 vaccinations (n = 20 
+timepoints). We performed RARE-seq on these samples using the RAG 
+capture panel supplemented with baits targeting the sequence of the 
+mRNA vaccine (Extended Data Fig. 3c)."
+breast_cancer,Mutational landscapes and cancer drivers,Q2.3,"BCL11B, ... was mutated in 23 patients at much higher frequency than random expectation.","which encodes a transcription factor that is involved in chromatic remodelling, gene regulation and mammary stem cell self-renewal18,19, ",N/A
+breast_cancer,Mutational landscapes and cancer drivers,Q2.3,"Similarly, RREB1, ... was truncated in 26 patients, suggesting that its disruption could affect oncogenic pathways.","which encodes a zinc finger transcription factor that regulates Ras and TGFβ signalling and directly binds the p53 promoter20–22,",N/A
+breast_cancer,Mutational landscapes and cancer drivers,Q2.3,"higher ploidy and increased homologous recombination DNA repair deficiency (HRD) for double-strand DNA breaks (Extended Data Fig.3a,b).","Tumours with TP53 mutations frequently exhibited genomic instability25, characterized by ",N/A
+breast_cancer,Mutational landscapes and cancer drivers,Q2.3,"TP53 mutations were positively associated with the level of intratumour genetic heterogeneity (calculated by mutant allele tumour heterogeneity (MATH) scoring with tumour WGS4), particularly in basal-like subtypes (Extended Data Fig.3c shows MATH scores associated with different TP53 mutations),",,indicating more active late-stage mutagenesis and emergence of potent subclones in TP53-mutant tumours.
+breast_cancer,Mutational landscapes and cancer drivers,Q2.4,"Notably, higher MATH scores were associated with poorer overall survival, particularly in TP53-mutant tumours (hazard ratio 1.66, 95% confidence interval 1.08–2.74; P = 0.048; Extended Data Fig.3d,e), ",,"suggesting that intratumoural heterogeneity, as measured by MATH score, is associated with clinical outcomes and deserves further investigation as a potential prognostic factor."
+breast_cancer,Key mutational signatures,Q1.1,"To systematically explore the mutational processes that shape alterations in breast cancer genomes,",mutational signature analysis2,"we performed a comprehensive mutational signature analysis2 (Methods, Supplementary Discussion3 and Supplementary Fig. 4)."
+breast_cancer,Key mutational signatures,Q2.4,"Individuals with HRD (n = 66) exhibited significantly superior disease-free survival compared with those with homologous recombination DNA repair-proficient (HRP) cancer (hazard ratio 0.10, 95% confidence interval 0.02–0.54; P = 0.006; Fig. 2f); ","this difference was more pronounced than in a previous study with a targeted panel-based assay28, ",highlighting the potential of WGS for more specific clinical evaluation of HRD.
+breast_cancer,Key mutational signatures,Q2.4,"Of note, the population allele frequency of the germline deletion was 31.8% in our cohort (present in 736 individuals, 131 being homozygous and 605 heterozygous; Fig. 2g and Extended Data Fig. 4b), significantly higher than the frequency in the European population29 (31.8% versus 8.5%; P < 0.001 by two-sided chi-square test), ","A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts, has been suggested to predispose to APOBEC-mediated hypermutations29 (Extended Data Fig.4a).",suggesting an East Asian origin.
+breast_cancer,Key mutational signatures,Q2.3,"... the deletion was not substantially enriched in patients with breast cancer compared with the background Korean population (51.0%, 844 out of 1,654 individuals, with 150 being homozygous and 694 heterozygous; P = 0.276 by two-sided chi-square test; Fig. 2g), ","Contrary to previous reports30,31, ",suggesting that it is not a strong cancer-predisposing germline variant.
+breast_cancer,Frequently rearranged genes,Q1.1,"To determine the structural variation landscape, ","A key mutational process in cancer is structural variation, which acts to amplify, delete or reorder chromosomal material at scales that range from single genes to entire chromosomes32","we generated a DNA interaction map between 5-Mb segments across the entire genome (Fig. 3a), along with large-scale copy number amplification patterns (CNAs; G-score)."
+breast_cancer,Frequently rearranged genes,Q2.3,"For example, 15 breast cancers carried an interchromosomal translocation between chromosomes 8 and 11, which brought CCND1, and ZNF703 and FGFR1 (ZNF703/FGFR1) into close proximity (mostly luminal B type; 73.3%, 11 out of 15; Fig. 3a, top left).","Of note, the interaction was observed in lung cancer33, and was also reported to be associated with reduced benefit from aromatase inhibitors in metastatic breast cancer34.",N/A
+breast_cancer,Frequently rearranged genes,Q2.4,"Another frequent interchromosomal translocation involved the ERBB2 locus on chromosome 17 and a locus on chromosome 20 (observed in 30 participants), ... (Fig. 3a, top right). ... structural variations involving the ERBB2 locus were clustered with super-enhancers genome-wide (P = 0.028 by permutation test; Fig. 3b), which translocated super-enhancers in about 90 kb from the ERBB2 locus (Fig. 3c). Tumours with extragenic structural variants in the vicinity (within 1 Mb) showed significantly higher ERBB2 gene expression levels than their gene copy number (log2 fold change >1, q-value <0.10; Fig. 3d). They often carried extragenic structural variants in the vicinity (within 1 Mb) with a cancer cell fraction (CCF) of approximately 1 (Fig. 3e), and distal breakpoints significantly enriched near breast cancer-specific super-enhancers35 (Fig. 3f).","where breast cancer super-enhancers were enriched35 ... Structural variations can influence  transcription by disrupting enhancer–promoter interactions, chromatin topology and long-range regulatory elements36. In line with this idea, ",Our observation overall suggests a possible enhancer-hijacking mechanism for transcriptional activation in breast cancer genomes.
+breast_cancer,Frequently rearranged genes,Q2.4,"In addition, we found gene truncation events associated with structural variation. A total of 28 genes, including the well-established tumour suppressors RB1, PTEN and RUNX1, exhibited significant downregulation due to gene-truncating structural variants, ... (Fig. 3g). ",,reinforcing their tumour suppressor role in breast cancer 
+breast_cancer,Frequently rearranged genes,Q2.4,"The fraction of variant-supporting reads suggests that most of the fusion events are clonal or near-clonal, ",,implicating them in tumour initiation.
+breast_cancer,Frequently rearranged genes,Q2.4,"In the gene-level analysis, NRG1, which encodes a small ligand of ERBB family kinase receptors, was frequently affected by 166 structural variants in 110 cases (8%, 110 out of 1,364; Extended Data Fig.8; top 2). Although gene disruption was the most frequent outcome (72.9%, 121 out of 166 structural variants), oncogenic fusions were sometimes formed with various partner genes40 (n = 17; Fig. 3i), collectively sixfold more frequently than previous reports41 (1.25% versus 0.2%). Of note, the EGF-like domain of NRG1 was retained in all 17 fusion cases, ",,supporting their oncogenic effect.
+breast_cancer,Hotspots of focal amplifications,Q1.1,"To explore these events in breast cancers,","Focal amplification, which increases the copy number of short-segment DNA (typically up to 3 Mb in size, with a copy number gain greater than 3 compared with flanking regions), is a prominent signature in many human cancers42,43.","we calculated the recurrence score of focal amplifications across the genome, referred to as F-score (Fig. 4a)."
+breast_cancer,Hotspots of focal amplifications,Q2.4,"Notably, ZNF703 exhibited higher amplification levels than FGFR1 on chromosome 8, ",,suggesting its oncogenic role in breast cancer.
+breast_cancer,Hotspots of focal amplifications,Q2.4,"Notably, ERBB2 expression exhibited mutual exclusivity with the other oncogenes, ... (Extended Data Fig.9c).",,suggesting a redundant oncogenic mechanism between ERBB2 and the other three genes in breast tumorigenesis
+breast_cancer,Hotspots of focal amplifications,Q2.4,"Of note, more than 40% of the ERBB2, FGFR1, ZNF703 and CCND1 focal amplifications were formed by extrachromosomal DNA (ecDNA) (Fig. 4c), ",,"suggesting that ecDNA is the primary mechanism of focal amplification42,44."
+breast_cancer,Clinical effect of ERBB2 focal gain,Q2.4,"Notably, in our cohort, tumours with ERBB2  copy number of 33 or more were significantly more likely to be ecDNA-positive (P = 0.003; Fig. 4f, right); however, ERBB2 amplification by ecDNA was not associated with pCR rates (P = 0.540). ","Of note, ecDNA is generally associated with poor prognosis across multiple cancer types47.","Our observation suggests that absolute copy number. rather than the amplification mechanism, may be a more relevant predictor of therapeutic response. It also indicates that ERBB2-amplifying ecDNA may be an actionable target for anti-HER2 therapy."
+breast_cancer,Long-segmental copy number gains,Q2.4,"The timing analysis with the burden of co-amplified, pre-amplification somatic base substitutions yielded the acquisition timing of the frequent long-segmental CNAs in breast cancer in molecular time49 (Extended Data Fig. 10). Most of the recurrent long-segmental CNAs were acquired by 20% of molecular time, when recent common ancestral cells of a cancer emerge, which should be decades earlier than tumour diagnosis. ","which is presumably acquired in early puberty, consistent with a previous report50","This implies that acquisition of the long-segmental CNAs is an early evolutionary event in breast cancer, .... Our findings also suggest that full neoplastic transformation can take decades from the first event of genomic instability."
+breast_cancer,Long-segmental copy number gains,Q2.3,"The most common CNAs occurred at 8q21.13, with a relative timing of 0.15 (IQR 0.08–0.25) and a median copy number gain of 5.5 (IQR 4.0–8.0). This amplification was associated with poor overall survival (hazard ratio 1.67, 95% confidence interval 1.09–2.55; P = 0.019).","This region contains the MYC oncogene, which has been linked to treatment resistance and poor survival across various solid tumours, including breast cancer51.",N/A
+breast_cancer,Long-segmental copy number gains,Q2.3,"The 9p23 gain was associated with 823 differentially expressed genes genome-wide (282 upregulated and 531 downregulated; Extended Data Fig.11c), including PSIP1, ",which has been reported to be negatively correlated with survival of patients with TNBC53.,N/A
+breast_cancer,Long-segmental copy number gains,Q2.4,"long-segmental amplifications (typically larger than 1 Mb), often chromosome- or arm-level alterations, were common in breast cancers (Fig. 3a). ... Late-stage CNA acquisitions were more frequently observed in HRD breast cancers (P < 0.001; Extended Data Fig. 11d,e) ... For instance, in one case with HRD (no. 635; Fig. 4j), the rate of CNA acquisition was substantially increased from about 75% of the molecular time, which we speculate is the time of complete inactivation of the homologous recombination-mediated DNA repair pathway.",,This implies that the rate of large-segmental CNAs is accelerated when a tumour cell acquires the HRD phenotype
+breast_cancer,Long-segmental copy number gains,Q2.4,"in one case with HRD (no. 635; Fig. 4j), the rate of CNA acquisition was substantially increased from about 75% of the molecular time, ",,which we speculate is the time of complete inactivation of the homologous recombination-mediated DNA repair pathway.
+breast_cancer,Long-segmental copy number gains,Q2.4,"By contrast, in another case with HRD (no. 703; Fig. 4k), there was no such late CNA acquisition stage. The cancer developed talazoparib resistance after ten months of the second-line palliative treatment. In line with the resistance, post-therapy cancer genome exhibited an 8-bp deletion in the vicinity of the germline 1-bp deletion in BRCA1, ... (Fig. 4l). ",,which is likely to have converted an HRD tumour back to HRP
+breast_cancer,Long-segmental copy number gains,Q2.4,"From the timing analysis (Fig. 4k, bottom), ",,"we believe that the rescuing mutation could be acquired in about 50% of the molecular time in one of the cells in the primary cancer tissue, which could lead to talazoparib resistance."
+breast_cancer,Potential biomarkers from whole genomes,Q1.1,"Finally, we explored the potential utility of whole-genome results",,by integrating genomic profiles and clinical records.
+breast_cancer,Potential biomarkers from whole genomes,Q2.3,"First, we observed that an increased MATH score, ... was associated with worse progression-free survival (PFS) in first-line anti-HER2 therapies against HER2-positive breast cancer.","which is indicative of higher intratumoural heterogeneity,",N/A
+breast_cancer,Potential biomarkers from whole genomes,Q2.3,"Similarly, we identified high TMB, and HRD scores were associated with worse PFS in CDK4/6 inhibitor plus endocrine therapy, ... (Fig. 5d–g).",a first-line palliative treatment recently developed for hormone receptor-positive a first-line palliative treatment recently developed for hormone receptor-positive,N/A
+breast_cancer,Potential biomarkers from whole genomes,Q2.4,"Multivariate Cox proportional hazards analysis indicated HRD as the single most significant factor predicting favourable PFS to the treatment (hazard ratio 10.20, 95% confidence interval 1.68–61.80; P = 0.012; Fig. 5g), ",,"warranting validation in larger, prospective studies."
+breast_cancer,Potential biomarkers from whole genomes,Q2.4,"In gene set enrichment analysis (GSEA), these HRD tumours showed significant enrichment of pathways related to cell cycle progression, DNA repair and mitotic checkpoint activation, ... (Extended Data Fig.12).",,suggesting that these tumours may exhibit increased reliance on cell cycle regulatory mechanisms
+breast_cancer,Potential biomarkers from whole genomes,Q2.4,"Of note, PTEN mutations were exclusively present in individuals who experienced progression on the treatment, ... (P = 0.042, two-sided Fisher’s exact test; Fig. 5d).",,suggesting that they had a negative impact on the treatment

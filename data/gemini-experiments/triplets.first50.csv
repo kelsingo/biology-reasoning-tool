@@ -1,0 +1,162 @@
+paper,subsection,type,main_content,context,outcome
+yeast,"High-quality assemblies of 1,482 genomes",Q1.1,"To comprehensively capture species-wide diversity, ... (Fig. 1a)",,"we sequenced 989 natural S. cerevisiae isolates using Oxford Nanopore technology (ONT)19,34 ... We supplemented this with ONT data from 14 beer isolates35 and 24 Taiwanese isolates36, for a total of 1,027 isolates. A hybrid assembly pipeline was utilized to maximize contiguity and completeness (Supplementary Fig. 2 and Methods), ... We also included 71 assemblies from the S. cerevisiae reference assembly panel7, resulting in 1,086 isolates overall."
+yeast,Species-wide SV spectrum,Q1.1,... to assess structural heterozygosity in S. cerevisiae.,,we used haplotype-resolved assemblies from 396 heterozygous isolates
+yeast,Species-wide SV spectrum,Q2.3,"SVs in subtelomeric regions showed higher heterozygosity (Extended Data Fig.4d), ",consistent with the known structural variability of these regions.,N/A
+yeast,Genomic distribution of SVs,Q2.3,"We analysed the genomic distribution of SVs and found it to be highly uneven, with significant enrichment in subtelomeric regions (two-sided Fisher exact test, P = 1.1 × 10−309). Although SNPs and indels are also enriched in these regions, the enrichment is much stronger for SVs (Fig. 2d). By computing structural diversity along the genome, we identified bursts of diversity that are often specific to a single SV type (Fig. 2e) and defined 46 SV hotspots (Supplementary Table5), including 21 translocation hotspots, nearly all in subtelomeric regions. One notable exception is a well-described reciprocal translocation between chromosomes 8 and 16, ... (Fig. 2e). Hotspots for PAVs, CNVs and inversions often mapped to TE-rich regions or ... such as FLO39,40, CUP1 ..., and ... such as HPF1, SPA2 and NUM1 .... An inversion hotspot on chromosome 14 overlaps a 24-kb region flanked by inverted repeats, ...","...which confers sulfite resistance through the overexpression of the SSU1 gene located near the breakpoint38...  SV-prone genes, ... (ref.41), ... genes with tandem repeats, ...(refs. 42,43) ... probably driven by recombination44","These findings indicate that SV hotspots arise either from genome fragility, linked to Ty elements or repetitive sequences, or from adaptive pressures targeting specific genes."
+yeast,Genomic distribution of SVs ,Q1.1,"These findings indicate that SV hotspots arise either from genome fragility, linked to Ty elements or repetitive sequences, or from adaptive pressures targeting specific genes. To distinguish these mechanisms, ",,we examined the distribution of hotspot SVs across species clades with known ecological origins45.
+yeast,Genomic distribution of SVs ,Q2.4,"Out of the 46 hotspots, 23 were evenly distributed across clades and localized to fragile regions (Supplementary Table 5), whereas the remaining 23 were clade-enriched, ... —for example, SVs associated with sulfite and copper resistance were enriched in wine isolates (Supplementary Table 5).",,reflecting either population bottlenecks or local adaptation
+yeast,SV diversity and population structure,Q1.1,"To explore the relationship between population structure and SV diversity,",,we built separate phylogenies using SNP and SV genotypes (Supplementary Fig.3).
+yeast,A complete gene-based pangenome,Q2.3,"The pangenome consists of 5,047 core genes shared by all isolates and 3,494 accessory genes with variable presence. Accessory genes were further classified into soft core (1,263 genes present in >90% of isolates), dispensable (2,102 genes in 0.001–90%) and private (129 genes unique to one isolate) categories (Fig. 3a). The high proportion of core and soft core genes (73.9%) indicates moderate gene content variation, ","consistent with a closed pangenome typical of many eukaryotes14,18,25,46–48.",N/A
+yeast,A complete gene-based pangenome,Q2.3,"Using previously generated transcriptomic data20, we found that core genes are more highly expressed than accessory genes (Supplementary Fig. 5), ","consistent with findings in other species14,18,49,50.",N/A
+yeast,A complete gene-based pangenome,Q1.1,"To investigate the origin of non-reference genes, ",,we aligned novel gene sequences to a curated eukaryotic database (Supplementary Table 8 and Methods).
+yeast,A complete gene-based pangenome,Q2.4,"Among the 2,199 novel genes, 1,233 (56.1%) showed highest similarity to close Saccharomyces relatives, ",,"suggesting introgression,"
+yeast,A complete gene-based pangenome,Q2.4,"Among the 2,199 novel genes, ... 358 (16.3%) were most similar to non-Saccharomyces species, ",,which is indicative of horizontal gene transfers (HGTs)
+yeast,A complete gene-based pangenome,Q2.4,"Among the 2,199 novel genes, ... The remaining 92 genes (4.2%) lacked significant similarity ",and may represent de novo gene birth51.,and may represent de novo gene birth51.
+yeast,A complete gene-based pangenome,Q2.3,"Enrichment analyses showed widespread introgression across clades, with notably high levels in Alpechín, Mexican agave, and French Guiana isolates, ... (Fig. 3f and Supplementary Table 10).","confirming past hybridization events19,53,54",N/A
+yeast,A complete gene-based pangenome,Q2.4,"HGTs were also identified in wine isolates, ... and partially shared with the Mixed Origins 1 clade, ","consistent with previous reports19,55,",suggesting post-acquisition intraspecific gene flow.
+yeast,Complexity differs across trait types,Q2.4,"SV-QTL make up 18.6% and 41.1% of the total QTL for molecular and organismal traits, respectively, both enriched relative to the 7.4% frequency of SVs among common variants (two-sided Fisher’s exact test, P = 2.4 × 10−118 and 2.6 × 10−33). However, the enrichment is stronger for organismal traits (5.6-fold) than for molecular traits (2.5-fold), ... (Fig. 5c and Supplementary Fig. 10).",,suggesting that SVs have a more prominent role in shaping complex organismal phenotypes 
+yeast,Diversity with a graph pangenome,Q1.1,"To facilitate SV genotyping in other S. cerevisiae collections and capture the full spectrum of structural diversity, ",,"we constructed a reference graph pangenome using 500 haplotypes, including the linear reference genome."
+crispr,Scalable characterization of SpCas9 PAM variants,Q1.1,"To generate datasets necessary to train a machine learning model to link protein sequence to function (PAM specificity), ","structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43 ... These six  amino acids modulate specificity for the 3rd and 4th PAM bases in the context of the engineered enzymes SpCas9-VRER, SpCas9-VRQR and SpG3,14,42 (Supplementary Note3). ... the residue that contacts the second guanine of the SpCas9 PAM10, largely abrogated enzyme activity (Supplementary Note 3) ...","we sought to engineer and characterize a sufficiently large collection of novel SpCas9 enzymes with altered PAM preferences. We generated a saturation mutagenesis library of SpCas9 variant enzymes using a structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43, simultaneously mutating six amino acid residues within the SpCas9 PI domain,... We selected residues D1135, S1136, G1218, E1219, R1335 and T1337 for saturation mutagenesis, and individual enzymes within the library are hereafter named according to amino acid identities at these six positions. Expansion of our library to also mutate R1333, ... . We therefore focused our efforts on altering the 3rd and 4th positions of the PAM."
+crispr,Scalable characterization of SpCas9 PAM variants,Q1.1,"To identify SpCas9 PAM variant enzymes with activity on noncanonical PAMs, ",,"we performed an extensive set of bacterial-based positive selection assays14,44 to select for enzymes that are capable of cleaving target sites bearing each of the 16 possible NGNN PAMs, which have a fixed G nucleotide at the second position and that vary at the third and fourth positions (Extended Data Fig.2b,c and Supplementary Note 4)."
+crispr,Scalable characterization of SpCas9 PAM variants,Q1.1,"Next, we linked amino acid sequence to PAM specificity for the 634 recovered SpCas9 enzymes. To identify the amino acid substitutions in the SpCas9 enzymes,",multiplex PCR45 ... high-throughput PAM determination assay46 ...,"we performed an arrayed plasmid sequencing method for rapid and inexpensive whole open reading frame identification based on multiplex PCR45 (Supplementary Fig. 1). The PAM specificities of each of the 634 SpCas9 enzymes were then characterized using a high-throughput PAM determination assay46 (HT-PAMDA; Fig. 1c,d, Supplementary Table1 and Supplementary Fig.2)."
+crispr,Scalable characterization of SpCas9 PAM variants,Q2.4,"We selected residues D1135, S1136, G1218, E1219, R1335 and T1337 for saturation mutagenesis ...  rationally design more optimal PAM-selective enzymes by testing ‘consensus’ enzymes for each of the 16 NGNN PAMs, assessed by combining the most enriched amino acids at each of the six positions recovered from each selection (Extended Data Fig. 2c). ... When assessing the PAM requirements of the consensus enzymes using HT-PAMDA (Supplementary Fig.6a), most enzymes did not efficiently target the PAM for which they were designed, with only 4 of 31 consensus enzymes exhibiting maximal efficiency against their intended PAMs (Fig. 1e and Supplementary Fig.6b). The rationally designed consensus enzymes generally had weaker efficiencies than the enzymes obtained directly from bacterial selections (Fig. 1e and Supplementary Fig.6a). ",,"These results indicate that mutations at these six positions do not contribute to PAM preference independently, but rather interact with one another in an epistatic manner;"
+crispr,Scalable characterization of SpCas9 PAM variants,Q1.1,"To approximate the fraction of the 64 million enzymes encoded with our SpCas9(6AA) library that retained editing activity on any PAM, ",,we performed HT-PAMDA on 135 randomly chosen library members.
+crispr,Scalable characterization of SpCas9 PAM variants,Q2.4,"resulting in a library with theoretical complexity of 64 million enzymes (the SpCas9(6AA) library)... Unexpectedly, we found that approximately 18% of the enzymes in the SpCas9(6AA) library were capable of editing on at least one PAM, many of them with non-canonical PAM preferences (Fig. 1f). ",,"This observation suggested that among the millions of possible combinations of residues in our six-position library, more than 10 million enzymes may be functional, the vast majority of which remain uncharacterized."
+crispr,Learning PAM preference from amino acid sequence,Q1.1,We therefore sought to explore the entire fitness landscape of our SpCas9(6AA) library via machine learning.,,"We utilized our two HT-PAMDA datasets as training data for a machine learning model, including functional enzymes derived from our bacterial selections on the 16 NGNN PAMs and random (non-selected) enzymes from the SpCas9(6AA) library. We reasoned that including some inactive enzymes in our training set would provide information about combinations of amino acids that lead to non-functional enzymes. To account for the imbalanced nature of our training data towards NGG-targeting enzymes and relaxed variants that are most active on NGTG PAMs (Fig. 1f), we assigned a label to each training example based on its most active PAM and randomly oversampled to balance across PAM classes. We trained machine learning models to predict the rate constant k on each of the 64 PAMs (positions 2–4) when provided with a 6AA sequence as an input (Fig. 2a), and compared the ability of different machine learning models to extrapolate to amino acid combinations not encountered in the training set. Linear regression, random forest and neural network models were tested in combination with different feature encodings as inputs to the model (one-hot encoding of each amino acid substitution; one-hot encoding of all single plus pairwise amino acid combinations; and Georgiev47, a physiochemical descriptor that can improve performance of some machine learning models  for protein engineering25; Extended Data Fig.3a). Model architectures and amino acid encoding were compared using an internal fivefold cross-validation (Extended Data Fig.3a)."
+crispr,Learning PAM preference from amino acid sequence,Q2.3,"When predicting the impact of the single E1219V mutation, PAMmla produced a predicted PAM profile remarkably similar to the experimental data for xCas9 (Fig. 2i), supporting previous evidence that",the single E1219V mutation was the major contributor to the altered PAM of xCas9 (ref. 3).,
+crispr,Machine learning-assisted prediction of PAM variant enzymes,Q1.1,... to discover novel PAM variant enzymes by predicting the PAM profiles for each of the 64 million possible enzymes in the SpCas9(6AA) library (Supplementary Fig. 7). ,,"We then utilized PAMmla ... The resulting enzymes were sorted by their predicted PAM profiles on activity alone (kPAM) or selectivity (kPAM/sum(kall_PAMs)) for each of the 16 NGNN PAMs (Fig. 3a). Among the top predicted enzymes for each criterion and PAM, we chose between 3 and 10 enzymes to experimentally validate PAMmla predictions using HT-PAMDA (for 281 enzymes; Fig. 3b, Supplementary Table2 and Supplementary Fig.8a–c)."
+crispr,Machine learning-assisted prediction of PAM variant enzymes,Q1.1,We investigated potential functional roles of the amino acid substitutions in PAMmla-predicted enzymes (Supplementary Note 6). ,,"Using shapely additive explanations (SHAP)48 analysis of machine learning feature importance (Extended Data Fig. 4) and structural modelling (Extended Data Fig.5),"
+crispr,Specificity of PAMmla-predicted enzymes,Q1.1,"SpCas9 enzymes with relaxed PAM requirements are more prone to off-target editing as they search a larger fraction of the genome and thus encounter a larger number of potential off-target sites3,6,21. By contrast, PAMmla-predicted enzymes with altered PAM requirements should encounter fewer potential off-targets due to their more limited targeting ranges. To test this hypothesis,",,"we utilized a cell-based unbiased genome-wide off-target assay, GUIDE-seq2 (ref. 53), to identify nuclease-cleaved off-target sites."
+crispr,Specificity of PAMmla-predicted enzymes,Q1.1,"To verify the on-target and off-target benefits of PAMmla versus generalist enzymes in human patient-derived cells, ","Patients with X-CGD are highly susceptible to invasive infections and hyperinflammation that results in substantial morbidity and early mortality. CYBB mutations may be correctable through ex vivo editing of haematopoietic stem cells54,55. ","we sought to correct a CYBB mutation in cells from an individual with X-linked chronic granulomatous disease (X-CGD). ... Using patient-derived Epstein–Barr virus-transformed B cells harbouring the CYBBT362I mutation,"
+crispr,PAMmla-enabled allele-specific editing in vivo,Q1.1,... to investigate specificity improvements with the allele-selective PAMmla enzymes.,,we performed off-target analyses via GUIDE-seq2 
+crispr,PAMmla-enabled allele-specific editing in vivo,Q1.1,"To examine potential structural determinants of the PAM-selective preferences of MRRWMR and KRHWMR, ",,we modelled their mutations and investigated their contributions to PAMmla-predicted rates on NGTG and NGGG PAMs using SHAP (Fig. 5h–k and Extended Data Fig.11a–e).
+crispr,PAMmla-enabled allele-specific editing in vivo,Q1.1,We assessed the in vivo editing efficiency and allele specificity of MRRWMR and KRHWMR in mouse retinas. ,,Subretinal plasmid injections in humanized heterozygous WT-hRHO–GFP/P23H-hRHO–RFP mice at postnatal days 0–2 (P0–P2) were performed before in vivo electroporation.
+mechanical,Tumour gene expression altered by TME,Q1.1,To study the influence of the local microenvironment on tumour invasion,,"we applied spatially resolved transcriptomics and single-cell
+RNA sequencing (scRNA-seq) to a transgenic zebrafish model of
+BRAFV600E-driven melanoma (Fig. 1a)"
+mechanical,Tumour gene expression altered by TME,Q2.3,"Tumours from this model fre-
+quently invade into adjacent tissues, including the underlying dermis
+and muscle. Across fish, we found a conserved ‘interface’ transcrip-
+tional cell state that occurs where tumour cells invade into the micro-
+environment6 (12.1% of zebrafish tumour cells; Fig. 1a).","‘interface’ transcrip-
+tional cell state that occurs where tumour cells invade into the micro-
+environment6",N/A
+mechanical,Tumour gene expression altered by TME,Q1.1,"To investigate whether these interface cells occur in patients, ","recently published human melanoma scRNA-seq dataset
+of 7,186 tumour and stromal cells from 31 patients with untreated
+or immunotherapy-resistant melanoma7","we
+analysed a recently published human melanoma scRNA-seq dataset
+of 7,186 tumour and stromal cells from 31 patients with untreated
+or immunotherapy-resistant melanoma7 (Fig. 1b and Extended Data
+Fig. 1a). We scored tumour cells for the relative expression of inter-
+face genes from our zebrafish transcriptomic datasets."
+mechanical,Tumour gene expression altered by TME,Q1.1,"To better understand the nature of these
+cells","A previous study defined at least four cell states that encompass
+the melanoma differentiation trajectory (melanocytic, transitory, neu-
+ral crest-like and undifferentiated)2","we compared our interface population to human melanoma cell
+states...We scored tumour and interface
+cells for the relative expression of gene modules encompassing the
+entire melanoma cell differentiation trajectory and classified cells into
+each of the four states on the basis of their expression of gene mod-
+ules annotated for that state2."
+mechanical,Tumour gene expression altered by TME,Q2.3,"Interface cells downregulated MITF
+and SOX10 and upregulated SOX9 (Fig. 1f and Extended Data Fig. 1g).
+Classical melanocyte pigmentation genes were minimally expressed
+by interface cells relative to the tumour bulk, including MITF (log2 fold
+change (FC) = −5.19), TYRP1 (log2FC = −7.75) and PMEL (log2FC = −8.78)
+(Fig. 1f, Extended Data Fig. 1g and Supplementary Table 1)... Unexpect-
+edly, interface cells also upregulated genes involved in neuronal
+development, including SOX11 (log2FC = 5.15), NNAT (log2FC = 8.61),
+NEUROD1 (log2FC = 6.22) and NEFM (log2FC = 6.19) (Fig. 1g and Sup-
+plementary Table 1). Gene set enrichment analysis (GSEA) revealed that
+transcriptional programs linked to cell fate specification and neuronal
+development were highly enriched in interface cells (Fig. 1h,i).","Melanoma behaviour is regulated by phenotype switching, in which
+cells transition between differentiated/proliferative and undifferen-
+tiated/invasive states. The transition between the proliferative and
+invasive states is regulated by the transcription factors MITF, SOX9
+and SOX10, among others8. MITF and SOX10 regulate melanocyte dif-
+ferentiation and proliferation9,10, whereas SOX9 is associated with the
+undifferentiated invasive state11.","These
+data indicate that interface cells adopt an invasive state with markers
+of neuronal development."
+mechanical,Confinement induces a neuronal state,Q1.1,"To examine factors within the local TME that may drive the interface
+state",,"we performed histology on tissue sections from our transgenic
+zebrafish melanoma model, focusing on the invasive front."
+mechanical,Confinement induces a neuronal state,Q2.4,"Tumour
+cells invading into the TME showed elongated nuclei compared with
+the bulk tumour mass (Fig. 1j,k). ","A previous study showed that tumour
+nuclei become highly elongated when squeezing through mechanically
+restrictive environments12. Although numerous factors probably influ-
+ence tumour invasion, ","we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour."
+mechanical,Confinement induces a neuronal state,Q1.1,"we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour. To test this hypothesis,","a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13","we adapted a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13 (Fig. 1l)."
+mechanical,Confinement induces a neuronal state,Q2.3,"confined cells did not
+upregulate apoptosis markers cleaved caspase-3, annexin V or cleaved
+PARP (Extended Data Fig. 2a–f)...Post-confinement, cells recovered typi-
+cal morphology within 24 h without widespread cell death (Extended
+Data Fig. 2g).",,Confinement in vitro was not cytotoxic
+mechanical,Confinement induces a neuronal state,Q1.1,To profile confinement-induced changes in gene expression ,,"we confined A375 cells for approximately 18 h and performed
+bulk RNA-seq."
+mechanical,Confinement induces a neuronal state,Q2.4,"Principal component analysis revealed considerable transcriptional alterations induced by confinement (Fig. 1m and Sup-
+plementary Table 2). ... confined cells
+upregulated several neuronal pathways (Fig. 1n and Supplementary
+Table 2). We calculated the overlap between the human interface gene
+signature and the confined melanoma gene signature (Extended Data
+Fig. 2h and Supplementary Table 3). Pathway analysis showed that
+many of the co-regulated genes were related to neuronal development (Extended Data Fig. 2i and Supplementary Table 3).",Similar to human interface cells,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity."
+mechanical,Confinement remodels the cytoskeleton,Q3.1,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity. ","Neuronal development relies on microtubule (MT) architecture,
+influencing almost every aspect of neuronal structure and function14.
+The cytoskeleton often transmits force within and between cells and
+remodels in response to mechanical stimuli15. Recent reports indicate
+that the MT cytoskeleton is stabilized by force to protect confined cells
+from damage16.","We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment."
+mechanical,Confinement remodels the cytoskeleton,Q1.1,"We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment.",,"We used our in vitro confinement system to char-
+acterize how force remodels the MT cytoskeleton by imaging A375 cells
+labelled with the MT vital dye SiR-tubulin."
+mechanical,Confinement remodels the cytoskeleton,Q2.4,"Confinement extensively
+remodelled the MT cytoskeleton; within 2–4 h, curved MTs began encir-
+cling the cell and nuclear periphery (Fig. 2a,b)...We also observed loss of a central
+MT organizing centre with radial MTs,","This was reminiscent of a previous study that showed that MTs bend to prevent buckling
+or rupture in response to force16...reminiscent of neurons with
+centrosome-independent MT organization14,17.","These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons."
+mechanical,Confinement remodels the cytoskeleton,Q1.1,"These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons.","Acetylated tubulin mediates neuronal architecture and function
+and marks axonal MTs18. Tubulin acetylation stabilizes MTs and thus
+the cell against mechanical pressure19. Curved MTs, such as those we
+observed in confined cells (Fig. 2a,b), are also indicative of long-lived,
+stabilized MTs19.","We performed immunofluorescence on sections from
+adult fish with transgenic BRAFV600E-driven melanomas ... Confining A375 cells in vitro"
+mechanical,Confinement remodels the cytoskeleton,Q2.4,"We noticed that in confined cells, the hyperacetylated tubulin net-
+work was often perinuclear (Fig. 2f,g) ","As the stiffest and
+largest organelle, the nucleus is vulnerable to confinement-induced
+stress, with confined migration often causing nuclear envelope rup-
+ture and DNA damage20,21. During migration through confined spaces,
+neurons assemble a perinuclear network of acetylated tubulin to pro-
+tect the nucleus22,23. ","and hypothesized that this net-
+work may provide structural support to the nucleus."
+mechanical,Confinement remodels the cytoskeleton,Q1.1,"We confirmed the stability of the perinuclear MT
+network ","nocodazole, which induces
+MT disassembly through an acetylation-independent mechanism24.
+Acetylated MTs are resistant to nocodazole19.","by treating confined cells with nocodazole,"
+mechanical,Confinement remodels the cytoskeleton,Q2.3,"We generated a stable A375 cell line, in which
+the main eukaryotic tubulin acetyltransferase (ATAT1) was inactivated
+using CRISPR (Extended Data Fig. 3a,b), and found that this almost
+completely abolished acetylated tubulin, including the perinuclear
+network (Extended Data Fig. 3c–e). ",,"This indicates that ATAT1 is the
+acetyltransferase that responds to mechanical stress in melanoma
+cells by stabilizing the tubulin cytoskeleton."

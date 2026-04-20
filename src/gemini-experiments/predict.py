@@ -3,14 +3,14 @@ Prediction pipeline for Q1 and Q2 triplets.
 
 Usage:
 python -m src.gemini-experiments.predict \
-    --paper-path "./data/gemini-experiments/conversion/formatted/mechanical.json" \
+    --paper-path "./data/gemini-experiments/conversion/formatted/" \
     --triplets-file "./data/gemini-experiments/triplets.mechanical.csv" \
     --output-folder "./data/gemini-experiments/prediction/results/taurine" \
     --config-path "./configs/gemini-3-pro.yaml" \ 
     --output-file "results_v0"
 """
 
-from .templates import TEMPLATE_PREDICTION_1, TEMPLATE_PREDICTION_2
+from ..templates import TEMPLATE_PREDICTION_11, TEMPLATE_PREDICTION_12, TEMPLATE_PREDICTION_2
 from ..utils.inference_gemini import run_inference
 from ..utils.common import read_jsonl, read_json, parse_json, read_csv
 from ..utils.document_builder import generate_document
@@ -20,10 +20,22 @@ import os
 import json
 import argparse
 
-def build_prompt(prefix, input):
+def build_prompt(paper_path, input):
+    paper_title = input["paper"]
+    print(f"Building prompt for paper: {paper_title}")
+    paper = read_json(paper_path / f"{paper_title}.json")
+    prefix = generate_document(
+        paper,
+        include_abstract=False, # Not include abstract because of data contamination.
+        include_intro=True,
+        include_result=False,
+        chunk_subsections=False,
+        include_figures=False,
+        include_discussion=False
+    )[0].strip()
     content_type = input["type"]
     query = input["main_content"]
-    template = TEMPLATE_PREDICTION_1 if ("Q1.1" in content_type or "Q1.2" in content_type) else TEMPLATE_PREDICTION_2
+    template = TEMPLATE_PREDICTION_11 if "Q1.1" in content_type else TEMPLATE_PREDICTION_12 if "Q1.2" in content_type else TEMPLATE_PREDICTION_2
 
     content = f"{prefix}\n\nQUERY: {query}"
     prompt = template.replace("{{main_content}}", content)
@@ -48,19 +60,9 @@ def build_prompts(paper_path: Path, triplets_file: Path, output_folder: Path):
     :type output_folder: Path
     """
     triplets = read_csv(triplets_file)
-    paper = read_json(paper_path)
-    prefix = generate_document(
-        paper,
-        include_abstract=False, # Not include abstract because of data contamination.
-        include_intro=True,
-        include_result=False,
-        chunk_subsections=False,
-        include_figures=False,
-        include_discussion=False
-    )[0].strip()
     prompts = []
     for triplet in triplets:
-        prompt = build_prompt(prefix, triplet)
+        prompt = build_prompt(paper_path, triplet)
         prompts.append({
             "prompt": prompt,
             **triplet
@@ -74,7 +76,6 @@ def build_prompts(paper_path: Path, triplets_file: Path, output_folder: Path):
     return output_path
 
 def aggregate_results(output_folder: Path, output_file: str):
-    
     responses_file = output_folder / "responses.jsonl"
     results_csv = output_folder / output_file
 
@@ -92,13 +93,13 @@ def aggregate_results(output_folder: Path, output_file: str):
                 main_content=row.get("main_content"),
                 context=row.get("context"),
                 outcome=row.get("outcome"),
+                predicted_reference=parsed_json.get("reference"),
                 predicted_context=parsed_json["context"],
                 predicted_outcome=parsed_json["outcome"]
             )
             results.append(new_row)
         except Exception as e:
             print(f"Error at row {i}: {e}")
-    # Write the results to .csv format
     pd.DataFrame(results).to_csv(results_csv, index=False)
     return results_csv
 

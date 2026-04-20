@@ -1,0 +1,257 @@
+paper,subsection,type,main_content,context,outcome
+mechanical,Confinement remodels the cytoskeleton,Q3.1,"This indicates that ATAT1 is the
+acetyltransferase that responds to mechanical stress in melanoma
+cells by stabilizing the tubulin cytoskeleton","In addition to acetylation, MTs exhibit a variety of post-translational
+modifications (PTMs), including tyrosination, glutamylation, glycylation
+and methylation, which influence MT stability25.","To clarify the composi-
+tion of the perinuclear tubulin network"
+mechanical,Confinement remodels the cytoskeleton,Q1.1,"To clarify the composi-
+tion of the perinuclear tubulin network",,"we used immunofluorescence
+to characterize MT PTMs in confined melanoma cells."
+mechanical,Confinement remodels the cytoskeleton,Q2.3,"However, most MTs in confined and
+unconfined A375 cells were highly tyrosinated (Extended Data Fig. 4a–d), ...
+Although confined perinuclear MTs were occasionally
+tyrosinated and rarely detyrosinated (Extended Data Fig. 4a–d), there
+was no specific enrichment of these PTMs in the perinuclear network,
+as observed for acetylated MTs. Similar results were observed for poly-
+glutamylated MTs (Extended Data Fig. 4e,f). No polyglycylated MTs
+were found in either condition (Extended Data Fig. 4g,h).","Detyrosination
+has been linked to stabilized MTs26 ... probably owing to the high concentrations of tyrosine and tyrosinase in melanoma27","This indicates
+that acetylation is the primary PTM mediating the assembly and/or
+stability of the perinuclear tubulin network."
+mechanical,Confined invasive cells upregulate HMGB2,Q1.1,"Our results indicate that confinement induces a neuronal identity in
+interface melanoma cells, characterized by changes in cytoskeletal
+architecture and gene expression. ",,"We examined our zebrafish and
+human transcriptomic datasets to identify potential confinement-
+induced mediators of this state. "
+mechanical,Confined invasive cells upregulate HMGB5,Q2.3,"In invading tumour cells, HMGB2
+was only upregulated in elongated or misshaped tumour cells that
+appeared to be under mechanical pressure from adjacent tissues
+(Fig. 3e–g), ",,indicating that confinement induces HMGB2 upregulation
+mechanical,Confined invasive cells upregulate HMGB7,Q2.3,"Using time-lapse
+confocal microscopy of A375 cells stably expressing HMGB2–GFP, we
+found nuclear HMGB2–GFP concentrations increased linearly over
+approximately 16 h (0.269 ± 0.020-fold per hour) to a final concentra-
+tion of 1.76 ± 0.072-fold relative to initial concentrations (Extended
+Data Fig. 5a,b). We also examined the concentrations of HMG family
+members HMGB1 and HMGA1, which were transcriptionally upregu-
+lated in interface cells to a lesser extent than HMGB2, and quantified no
+change in their expression upon confinement (Extended Data Fig. 5c–f),",,"indicating that confinement-induced upregulation of HMGB2 is not a
+general property of all HMG family members."
+mechanical,Confined invasive cells upregulate HMGB9,Q2.3,"As in the zebrafish, the
+invasive front in human samples often contained elongated nuclei
+with high HMGB2 and acetylated tubulin expression, although with
+expected interpatient variability (Extended Data Fig. 6a–e). Of the 40
+patient samples analysed, 20 (50%) contained putative interface cells
+(elongated nuclei, HMGB2+ and AcTub+), nine (22.5%) contained cells
+exhibiting perinuclear acetylated tubulin enrichment only (AcTub+ and
+HMGB2−), three (7.5%) contained cells with elongated HMGB2+ nuclei
+but no acetylated tubulin (AcTub− and HMGB2+) and the remaining eight (20%) showed no enrichment of HMGB2 or acetylated tubulin
+(Extended Data Fig. 6d,e).",,"This validates our scRNA-seq analyses,
+indicating that interface cells are present in human samples (Fig. 1c)."
+mechanical,Confined invasive cells upregulate HMGB10,Q1.1,"We then investigated whether the upregulation of HMGB2 and acety-
+lated tubulin by confined cells is melanoma-specific or exhibited across
+other cancer types. ",,"We focused on two cancer types probably influ-
+enced by mechanical stress in vivo: pancreatic ductal adenocarcinoma
+and bladder cancer."
+mechanical,Confined invasive cells upregulate HMGB12,Q1.1,"To rule
+out a potential pro-invasive role for these transcription factors upon
+mechanical stress in melanoma, ","Mechanical stress can be associated with nuclear translocation of
+transcription factors, such as YAP, as well as epithelial–mesenchymal
+transition inducers, including Twist, Snail and SMAD3 (ref. 30). ","we quantified their expression in confined
+A375 cells."
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"To investigate how mechanical confinement induces HMGB2 upregu-
+lation,    ",,"we focused on the MT cytoskeleton, hypothesizing that the
+perinuclear acetylated tubulin network (Fig. 2f,g) may propagate
+confinement-induced force to the nucleus."
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"To confirm that the perinu-
+clear network is upstream of HMGB2 enrichment in the confinement
+response,",,"we generated stable A375 cell lines in which HMGB2 was inac-
+tivated using CRISPR (Extended Data Fig. 8a–c)."
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"to determine whether the acetylated tubulin network influences
+HMGB2 upregulation.  ","Tubulin acetylation is mediated by the acetyl-
+transferase ATAT1 (ref. 31) and deacetylation by HDAC6 (ref. 32). ","We modulated tubulin dynamics and acetylation state in confined
+cells ... We first treated A375 cells with the HDAC6 inhibitor tubacin33,"
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"To stabilize MTs independent of acetylation,  ","which binds β-tubulin and prevents tubulin
+monomer incorporation into MT filaments and thus should not
+influence the acetylation state of HMGB2 or other proteins34.","we treated confined cells
+with paclitaxel (Taxol), "
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.4,"Taxol
+(100 nM) significantly increased HMGB2 accumulation in confined
+cells (P = 0.00230; Extended Data Fig. 9g,h), with an accumulation
+rate remarkably similar to tubacin-treated cells (0.338 ± 0.0425-fold
+per hour versus 0.353 ± 0.0364-fold per hour; P = 0.961; Extended Data
+Fig. 9i). ",,"Although we cannot rule out off-target effects of tubacin on
+HMGB2, similar results in Taxol-treated and tubacin-treated cells indi-
+cate that confinement-induced HMGB2 enrichment is linked to MT
+stability, rather than acetylation state or other HDAC6 functions."
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"To confirm the role of perinuclear acetylated tubulin in mediating
+HMGB2 accumulation  ","Nocodazole abolishes most MT
+networks, with the exception of stabilized acetylated tubulin filaments24.","we treated A375[HMGB2–GFP] cells with noco-
+dazole before applying confinement."
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.4,"We quantified HMGB2 accumulation in confined A375–
+ATAT1KO cells lacking acetylated tubulin (Extended Data Fig. 3c–e). Unexpectedly, HMGB2 accumulation was not impaired in ATAT1KO
+cells (Extended Data Fig. 3f),",,"suggesting that acetylated tubulin is
+sufficient but not necessary for the enrichment of HMGB2 in response
+to confinement."
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,"Thus, we investigated other factors that may cooperate with the MT
+cytoskeleton to promote upregulation of HMGB2 in confined cells",TurboID35 ,"using
+TurboID35 to perform proximity labelling proteomics targeting HMGB2
+interactors (Fig. 3l and Supplementary Table 4)."
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.4,"One highly enriched
+protein was nesprin 2 (gene name: SYNE2) ... (Fig. 3m and Supplemen-
+tary Table 4). ","a component of the linker
+of nucleoskeleton and cytoskeleton (LINC) complex that connects the
+cytoskeleton, nuclear lamina and chromatin36","We hypothesized that nesprin 2 may be required for enrich-
+ment of HMGB2 upon confinement."
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.3,"Accordingly, confined A375 cells
+upregulated nesprin 2 (Extended Data Fig. 10a,b), and targeting SYNE2
+with short interfering RNA (siRNA) (Extended Data Fig. 10c) abolished
+the confinement-mediated accumulation of HMGB2 (Fig. 3n,o) and
+perinuclear tubulin network (Fig. 3p,q).",,"This indicates that nesprin 2
+and the tubulin cytoskeleton interact to upregulate HMGB2."
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.3,"One highly enriched
+protein was nesprin 2 (gene name: SYNE2), a component of the linker
+of nucleoskeleton and cytoskeleton (LINC) complex that connects the
+cytoskeleton, nuclear lamina and chromatin36","The LINC complex cooperates with the nuclear lamina to tune
+nuclear stiffness36. ",N/A
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.4,"Lamin A/C increased by approximately 3-fold in
+confined cells (P = 1.28 × 10−162; Extended Data Fig. 10d,e)",,"suggesting that the nuclear lamina was remodelled in response to confinement,  "
+mechanical,HMGB2 upregulation requires nesprin 2,Q1.1,suggesting that the nuclear lamina was remodelled in response to confinement,,which we validated by means of atomic force microscopy (AFM)
+mechanical,HMGB2 upregulation requires nesprin 2,Q2.3,"suggesting that the nuclear lamina was remodelled in response to confinement which we validated by means of atomic force microscopy (AFM)
+showing increased nuclear stiffness in confined cells (Extended Data
+Fig. 10f,g).",,"Together, our results demonstrate that confined melanoma
+cells remodel cytoskeletal and nuclear structures to reinforce the cell
+against mechanical force, resulting in LINC complex-mediated HMGB2
+upregulation and nuclear stiffening."
+mechanical,Force affects HMGB2–chromatin dynamics,Q2.2,"Our results indicate that the LINC complex and tubulin cytoskel-
+eton cooperate to stabilize the nucleus against mechanical stress
+and upregulate HMGB2. ","HMGB2 typically binds chromatin without
+sequence specificity and bends DNA to relieve mechanical strain37.","Confinement-induced nuclear shape changes could thus increase
+the strain on chromatin and create a densely packed nuclear envi-
+ronment that affects HMGB2 dynamics. "
+mechanical,Force affects HMGB2–chromatin dynamics,Q1.1,"Confinement-induced nuclear shape changes could thus increase
+the strain on chromatin and create a densely packed nuclear envi-
+ronment that affects HMGB2 dynamics. ",,"We used fluorescence recov-
+ery after photobleaching (FRAP) to characterize nuclear HMGB2
+dynamics upon confinement. "
+mechanical,HMGB2 targets plasticity-associated loci,Q2.4,"Our FRAP analysis indicates that confinement upregulates HMGB2 and
+stabilizes its interactions with chromatin; . ",,"therefore, we propose that this
+could affect chromatin accessibility"
+mechanical,HMGB2 targets plasticity-associated loci,Q1.1,"confinement upregulates HMGB2 and
+stabilizes its interactions with chromatin; ... therefore, we propose that this
+could affect chromatin accessibility",,"Assay for transposase-accessible
+chromatin (ATAC) sequencing (ATAC-seq) of A375 cells overexpressing
+HMGB2"
+mechanical,HMGB2 targets plasticity-associated loci,Q2.4,"Homer de novo motif analysis
+identified conserved transcription factor binding motifs enriched within the promoter of open chromatin regions upon HMGB2 overex-
+pression (HMGB2OE). The top-ranked motif was an AP-1 motif (Fig. 4k;
+P = 1 × 10−49) ...
+Other highly ranked motifs included PRDM4, ... (Fig. 4k; P = 1 × 10−12), and SOX9, ... (Fig. 4k; P = 1 × 10−11).","...implicated in melanoma and melanocyte plasticity40,41... which functions in neural
+development42 ... a critical regulator of
+the pro-invasive phenotype switch in melanoma43","These data indicate that HMGB2 upregulation increases chromatin
+accessibility at loci associated with plasticity and a neuronal pheno-
+type, promoting a confinement-induced dedifferentiation program."
+mechanical,HMGB2 targets plasticity-associated loci,Q1.1,To clarify potential HMGB2 targets,a double-crosslinking approach44,"we performed chromatin immu-
+noprecipitation (ChIP) sequencing (ChIP–seq) targeting HMGB2 in
+A375 cells using a double-crosslinking approach44 (Extended Data
+Fig. 11a). We generated a peak atlas by comparing peaks present in cells
+expressing baseline concentrations of HMGB2 to those not present in
+HMGB2KO cells"
+mechanical,HMGB2 targets plasticity-associated loci,Q2.4,"After manual filtering to remove intergenic,
+low-quality or non-specific peaks, we identified a final high-confidence
+set of 96 targets (Extended Data Fig. 11b and Supplementary Table 6).
+We observed HMGB2 binding at promoter regions of several AP-1 sig-
+nalling genes, including FOSL1, JUNB and JUND (Extended Data Fig. 11c
+and Supplementary Table 6),",,"validating our ATAC-seq results and sup-
+porting the pro-invasive role of HMGB2."
+mechanical,HMGB2 targets plasticity-associated loci,Q2.3,"HMGB2OE cells adopted a mesenchymal-like and invasive morphology
+relative to empty vector controls (Extended Data Fig. 11g). The most
+highly upregulated gene was UNC5D ... (Extended Data Fig. 11h and Supplemen-
+tary Table 7). Other upregulated neuronal genes included DCC, SH3GL2
+and NPX2 (Extended Data Fig. 11h,i and Supplementary Table 7). GSEA
+revealed an overrepresentation of neuronal genes within enriched
+pathways (Extended Data Fig. 11j,k and Supplementary Table 7).","UNC5D, a netrin receptor promoting neu-
+ronal survival and migration47",N/A
+mechanical,HMGB2 targets plasticity-associated loci,Q2.4,"several invasive genes were also
+upregulated (MAGEA1, SPP1, CTAG2 and GDF6; Extended Data Fig. 11i
+and Supplementary Table 7).",,Supporting a pro-invasive role for HMGB2
+mechanical,HMGB2 targets plasticity-associated loci,Q2.2,Supporting a pro-invasive role for HMGB2,,"These data indicate that HMGB2 alters
+chromatin architecture to promote an invasive neuronal state."
+mechanical,HMGB2 drives invasion through Notch and BRN2,Q1.1,"Phenotypic plasticity in melanoma is controlled by a regulatory axis of melanocytic transcription factors (MITF) driving proliferation versus invasive factors (BRN2, SOX9 and AP-1) that also slow proliferation. We investigated whether HMGB2 drives invasion through these fac-
+tors.",,"Using the SKMEL5 melanocytic cell line, we created a stable line
+expressing V5-tagged HMGB2 and performed ChIP–seq targeting V5
+and HMGB2 (Extended Data Fig. 12a). "
+mechanical,HMGB2 drives invasion through Notch and BRN2,Q2.4,"However, loss of HMGB2 did not meaningfully alter MITF expression (log2FC = 0.157;
+Extended Data Fig. 12e–g and Supplementary Table 9), ",,"indicating that
+HMGB2 may regulate pro-invasive factors instead. "
+mechanical,HMGB2 drives invasion through Notch and BRN2,Q2.4,"HMGB2 robustly
+bound the promoter of Notch signalling genes in both A375 (Extended
+Data Fig. 11d and Supplementary Table 6) and SKMEL5 (Extended Data
+Fig. 12d and Supplementary Table 8) cells. Notch family genes were also
+upregulated by human interface cells (DLL1, DLL3 and DLK2; Supple-
+mentary Table 1) and confined human melanoma cells (NOTCH2NLA,
+DLK2 and DLL4; Supplementary Table 2). ","Notch signalling promotes
+melanoma invasion through brain-2 (BRN2, also known as POU3F2)
+(ref. 48), a well-characterized pro-invasive transcription factor in mela-
+noma49 that also functions in neuronal development50. ","This indicates that invasive and neuronal phenotypes in confined interface cells are
+induced by HMGB2-mediated upregulation of Notch/BRN2 signal-
+ling. "
+mechanical,HMGB2 mediates phenotype switching,Q1.1,"Confined A375 cells downregulated many proliferation-related pathways. To visualize the influence of confinement on this trade-off,",FastFUCCI cell cycle sensor54,"we generated
+an A375 cell line stably expressing the FastFUCCI cell cycle sensor54."
+mechanical,HMGB2 mediates phenotype switching,Q2.3,"Upon confinement, all initially mitotic cells (mAG+ and S/G2–M phase)
+rapidly lost mAG fluorescence",,"indicating cell cycle exit (Fig. 5c,d)."
+mechanical,HMGB2 mediates phenotype switching,Q1.1,To directly test the role of HMGB2 in melanoma invasion,,"we used
+in vitro invasion assays (Fig. 5e) "
+mechanical,HMGB2 mediates phenotype switching,Q2.4,"and found that targeting HMGB2 with
+siRNA significantly impaired invasion (P = 0.0133; Fig. 5f,g), whereas
+overexpression of HMGB2 increased invasion (P = 0.0180; Fig. 5h,i).","Previous studies identified a fast amoeboid mode of migration induced
+by confinement and low adhesion13,55–57. ","We quantified minimal migra-
+tion of confined A375 cells"
+mechanical,HMGB2 mediates phenotype switching,Q2.3,"We quantified minimal migra-
+tion of confined A375 cells (mean velocity = 0.0838 ± 0.0025 µm min−1;
+Extended Data Fig. 13a–c)",,"which indicates that fast amoeboid migra-
+tion is not a major contributor to confinement-induced phenotypic
+plasticity in our system."
+mechanical,HMGB2 mediates phenotype switching,Q2.3,"To test the role of HMGB2 in phenotype
+switching in vivo",,"we generated BRAFV600E melanomas in zebrafish, in
+which zebrafish hmgb2a and hmgb2b were inactivated by CRISPR. "
+mechanical,HMGB2 mediates phenotype switching,Q2.3,"Loss
+of hmgb2 and hmgb2b markedly increased melanoma growth, with
+tumours growing almost 2-fold larger by 10 weeks (P = 0.0193; Fig. 5j–l)
+while also appearing less invasive than non-targeting controls (Fig. 5m).",,"These data indicate that HMGB2 is required for the invasive state, and
+that its loss pushes melanoma cells towards a hyperproliferative state."
+mechanical,HMGB2 mediates phenotype switching,Q2.4,"HMGB family proteins contain three functional domains: A-box and
+B-box DNA-binding domains and an acidic tail region58 (Extended Data
+Fig. 14a).",an acidic tail region58,"We investigated the functional domains that control HMGB2
+localization and activity in melanoma."
+mechanical,HMGB2 mediates phenotype switching,Q2.3,"when we transplanted cells expressing
+each deletion construct into mice (Extended Data Fig. 14g), as expected,
+there was no significant difference in tumour growth rates (Extended
+Data Fig. 14h,i) or acetylated tubulin at the invasive front (Extended
+Data Fig. 14j), ",,"demonstrating that either HMGB2 DNA-binding domain
+is sufficient to maintain protein function."
+mechanical,HMGB2 is associated with drug tolerance,Q1.1,"We examined how the confined invasive state affects
+therapeutic response, hypothesizing that the HMGB2-high neuronal
+state induced by confinement may promote drug tolerance",,"To test
+this, we treated confined cells with Taxol to stabilize MTs."
+mechanical,HMGB2 is associated with drug tolerance,Q2.4,"Unconfined
+cells rapidly displayed fragmented nuclear morphology and underwent
+apoptosis, whereas confined cells were almost completely resistant
+to Taxol-induced cell death (Extended Data Fig. 13d).","Taxol induces
+cancer cell death through cell cycle arrest60","indicating that confine-
+ment may cause melanoma cells to exit the cell cycle"
+mechanical,HMGB2 is associated with drug tolerance,Q2.2,"indicating that confine-
+ment may cause melanoma cells to exit the cell cycle","in accordance
+with a pro-invasive phenotype switch associated with downregulation
+of proliferation8.",N/A
+mechanical,HMGB2 is associated with drug tolerance,Q1.1,We then tested the role of HMGB2 in drug tolerance in vivo ,"dabrafenib and
+trametinib, widely used targeted therapies in melanoma61 (Fig. 5n).","by
+transplanting human melanoma cells overexpressing HMGB2 into
+athymic mice and treating the resulting tumours with dabrafenib and
+trametinib"
+mechanical,HMGB2 is associated with drug tolerance,Q2.4,"HMGB2 overexpression significantly impaired melanoma response to
+dabrafenib/trametinib in vivo (P = 0.043; Fig. 5o, Extended Data Fig. 13e
+and Supplementary Table 10). ",,"Together, our results support a role for
+confinement-mediated upregulation of HMGB2 inducing a pro-invasive
+and drug-tolerant state in melanoma (Extended Data Fig. 15)."

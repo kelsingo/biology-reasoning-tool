@@ -11,7 +11,6 @@ python -m src.gemini-experiments.convert \
 
 from ..utils.inference_gemini import run_inference
 from ..utils.common import read_jsonl, read_json, parse_json
-
 from .templates import PDF2TEXT_TEMPLATE
 from pathlib import Path
 import pandas as pd
@@ -56,7 +55,7 @@ def aggregate_results(response_folder: Path, output_folder: Path):
             with open(output_file, "w") as f:
                 json.dump(parsed, f, indent=4)
         except:
-            print(f"Cannot parse json from response of file {row["file_path"]}!")
+            print(f"Cannot parse json from response of file {row['file_path']}!")
 
 
 def main():

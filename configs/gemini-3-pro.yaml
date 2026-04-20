@@ -4,5 +4,5 @@ topK:
 thinkingConfig:
   thinkingBudget: 64000
 
-concurrent_requests: 5
+concurrent_requests: 3
 temperature: 1.0
