@@ -30,9 +30,9 @@
 }
 {
 "main_content": "These data indicate that confinement causes interface cells to adopt a neuronal identity.",
-"context": "Melanoma cell plasticity is fundamentally governed by a 'phenotype switching' model, where the transition from a proliferative state to an invasive or neuronal-like state is traditionally driven by complex biochemical signaling networks, most notably the TGF-β and Wnt pathways, which can independently remodel chromatin to alter cell identity [1].",
-"references": "10.1158/0008-5472.CAN-06-0334",
-"outcome": "Is the adoption of a neuronal identity a direct, instruction-specific consequence of mechanical force on the chromatin architecture, or does physical confinement act as a permissive stressor that sensitizes interface cells to pre-existing biochemical morphogens or hypoxia-induced signals present in the local microenvironment?"
+"context": "Melanoma cells possess significant phenotypic plasticity due to their developmental origin in the neural crest, a multipotent lineage. This allows them to switch between a proliferative melanocytic state and an invasive, neural-crest-stem-cell (NCSC)-like state that frequently expresses neuronal markers as part of a survival and dissemination strategy. (DOI: 10.1016/j.cell.2018.06.025)",
+"references": "10.1016/j.cell.2018.06.025",
+"outcome": "Therefore, mechanical confinement acts as a potent microenvironmental cue that triggers stable changes in chromatin architecture [1], concluding that the adoption of a neuronal identity by interface cells represents a specific mechanotransduction-driven transition from a proliferative state to a more invasive phenotype [1]."
 }
 {
 "main_content": "Confinement extensively remodelled the MT cytoskeleton; within 2–4 h, curved MTs began encircling the cell and nuclear periphery (Fig. 2a,b)...We also observed loss of a central MT organizing centre with radial MTs,",
@@ -42,9 +42,9 @@
 }
 {
 "main_content": "These results indicate that confined melanoma cells rapidly undergo structural changes in the MT cytoskeleton resembling neurons.",
-"context": "Cancer cell plasticity is heavily influenced by mechanical cues from the tumor microenvironment, which can drive transitions between distinct transcriptional and phenotypic states without additional genetic mutations [1]. It is an established biological principle that physical confinement forces cells to reorganize their cytoskeleton to navigate constricted spaces, often resulting in dramatic morphological changes mediated by microtubule dynamics (DOI: 10.1038/s41586-024-07137-z; DOI: 10.1016/j.ceb.2018.06.009).",
-"references": "10.1038/s41586-024-07137-z; 10.1016/j.ceb.2018.06.009",
-"outcome": "Seed human melanoma cell lines into micro-engineered PDMS (polydimethylsiloxane) channels of varying widths (e.g., 3μm for confinement vs. 50μm for control) and perform immunofluorescence staining using antibodies against α-tubulin to visualize and quantify the structural organization of the microtubule network under confocal microscopy."
+"context": "Melanoma cells originate from the neural crest, a developmental lineage that retains significant plasticity and the capacity to adopt neuronal-like features during phenotypic transitions [1]. In neuronal morphogenesis, the formation of elongated axons and dendrites is dependent on the reorganization of the microtubule (MT) cytoskeleton into stable, parallel bundles, a process typically marked by the post-translational acetylation of alpha-tubulin (DOI: 10.1126/science.1143835). Given that mechanical confinement in the tumor microenvironment has been identified as a critical trigger for melanoma cells to transition from proliferative to invasive states [1], investigating the architectural shifts and stability markers of the MT network is essential to determine if this physical cue activates a dormant neural-like structural program.",
+"references": "10.1126/science.1143835, 10.1038/s41586-024-07447-7",
+"outcome": "Perform high-resolution immunofluorescence staining for alpha-tubulin and acetylated tubulin on human melanoma cells and zebrafish-derived melanoma cells subjected to 3 µm vertical mechanical confinement to quantify microtubule bundling and stability using confocal microscopy."
 }
 {
 "main_content": "We noticed that in confined cells, the hyperacetylated tubulin network was often perinuclear (Fig. 2f,g)",

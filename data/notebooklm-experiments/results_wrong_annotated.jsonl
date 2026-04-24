@@ -1,0 +1,12 @@
+{
+"main_content": "These data indicate that confinement causes interface cells to adopt a neuronal identity.",
+"context": "Melanoma cells possess significant phenotypic plasticity due to their developmental origin in the neural crest, a multipotent lineage. This allows them to switch between a proliferative melanocytic state and an invasive, neural-crest-stem-cell (NCSC)-like state that frequently expresses neuronal markers as part of a survival and dissemination strategy. (DOI: 10.1016/j.cell.2018.06.025)",
+"references": "10.1016/j.cell.2018.06.025",
+"outcome": "Therefore, mechanical confinement acts as a potent microenvironmental cue that triggers stable changes in chromatin architecture [1], concluding that the adoption of a neuronal identity by interface cells represents a specific mechanotransduction-driven transition from a proliferative state to a more invasive phenotype [1]."
+}
+{
+"main_content": "These results indicate that confined melanoma cells rapidly undergo structural changes in the MT cytoskeleton resembling neurons.",
+"context": "Melanoma cells originate from the neural crest, a developmental lineage that retains significant plasticity and the capacity to adopt neuronal-like features during phenotypic transitions [1]. In neuronal morphogenesis, the formation of elongated axons and dendrites is dependent on the reorganization of the microtubule (MT) cytoskeleton into stable, parallel bundles, a process typically marked by the post-translational acetylation of alpha-tubulin (DOI: 10.1126/science.1143835). Given that mechanical confinement in the tumor microenvironment has been identified as a critical trigger for melanoma cells to transition from proliferative to invasive states [1], investigating the architectural shifts and stability markers of the MT network is essential to determine if this physical cue activates a dormant neural-like structural program.",
+"references": "10.1126/science.1143835, 10.1038/s41586-024-07447-7",
+"outcome": "Perform high-resolution immunofluorescence staining for alpha-tubulin and acetylated tubulin on human melanoma cells and zebrafish-derived melanoma cells subjected to 3 µm vertical mechanical confinement to quantify microtubule bundling and stability using confocal microscopy."
+}
