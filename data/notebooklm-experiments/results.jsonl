@@ -66,7 +66,7 @@
 }
 {
 "main_content": "To stabilize MTs independent of acetylation, ",
-"context": "Microtubule (MT) stability is often associated with post-translational modifications such as $\\alpha$-tubulin acetylation, but the physical stability of the MT polymer can be directly induced using taxanes. Taxanes, such as Taxol (paclitaxel), bind to the $\\beta$-tubulin subunit on the interior of the microtubule, which stabilizes the lattice and prevents depolymerization; this chemical stabilization occurs via direct structural interaction rather than through the enzymatic addition of acetyl groups, allowing researchers to study the effects of a stabilized MT network even in contexts where acetylation machinery is being studied or manipulated.",
+"context": "Microtubule (MT) stability is often associated with post-translational modifications such as $\alpha$-tubulin acetylation, but the physical stability of the MT polymer can be directly induced using taxanes. Taxanes, such as Taxol (paclitaxel), bind to the $\beta$-tubulin subunit on the interior of the microtubule, which stabilizes the lattice and prevents depolymerization; this chemical stabilization occurs via direct structural interaction rather than through the enzymatic addition of acetyl groups, allowing researchers to study the effects of a stabilized MT network even in contexts where acetylation machinery is being studied or manipulated.",
 "references": "10.1038/s41586-024-07447-3",
 "outcome": "Treat the melanoma cells with a low concentration (e.g., 5 nM) of Taxol (paclitaxel) to induce MT stabilization."
 }
