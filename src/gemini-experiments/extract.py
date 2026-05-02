@@ -18,7 +18,7 @@ python -m src.gemini-experiments.extract \
     --aggregate-only
 """
 
-from .templates import EXTRACTION_TEMPLATE
+from ..templates import EXTRACTION_TEMPLATE
 from ..utils.inference_gemini import run_inference
 from ..utils.common import read_jsonl, read_json, parse_json
 from ..utils.document_builder import generate_document

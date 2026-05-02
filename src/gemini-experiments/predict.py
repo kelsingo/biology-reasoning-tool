@@ -4,10 +4,10 @@ Prediction pipeline for Q1 and Q2 triplets.
 Usage:
 python -m src.gemini-experiments.predict \
     --paper-path "./data/gemini-experiments/conversion/formatted/" \
-    --triplets-file "./data/gemini-experiments/triplets.selected.csv" \
-    --output-folder "./data/gemini-experiments/prediction/results/selected_introduction_first" \
+    --triplets-file "./data/gemini-experiments/triplets.all.csv" \
+    --output-folder "./data/gemini-experiments/prediction/results/all_introduction_first" \
     --config-path "./configs/gemini-3-pro.yaml" \
-    --output-file "results_v0.csv" 
+    --output-file "results_all_0205.csv" 
 """
 
 from ..templates import TEMPLATE_PREDICTION_11, TEMPLATE_PREDICTION_12, TEMPLATE_PREDICTION_21, TEMPLATE_PREDICTION_22, TEMPLATE_PREDICTION_23, TEMPLATE_PREDICTION_31

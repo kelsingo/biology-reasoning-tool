@@ -54,21 +54,29 @@ Ref:            Literal text
 EXTRACTION_TEMPLATE = """
 # TASK: Scientific Reasoning Extraction
 
+
 ## Overview
+
 
 Analyze the provided scientific paper excerpt. Your task is to act as a scientific logician and extract the reasoning structures the authors use to construct their narrative. You will identify three distinct types of logical triplets: **Type Q1 (Inquiry Logic)** and **Type Q2 (Discovery Logic)** and **Type Q3 (Control Logic)**, each contains subtype(s) defined below. 
 
+
 Extracting all logical structures into subtypes of Q1, Q2, and Q3.
+
 
 ## Definitions of Logical Structures
 
+
 ### Type Q1: Inquiry Logic (Experimental Setup)
 
+
 **Concept:** This represents the author's planning phase. It connects a gap in knowledge to a specific action.
+
 
 **Logic Flow:** 
 - **Q1.1:** *Research Question/Objective [main_content] + Available Resources/Justification [context] → Operational Step [outcome]*
 - **Q1.2:** *Hypothesized mechanism [main_content] + Available Resources/Justification [context] → Operational Step [outcome]*
+
 
 | Component | Description | Example |
 |-----------|-------------|---------|
@@ -77,17 +85,21 @@ Extracting all logical structures into subtypes of Q1, Q2, and Q3.
 | `context` | The background information, prior availability of data, or existing model systems that make the experiment feasible or relevant. For Q1.2, this may also include known biological systems or pathways that motivate the proposed mechanism. This justifies *why* this specific approach was chosen. | "Given the established function of calcium as an activator of PKA (Ref: 32,33)" |
 | `outcome` | The actual methodological step, assay, or analysis performed to address the objective (Q1.1) or to test the hypothesis (Q1.2). | "we used CRISPR–Cas9 to KO CREM in two CAR-NK cell models" |
 
+
 ---
 
 ### Type Q2: Discovery Logic (Interpretation)
 
+
 **Concept:** This represents the author's synthesis phase. It connects raw data or existing biological understanding to new biological insights.
+
 
 **Logic Flow:** 
 - **Q2.1:** *Research Question [main_content] + Established Theory [context] → New Insight [outcome]*
 - **Q2.2:** *Mechanism [main_content] + Established Theory [context] → New Insight [outcome]*
 - **Q2.3:** *Empirical Evidence [main_content] + Established Theory [context] → Confirmed Insight [outcome]*
 - **Q2.4:** *Empirical Evidence [main_content] + Established Theory [context] → Hypothesized Insight [outcome]*
+
 
 | Component | Description | Example |
 |-----------|-------------|---------|
@@ -97,17 +109,22 @@ Extracting all logical structures into subtypes of Q1, Q2, and Q3.
 | `context` | Established biological rules, physical laws, or citations from external literature that act as a "lens" through which the research question can be addressed (Q2.1), the mechanism can be generalized, refined, or extended (Q2.2), or the raw data is viewed (Q2.3 and Q2.4). | "These patterns mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40)" |
 | `outcome` | The novel conclusion, hypothesis, or meaningful interpretation derived from combining the observation with the context. It describes *what it implies* for the biological system. | "This suggests that CREM acts as an inhibitory checkpoint downstream of IL-15 stimulation" |
 
+
 **Note:** 
 - Use Q2.3 when the authors present a strongly supported conclusion in `outcome` (e.g., "demonstrates", "confirms", "establishes").
 - Use Q2.4 when the authors present a tentative interpretation or hypothesis in `outcome` (e.g., "suggests", "may", "could").
 
+
 ---
+
 
 ### Type Q3: Control Logic (Research Question)
 **Concept:** This represents the author's effort to confirm a mechanism or the validity of a therapeutic strategy. It formulates questions or experimental directions to eliminate confounding factors, test alternative explanations, or assess robustness.
 
+
 **Logic Flow:** 
 - **Q3.1:** *Proposed Mechanism/Insight [main_content] + Established Theory [context] → Control/Validation Question [outcome]*
+
 
 | Component | Description | Example |
 |-----------|-------------|---------|
@@ -120,8 +137,10 @@ Extracting all logical structures into subtypes of Q1, Q2, and Q3.
 
 ## Extraction Rules
 
+
 ### Rule 1: Exhaustive Coverage
 Every sentence or phrase from any results subsection must belong to `main_content`, `context`, or `outcome` in a Q1’s or Q2’s or Q3’s subtype. Sentences are rarely redundant—if you're tempted to skip one, reconsider where it fits.
+
 
 ### Rule 2: Verbatim Extraction
 Extract text exactly as it appears in the excerpt:
@@ -129,20 +148,28 @@ Extract text exactly as it appears in the excerpt:
 - **Include** reference markers (e.g., "Ref: 14") as they indicate literature support
 - **Do NOT** correct grammar, rephrase, truncate mid-sentence, use "..." to shorten the text, or any other measures that compromise the exact extraction of the text.
 
+
 ### Rule 3: Marking Missing Components
-Use `(missing)` ONLY when the text contains no explicit statement for that component:
-- If authors state a result without citing literature or principles → `context` = `(missing)`
-- If authors state a result without interpretation → `outcome` = `(missing)`
-**Note:** The `(main_content)` is rarely missing, if you see `(context)` or `(outcome)` standalone, please recheck surrounding phrases/sentences, or consider being another triplet type. 
+Use `(N/A)` ONLY when the text contains no explicit statement for that component:
+- If authors state a result without citing literature or principles → `context` = `(N/A)` 
+- If authors state a result without interpretation → `outcome` = `(N/A)` and assigned to Q2.3 
+- If authors state a mechanism and cite related literature without further interpretation → `outcome` = `(N/A)` and assigned to Q2.2
+**Note:** The `(main_content)` is rarely N/A, if you see `(context)` or `(outcome)` standalone, please recheck surrounding phrases/sentences, or consider assigning another triplet type. 
 **Important:** Do NOT infer from general scientific knowledge. Only extract what is written.
+
 
 ### Rule 4: One Logical Unit Per Triplet
 - Extract ONE triplet per logical unit (one goal → one method (may include multiple experiments), or one observation → one interpretation)
 - If multiple observations **collectively** support ONE conclusion, group them into one Q2 triplet with combined `main_content`
 - If a single experiment yields multiple **independent** observations, create separate Q2 triplets for each
 
+
 ### Rule 5: Negative Results Are Observations
 Null findings (e.g., "X did NOT show Y", "there was no significant difference") ARE valid observations and should be extracted as Q2 `main_content`. Their interpretive significance belongs in `outcome`.
+
+
+### Rule 6: Informative Starting Component 
+Standalone `main_content` of each triplet should inform meaningful information, avoid standalone vague phrases such as "our data", "our results", "these results".  
 
 ---
 ## Handling Special Cases
@@ -153,20 +180,21 @@ When authors provide concluding statements that infer a mechanism using multiple
 
 **Option A (Preferred):** Create a final Q2 triplet for the subsection where:
 - `main_content` = the key observations being synthesized (may repeat/combine prior observations)
-- `context` = `(missing)` unless literature is cited
-- `outcome` = the synthesis statement
+- `context` = `(N/A)` unless literature is cited
+- `outcome` = the synthesis statement 
 
 **Option B:** If the conclusion directly follows a single observation, attach it as the `outcome` of that Q2 triplet instead of creating a new one.
 
-However, if the concluding statements simply summarize findings rather than infer a biological understanding, treat it as a separate result. 
+**Important:** However, if the concluding statements simply summarize findings rather than infer a biological understanding, treat it as a separate result. 
 
 ### Compound Sentences
 
-If a sentence contains elements of both Q1 and Q2 (e.g., "Given X, we did Y and found Z"):
+If a sentence contains elements of two or more reasoning (sub)types (e.g., "Given X, we did Y and found Z"):
 1. Determine the sentence's PRIMARY function:
 - If primarily setting up an experiment → Q1
 - If primarily reporting data → Q2
 - If primarily resulting in a control/validation step → Q3
+Then continue to determine its subtype. 
 2. If truly balanced, split into separate triplets
 3. The secondary elements can inform the appropriate field (e.g., a brief result mention in a Q1 can inform that the method was successful)
 
@@ -196,16 +224,46 @@ Pure transitions like "We next examined..." or "We also investigated..." should 
       "subsection": "Name of subsection",
       "triplets": [
         {
-          "type": "Q1",
-          "main_content": "The research question or goal (verbatim) OR (missing)",
-          "context": "Background/justification for approach (verbatim) OR (missing)",
-          "outcome": "The method/analysis performed (verbatim) OR (missing)"
+          "type": "Q1.1",
+          "main_content": "The research question or goal (verbatim)",
+          "context": "Background/justification for approach (verbatim) OR (N/A)",
+          "outcome": "The method/analysis performed (verbatim)"
         },
         {
-          "type": "Q2",
-          "main_content": "The empirical observation (verbatim) OR (missing)",
-          "context": "Literature or established principle (verbatim) OR (missing)",
-          "outcome": "The interpretation/conclusion (verbatim) OR (missing)"
+          "type": "Q1.2",
+          "main_content": "The hypothesized mechanism (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The method/analysis performed (verbatim)"
+        },
+        {
+          "type": "Q2.1",
+          "main_content": "The research question or goal (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The interpretation/conclusion (verbatim)"
+        },
+        {
+          "type": "Q2.2",
+          "main_content": "The hypothesized or causal relationship (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The interpretation/conclusion (verbatim) OR (N/A)"
+        },
+        {
+          "type": "Q2.3",
+          "main_content": "The empirical observation (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The confirmed interpretation/conclusion (verbatim) OR (N/A)"
+        },
+        {
+          "type": "Q2.4",
+          "main_content": "The empirical observation (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The hypothesized interpretation/conclusion (verbatim)"
+        },
+        {
+          "type": "Q3.1",
+          "main_content": "The research question or goal (verbatim)",
+          "context": "Literature or established principle (verbatim) OR (N/A)",
+          "outcome": "The research question (verbatim)"
         }
       ]
     }
@@ -213,8 +271,26 @@ Pure transitions like "We next examined..." or "We also investigated..." should 
 }
 ```
 ---
+## Decision Flowchart
+1. **Determine the primary reasoning category (Q1, Q2, or Q3) of triplet.**
+This is based on the *direction of reasoning*:
+- Q1 (experiment-driven): The reasoning leads to an experiment.
+- Q2 (Mechanism-driven): The reasoning aims to derive, generalize, confirm, or hypothesize a biological mechanism.
+- Q3 (Control/validation-driven): The triplet uses an existing mechanism to formulate a control or validation-oriented research question.
+\end{itemize}
+	
+2. **Assign the subtype (e.g., Q1.1, Q2.3).** 
+This is determined by the **starting point and outcome** of the reasoning:
+- Identify the starting component (e.g., research question, mechanism, or results).
+- Identify the outcome (e.g., experiment, derived mechanism, confirmed mechanism).
+- Match the pattern to the predefined reasoning subtypes defined above.
+
+
+---
+
 
 Now, analyze the provided scientific paper excerpt following these instructions.
+
 
 # PAPER EXCERPT:
 {{paper}}
