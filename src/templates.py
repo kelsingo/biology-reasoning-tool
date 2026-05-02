@@ -56,46 +56,72 @@ EXTRACTION_TEMPLATE = """
 
 ## Overview
 
-Analyze the provided scientific paper excerpt. Your task is to act as a scientific logician and extract the reasoning structures the authors use to construct their narrative. You will identify two distinct types of logical triplets: **Type Q1 (Inquiry Logic)** and **Type Q2 (Discovery Logic)**.
+Analyze the provided scientific paper excerpt. Your task is to act as a scientific logician and extract the reasoning structures the authors use to construct their narrative. You will identify three distinct types of logical triplets: **Type Q1 (Inquiry Logic)** and **Type Q2 (Discovery Logic)** and **Type Q3 (Control Logic)**, each contains subtype(s) defined below. 
 
-Process the text subsection by subsection, extracting all logical structures.
-
----
+Extracting all logical structures into subtypes of Q1, Q2, and Q3.
 
 ## Definitions of Logical Structures
 
-### Type Q1: Inquiry Logic (The Experimental Setup)
+### Type Q1: Inquiry Logic (Experimental Setup)
 
 **Concept:** This represents the author's planning phase. It connects a gap in knowledge to a specific action.
 
-**Logic Flow:** *Desire to Know [main_content] + Available Resources/Justification [context] → Operational Step [outcome]*
+**Logic Flow:** 
+- **Q1.1:** *Research Question/Objective [main_content] + Available Resources/Justification [context] → Operational Step [outcome]*
+- **Q1.2:** *Hypothesized mechanism [main_content] + Available Resources/Justification [context] → Operational Step [outcome]*
 
 | Component | Description | Example |
 |-----------|-------------|---------|
-| `main_content` | The specific research question, knowledge gap, or objective driving the immediate action. It describes *what* the authors want to understand. | "To determine whether CREM functions as a negative regulator in CAR-NK cells" |
-| `context` | The background information, prior availability of data, or existing model systems that make the experiment feasible or relevant. This justifies *why* this specific approach was chosen. | "Given the established function of calcium as an activator of PKA (Ref: 32,33)" |
-| `outcome` | The actual methodological step, assay, or analysis performed to achieve the goal. | "we used CRISPR–Cas9 to KO CREM in two CAR-NK cell models" |
+| `main_content` (Q1.1) | The specific research question, knowledge gap, or objective driving the immediate action. It describes *what* the authors want to understand. | "To determine whether CREM functions as a negative regulator in CAR-NK cells" |
+| `main_content` (Q1.2) | The hypothesized mechanism, causal relationship, or working model being tested. It describes what the authors think might be happening. | "We examined how the confined invasive state affects therapeutic response, hypothesizing that the HMGB2-high neuronal state induced by confinement may promote drug tolerance"|
+| `context` | The background information, prior availability of data, or existing model systems that make the experiment feasible or relevant. For Q1.2, this may also include known biological systems or pathways that motivate the proposed mechanism. This justifies *why* this specific approach was chosen. | "Given the established function of calcium as an activator of PKA (Ref: 32,33)" |
+| `outcome` | The actual methodological step, assay, or analysis performed to address the objective (Q1.1) or to test the hypothesis (Q1.2). | "we used CRISPR–Cas9 to KO CREM in two CAR-NK cell models" |
 
 ---
 
-### Type Q2: Discovery Logic (The Result Interpretation)
+### Type Q2: Discovery Logic (Interpretation)
 
-**Concept:** This represents the author's synthesis phase. It connects raw data to new biological understanding.
+**Concept:** This represents the author's synthesis phase. It connects raw data or existing biological understanding to new biological insights.
 
-**Logic Flow:** *Empirical Evidence [main_content] + Established Theory [context] → New Insight [outcome]*
+**Logic Flow:** 
+- **Q2.1:** *Research Question [main_content] + Established Theory [context] → New Insight [outcome]*
+- **Q2.2:** *Mechanism [main_content] + Established Theory [context] → New Insight [outcome]*
+- **Q2.3:** *Empirical Evidence [main_content] + Established Theory [context] → Confirmed Insight [outcome]*
+- **Q2.4:** *Empirical Evidence [main_content] + Established Theory [context] → Hypothesized Insight [outcome]*
 
 | Component | Description | Example |
 |-----------|-------------|---------|
-| `main_content` | The objective data points, statistical results, or morphological descriptions generated *specifically* in this study. It describes *what* was seen. | "CREM KO significantly enhanced the cytotoxicity of CAR-IL-15 NK cells in long-term cultures (Fig. 3a–d)" |
-| `context` | Established biological rules, physical laws, or citations from external literature that act as a "lens" through which the raw data is viewed. | "These patterns mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40)" |
+| `main_content` (Q2.1) | The research question or objective that the author want to understand. It is used as a starting point to generate a possible mechanistic explanation when combined with prior knowledge. | "To investigate how mechanical confinement induces HMGB2 upregulation" |
+| `main_content` (Q2.2) | The hypothesized mechanism, causal relationship, or working model being tested. | "mTOR signalling has a key role downstream of taurine in leukaemia cells.  (Fig. 3a–d)" |
+| `main_content` (Q2.3 or Q2.4) | The objective data points, statistical results, or morphological descriptions generated *specifically* in this study. It describes *what* was seen. | "CREM KO significantly enhanced the cytotoxicity of CAR-IL-15 NK cells in long-term cultures (Fig. 3a–d)" |
+| `context` | Established biological rules, physical laws, or citations from external literature that act as a "lens" through which the research question can be addressed (Q2.1), the mechanism can be generalized, refined, or extended (Q2.2), or the raw data is viewed (Q2.3 and Q2.4). | "These patterns mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40)" |
 | `outcome` | The novel conclusion, hypothesis, or meaningful interpretation derived from combining the observation with the context. It describes *what it implies* for the biological system. | "This suggests that CREM acts as an inhibitory checkpoint downstream of IL-15 stimulation" |
+
+**Note:** 
+- Use Q2.3 when the authors present a strongly supported conclusion in `outcome` (e.g., "demonstrates", "confirms", "establishes").
+- Use Q2.4 when the authors present a tentative interpretation or hypothesis in `outcome` (e.g., "suggests", "may", "could").
+
+---
+
+### Type Q3: Control Logic (Research Question)
+**Concept:** This represents the author's effort to confirm a mechanism or the validity of a therapeutic strategy. It formulates questions or experimental directions to eliminate confounding factors, test alternative explanations, or assess robustness.
+
+**Logic Flow:** 
+- **Q3.1:** *Proposed Mechanism/Insight [main_content] + Established Theory [context] → Control/Validation Question [outcome]*
+
+| Component | Description | Example |
+|-----------|-------------|---------|
+| `main_content` | The hypothesized mechanism, which can be a biological mechanism or effectiveness of a therapeutic strategy. | "It is therefore possible that non-genetic approaches using small-molecule inhibitors or gene silencing may identify a therapeutic window for TAUT targeting in human cells." |
+| `context` | Established biological principles, known pathways, or prior findings that introduce potential confounders, alternative explanations, or limitations. | "These patterns mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40)" |
+| `outcome` | A research question or validation objective designed to test the validity or limitations of the proposed mechanism. It describes what needs to be ruled out or confirmed. | "We therefore tested the impact of TAUT inhibition on growth and proliferation of normal human HSPCs as well as patient-derived AML cells." |
+
 
 ---
 
 ## Extraction Rules
 
 ### Rule 1: Exhaustive Coverage
-Every sentence from any results subsection must belong to `main_content`, `context`, or `outcome` of either a Q1 or Q2 triplet. Sentences are rarely redundant—if you're tempted to skip one, reconsider where it fits.
+Every sentence or phrase from any results subsection must belong to `main_content`, `context`, or `outcome` in a Q1’s or Q2’s or Q3’s subtype. Sentences are rarely redundant—if you're tempted to skip one, reconsider where it fits.
 
 ### Rule 2: Verbatim Extraction
 Extract text exactly as it appears in the excerpt:
@@ -105,27 +131,25 @@ Extract text exactly as it appears in the excerpt:
 
 ### Rule 3: Marking Missing Components
 Use `(missing)` ONLY when the text contains no explicit statement for that component:
-- If authors state a method without an explicit goal → `main_content` = `(missing)`
 - If authors state a result without citing literature or principles → `context` = `(missing)`
 - If authors state a result without interpretation → `outcome` = `(missing)`
-
+**Note:** The `(main_content)` is rarely missing, if you see `(context)` or `(outcome)` standalone, please recheck surrounding phrases/sentences, or consider being another triplet type. 
 **Important:** Do NOT infer from general scientific knowledge. Only extract what is written.
 
 ### Rule 4: One Logical Unit Per Triplet
-- Extract ONE triplet per logical unit (one goal → one method, or one observation → one interpretation)
-- If a single experiment yields multiple **independent** observations, create separate Q2 triplets for each
+- Extract ONE triplet per logical unit (one goal → one method (may include multiple experiments), or one observation → one interpretation)
 - If multiple observations **collectively** support ONE conclusion, group them into one Q2 triplet with combined `main_content`
+- If a single experiment yields multiple **independent** observations, create separate Q2 triplets for each
 
 ### Rule 5: Negative Results Are Observations
 Null findings (e.g., "X did NOT show Y", "there was no significant difference") ARE valid observations and should be extracted as Q2 `main_content`. Their interpretive significance belongs in `outcome`.
 
 ---
-
 ## Handling Special Cases
 
 ### Summary/Conclusion Statements
 
-When authors provide concluding statements (e.g., "Collectively...", "Together, these data suggest...", "These findings indicate..."):
+When authors provide concluding statements that infer a mechanism using multiple results (e.g., "Collectively...", "Together, these data suggest...", "These findings indicate..."):
 
 **Option A (Preferred):** Create a final Q2 triplet for the subsection where:
 - `main_content` = the key observations being synthesized (may repeat/combine prior observations)
@@ -134,34 +158,35 @@ When authors provide concluding statements (e.g., "Collectively...", "Together, 
 
 **Option B:** If the conclusion directly follows a single observation, attach it as the `outcome` of that Q2 triplet instead of creating a new one.
 
+However, if the concluding statements simply summarize findings rather than infer a biological understanding, treat it as a separate result. 
+
 ### Compound Sentences
 
 If a sentence contains elements of both Q1 and Q2 (e.g., "Given X, we did Y and found Z"):
-
 1. Determine the sentence's PRIMARY function:
-   - If primarily setting up an experiment → Q1
-   - If primarily reporting data → Q2
-2. If truly balanced, split into two triplets
+- If primarily setting up an experiment → Q1
+- If primarily reporting data → Q2
+- If primarily resulting in a control/validation step → Q3
+2. If truly balanced, split into separate triplets
 3. The secondary elements can inform the appropriate field (e.g., a brief result mention in a Q1 can inform that the method was successful)
 
 ### Transitional Phrases
 
 Pure transitions like "We next examined..." or "We also investigated..." should be:
 - Incorporated into the Q1 `main_content` if they express a goal
-- Marked as `main_content` = `(missing)` if they only introduce a method with no stated purpose
+- Incorporated into the Q2/Q3 `outcome` if they logically follows a previous result or interpretation 
 
 ---
 
 ## What NOT to Extract as Separate Triplets
 
 - Figure legends or detailed panel descriptions (unless they contain interpretive claims)
-- Pure statistical method details without biological interpretation
 - Repeated statements of the same finding in different words (consolidate into one triplet)
 - Background information in the Introduction (only extract from Results sections)
 
 ---
-
 ## Output Format
+
 
 ```json
 {
@@ -187,130 +212,6 @@ Pure transitions like "We next examined..." or "We also investigated..." should 
   ]
 }
 ```
-
----
-
-## Decision Flowchart
-
-```
-For each sentence/clause, ask:
-
-1. Does it state what the authors WANTED to know or do?
-   → Yes: This is Q1 main_content
-   → No: Continue to #2
-
-2. Does it state HOW something was done (method/analysis)?
-   → Yes: This is Q1 outcome
-   → No: Continue to #3
-
-3. Does it report DATA or OBSERVATIONS from this study?
-   → Yes: This is Q2 main_content
-   → No: Continue to #4
-
-4. Does it cite external literature or state established principles?
-   → Yes: This is context (for either Q1 or Q2, depending on what it supports)
-   → No: Continue to #5
-
-5. Does it state an INTERPRETATION, CONCLUSION, or IMPLICATION?
-   → Yes: This is Q2 outcome
-   → No: Re-examine—the sentence likely fits one of the above
-```
-
----
-
-## Self-Validation Checklist
-
-Before finalizing your extraction, verify:
-
-- [ ] Every data-containing sentence is captured in at least one triplet
-- [ ] No observation appears as `main_content` in multiple Q2 triplets (avoid redundancy)
-- [ ] Q1 triplets have methods (`outcome`) that logically address the stated goal (`main_content`)
-- [ ] Q2 triplets have conclusions (`outcome`) that logically follow from observation + context
-- [ ] `(missing)` is used only when text is truly absent, not merely implicit
-- [ ] Summary statements at subsection ends are handled consistently (either as standalone Q2 or attached to prior triplet)
-
----
-
-## Examples
-
-### Example 1: Complete Q1 Triplet
-
-**Text:** "To determine whether the canonical PKA–CREB axis is involved in CREM induction after NK cell activation, we measured phosphorylated CREB (pCREB) levels in NK cells after CAR or IL-15 stimulation."
-
-```json
-{
-  "type": "Q1",
-  "main_content": "To determine whether the canonical PKA–CREB axis is involved in CREM induction after NK cell activation",
-  "context": "(missing)",
-  "outcome": "we measured phosphorylated CREB (pCREB) levels in NK cells after CAR or IL-15 stimulation"
-}
-```
-
-### Example 2: Q1 with Context
-
-**Text:** "Given the established function of calcium as an activator of PKA (Ref: 32,33) and its pivotal role in the immune cell activation cascade (Ref: 34), we also chelated calcium with EGTA."
-
-```json
-{
-  "type": "Q1",
-  "main_content": "(missing)",
-  "context": "Given the established function of calcium as an activator of PKA (Ref: 32,33) and its pivotal role in the immune cell activation cascade (Ref: 34)",
-  "outcome": "we also chelated calcium with EGTA"
-}
-```
-
-### Example 3: Simple Q2 (Observation Only)
-
-**Text:** "UMAP clearly distinguished the transcriptional profiles of CAR19-IL-15 NK cells before and after infusion (Fig. 1b)."
-
-```json
-{
-  "type": "Q2",
-  "main_content": "UMAP clearly distinguished the transcriptional profiles of CAR19-IL-15 NK cells before and after infusion (Fig. 1b)",
-  "context": "(missing)",
-  "outcome": "(missing)"
-}
-```
-
-### Example 4: Complete Q2 Triplet
-
-**Text:** "Motif enrichment analysis revealed that binding motifs for JUN-related factors were highly enriched in CREM KO compared with WT cells (Fig. 5h,i). These patterns of enriched AP-1 motifs mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40) and may underlie the enhanced persistence and function of CREM KO CAR-NK cells."
-
-```json
-{
-  "type": "Q2",
-  "main_content": "Motif enrichment analysis revealed that binding motifs for JUN-related factors were highly enriched in CREM KO compared with WT cells (Fig. 5h,i)",
-  "context": "These patterns of enriched AP-1 motifs mirror epigenetic signatures associated with long-lived memory T cells (Ref: 40)",
-  "outcome": "and may underlie the enhanced persistence and function of CREM KO CAR-NK cells"
-}
-```
-
-### Example 5: Summary Statement as Q2
-
-**Text:** "Collectively, these findings indicate that both CAR ITAM signalling and IL-15 are potent inducers of CREM in NK cells, thereby highlighting their complex interplay in regulating NK cell activity."
-
-```json
-{
-  "type": "Q2",
-  "main_content": "Stimulation with CD70 antigen increased CREM expression only in CAR70 NK cells. IL-15 treatment resulted in a dose-dependent increase in CREM expression. Stimulation with both CD70 antigen and exogenous IL-15 resulted in an additive increase in CREM expression.",
-  "context": "(missing)",
-  "outcome": "Collectively, these findings indicate that both CAR ITAM signalling and IL-15 are potent inducers of CREM in NK cells, thereby highlighting their complex interplay in regulating NK cell activity."
-}
-```
-
-### Example 6: Negative Result
-
-**Text:** "CREM KO did not have a significant effect on the function of NT NK cells."
-
-```json
-{
-  "type": "Q2",
-  "main_content": "CREM KO did not have a significant effect on the function of NT NK cells",
-  "context": "(missing)",
-  "outcome": "(missing)"
-}
-```
-
 ---
 
 Now, analyze the provided scientific paper excerpt following these instructions.
