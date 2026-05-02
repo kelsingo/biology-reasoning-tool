@@ -1,0 +1,18 @@
+title,type,subsection,main_content,context,outcome,predicted_references,predicted_context,predicted_outcome
+mechanical,Q2.2,Confinement remodels the cytoskeleton,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity. ","Neuronal development relies on microtubule (MT) architecture,
+influencing almost every aspect of neuronal structure and function14.
+The cytoskeleton often transmits force within and between cells and
+remodels in response to mechanical stimuli15. Recent reports indicate
+that the MT cytoskeleton is stabilized by force to protect confined cells
+from damage16.","We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment.","10.1016/j.cell.2018.06.040, 10.1126/science.aba2894","It is well established that melanoma cells retain extensive developmental plasticity due to their neural crest origin, allowing them to dedifferentiate into multipotent neural crest or neuromesenchymal states under microenvironmental stress. Furthermore, physical confinement and cellular squeezing directly induce nuclear deformation, which alters chromatin architecture and epigenetic states (e.g., changes in heterochromatin distribution and mechanosensitive transcriptional activation) to reactivate dormant developmental and migratory gene expression programs.","Therefore, this suggests that mechanical confinement at the tumor-stroma interface acts as a biophysical trigger that directly remodels chromatin architecture to unlock and upregulate latent neural crest/neuronal developmental pathways. This mechanogenomic transition shifts the cells from a proliferative state to a highly invasive, neuronal-like phenotypic state, driving spatial heterogeneity and tumor progression."
+mechanical,Q1.2,Confinement remodels the cytoskeleton,"These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons.","Acetylated tubulin mediates neuronal architecture and function
+and marks axonal MTs18. Tubulin acetylation stabilizes MTs and thus
+the cell against mechanical pressure19. Curved MTs, such as those we
+observed in confined cells (Fig. 2a,b), are also indicative of long-lived,
+stabilized MTs19.","We performed immunofluorescence on sections from
+adult fish with transgenic BRAFV600E-driven melanomas ... Confining A375 cells in vitro",10.1038/nmeth.2836; 10.1016/j.cell.2015.01.036,"Melanoma cells originate from the neural crest and retain a high degree of phenotypic plasticity, allowing them to adopt neuron-like morphological states under environmental stress. Mechanical confinement can be strictly modeled in vitro using defined-height microfluidic chambers. To monitor rapid, real-time structural dynamics of the microtubule (MT) cytoskeleton without fixation artifacts during mechanical compression, live-cell fluorescence microscopy utilizing highly specific fluorogenic probes (such as SiR-tubulin) or genetically encoded fluorescent tubulin fusion proteins is the gold standard.","Seed human melanoma cells (e.g., A375 or A2058 cell lines) into polydimethylsiloxane (PDMS) microfluidic confinement devices featuring a restricted ceiling height of 3 µm to induce mechanical confinement, alongside 10 µm unconfined controls. Stain the cells with the live-cell microtubule probe SiR-tubulin, and perform time-lapse confocal microscopy over a 12-to-24 hour period to track and quantify MT network reorganization, specifically measuring the rapid formation and length of neurite-like, tubulin-rich cellular extensions."

@@ -1,0 +1,620 @@
+paper,type,subsection,main_content,context,outcome
+yeast,Q1.1,"High-quality assemblies of 1,482 genomes","To comprehensively capture species-wide diversity, ... (Fig. 1a)",,"we sequenced 989 natural S. cerevisiae isolates using Oxford Nanopore technology (ONT)19,34 ... We supplemented this with ONT data from 14 beer isolates35 and 24 Taiwanese isolates36, for a total of 1,027 isolates. A hybrid assembly pipeline was utilized to maximize contiguity and completeness (Supplementary Fig. 2 and Methods), ... We also included 71 assemblies from the S. cerevisiae reference assembly panel7, resulting in 1,086 isolates overall."
+yeast,Q1.1,Species-wide SV spectrum,... to assess structural heterozygosity in S. cerevisiae.,,we used haplotype-resolved assemblies from 396 heterozygous isolates
+yeast,Q2.3,Species-wide SV spectrum,"SVs in subtelomeric regions showed higher heterozygosity (Extended Data Fig.4d), ",consistent with the known structural variability of these regions.,N/A
+yeast,Q2.3,Genomic distribution of SVs,"We analysed the genomic distribution of SVs and found it to be highly uneven, with significant enrichment in subtelomeric regions (two-sided Fisher exact test, P = 1.1 × 10−309). Although SNPs and indels are also enriched in these regions, the enrichment is much stronger for SVs (Fig. 2d). By computing structural diversity along the genome, we identified bursts of diversity that are often specific to a single SV type (Fig. 2e) and defined 46 SV hotspots (Supplementary Table5), including 21 translocation hotspots, nearly all in subtelomeric regions. One notable exception is a well-described reciprocal translocation between chromosomes 8 and 16, ... SSU1 gene located near the breakpoint38 (Fig. 2e). Hotspots for PAVs, CNVs and inversions often mapped to TE-rich regions or ... such as FLO39,40, CUP1 ..., and ... such as HPF1, SPA2 and NUM1 .... An inversion hotspot on chromosome 14 overlaps a 24-kb region flanked by inverted repeats, ...","...which confers sulfite resistance through the overexpression of the SSU1 gene located near the breakpoint38...  SV-prone genes, such as FLO39,40 CUP1 (ref.41), ... genes with tandem repeats, ...(refs. 42,43) ... probably driven by recombination44","These findings indicate that SV hotspots arise either from genome fragility, linked to Ty elements or repetitive sequences, or from adaptive pressures targeting specific genes."
+yeast,Q1.2,Genomic distribution of SVs,"These findings indicate that SV hotspots arise either from genome fragility, linked to Ty elements or repetitive sequences, or from adaptive pressures targeting specific genes. To distinguish these mechanisms, ",,we examined the distribution of hotspot SVs across species clades with known ecological origins45.
+yeast,Q2.4,Genomic distribution of SVs,"Out of the 46 hotspots, 23 were evenly distributed across clades and localized to fragile regions (Supplementary Table 5), whereas the remaining 23 were clade-enriched, ... —for example, SVs associated with sulfite and copper resistance were enriched in wine isolates (Supplementary Table 5).",,reflecting either population bottlenecks or local adaptation
+yeast,Q1.1,SV diversity and population structure,"To explore the relationship between population structure and SV diversity,",,we built separate phylogenies using SNP and SV genotypes (Supplementary Fig.3).
+yeast,Q2.3,A complete gene-based pangenome,"The pangenome consists of 5,047 core genes shared by all isolates and 3,494 accessory genes with variable presence. Accessory genes were further classified into soft core (1,263 genes present in >90% of isolates), dispensable (2,102 genes in 0.001–90%) and private (129 genes unique to one isolate) categories (Fig. 3a). The high proportion of core and soft core genes (73.9%) indicates moderate gene content variation, ","consistent with a closed pangenome typical of many eukaryotes14,18,25,46–48.",N/A
+yeast,Q2.3,A complete gene-based pangenome,"Using previously generated transcriptomic data20, we found that core genes are more highly expressed than accessory genes (Supplementary Fig. 5), ","consistent with findings in other species14,18,49,50.",N/A
+yeast,Q1.1,A complete gene-based pangenome,"To investigate the origin of non-reference genes, ",,we aligned novel gene sequences to a curated eukaryotic database (Supplementary Table 8 and Methods).
+yeast,Q2.4,A complete gene-based pangenome,"Among the 2,199 novel genes, 1,233 (56.1%) showed highest similarity to close Saccharomyces relatives, ",,"suggesting introgression,"
+yeast,Q2.4,A complete gene-based pangenome,"Among the 2,199 novel genes, ... 358 (16.3%) were most similar to non-Saccharomyces species, ",,which is indicative of horizontal gene transfers (HGTs)
+yeast,Q2.4,A complete gene-based pangenome,"Among the 2,199 novel genes, ... The remaining 92 genes (4.2%) lacked significant similarity ",and may represent de novo gene birth51.,and may represent de novo gene birth51.
+yeast,Q2.3,A complete gene-based pangenome,"Enrichment analyses showed widespread introgression across clades, with notably high levels in Alpechín, Mexican agave, and French Guiana isolates, ... (Fig. 3f and Supplementary Table 10).","confirming past hybridization events19,53,54",N/A
+yeast,Q2.4,A complete gene-based pangenome,"HGTs were also identified in wine isolates, ... and partially shared with the Mixed Origins 1 clade, ","consistent with previous reports19,55,",suggesting post-acquisition intraspecific gene flow.
+yeast,Q2.4,Complexity differs across trait types,"SV-QTL make up 18.6% and 41.1% of the total QTL for molecular and organismal traits, respectively, both enriched relative to the 7.4% frequency of SVs among common variants (two-sided Fisher’s exact test, P = 2.4 × 10−118 and 2.6 × 10−33). However, the enrichment is stronger for organismal traits (5.6-fold) than for molecular traits (2.5-fold), ... (Fig. 5c and Supplementary Fig. 10).",,suggesting that SVs have a more prominent role in shaping complex organismal phenotypes
+yeast,Q1.1,Diversity with a graph pangenome,"To facilitate SV genotyping in other S. cerevisiae collections and capture the full spectrum of structural diversity, ",,"we constructed a reference graph pangenome using 500 haplotypes, including the linear reference genome."
+crispr,Q1.1,Scalable characterization of SpCas9 PAM variants,"To generate datasets necessary to train a machine learning model to link protein sequence to function (PAM specificity), ","structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43 ... These six  amino acids modulate specificity for the 3rd and 4th PAM bases in the context of the engineered enzymes SpCas9-VRER, SpCas9-VRQR and SpG3,14,42 (Supplementary Note3). ... the residue that contacts the second guanine of the SpCas9 PAM10, largely abrogated enzyme activity (Supplementary Note 3) ...","we sought to engineer and characterize a sufficiently large collection of novel SpCas9 enzymes with altered PAM preferences. We generated a saturation mutagenesis library of SpCas9 variant enzymes using a structure–function-informed approach based on SpCas9 structures10 and previous engineering efforts3,14,42,43, simultaneously mutating six amino acid residues within the SpCas9 PI domain,... We selected residues D1135, S1136, G1218, E1219, R1335 and T1337 for saturation mutagenesis, and individual enzymes within the library are hereafter named according to amino acid identities at these six positions. Expansion of our library to also mutate R1333, ... . We therefore focused our efforts on altering the 3rd and 4th positions of the PAM."
+crispr,Q1.1,Scalable characterization of SpCas9 PAM variants,"To identify SpCas9 PAM variant enzymes with activity on noncanonical PAMs, ","bacterial-based positive selection assays14,44","we performed an extensive set of bacterial-based positive selection assays14,44 to select for enzymes that are capable of cleaving target sites bearing each of the 16 possible NGNN PAMs, which have a fixed G nucleotide at the second position and that vary at the third and fourth positions (Extended Data Fig.2b,c and Supplementary Note 4)."
+crispr,Q1.1,Scalable characterization of SpCas9 PAM variants,"Next, we linked amino acid sequence to PAM specificity for the 634 recovered SpCas9 enzymes. To identify the amino acid substitutions in the SpCas9 enzymes,",multiplex PCR45 ... high-throughput PAM determination assay46 ...,"we performed an arrayed plasmid sequencing method for rapid and inexpensive whole open reading frame identification based on multiplex PCR45 (Supplementary Fig. 1). The PAM specificities of each of the 634 SpCas9 enzymes were then characterized using a high-throughput PAM determination assay46 (HT-PAMDA; Fig. 1c,d, Supplementary Table1 and Supplementary Fig.2)."
+crispr,Q2.4,Scalable characterization of SpCas9 PAM variants,"We selected residues D1135, S1136, G1218, E1219, R1335 and T1337 for saturation mutagenesis ...  rationally design more optimal PAM-selective enzymes by testing ‘consensus’ enzymes for each of the 16 NGNN PAMs, assessed by combining the most enriched amino acids at each of the six positions recovered from each selection (Extended Data Fig. 2c). ... When assessing the PAM requirements of the consensus enzymes using HT-PAMDA (Supplementary Fig.6a), most enzymes did not efficiently target the PAM for which they were designed, with only 4 of 31 consensus enzymes exhibiting maximal efficiency against their intended PAMs (Fig. 1e and Supplementary Fig.6b). The rationally designed consensus enzymes generally had weaker efficiencies than the enzymes obtained directly from bacterial selections (Fig. 1e and Supplementary Fig.6a). ",,"These results indicate that mutations at these six positions do not contribute to PAM preference independently, but rather interact with one another in an epistatic manner;"
+crispr,Q1.1,Scalable characterization of SpCas9 PAM variants,"To approximate the fraction of the 64 million enzymes encoded with our SpCas9(6AA) library that retained editing activity on any PAM, ",,we performed HT-PAMDA on 135 randomly chosen library members.
+crispr,Q2.4,Scalable characterization of SpCas9 PAM variants,"resulting in a library with theoretical complexity of 64 million enzymes (the SpCas9(6AA) library)... Unexpectedly, we found that approximately 18% of the enzymes in the SpCas9(6AA) library were capable of editing on at least one PAM, many of them with non-canonical PAM preferences (Fig. 1f). ",,"This observation suggested that among the millions of possible combinations of residues in our six-position library, more than 10 million enzymes may be functional, the vast majority of which remain uncharacterized."
+crispr,Q1.1,Learning PAM preference from amino acid sequence,We therefore sought to explore the entire fitness landscape of our SpCas9(6AA) library via machine learning.,"Georgiev47, a physiochemical descriptor that can improve performance of some machine learning models  for protein engineering25","We utilized our two HT-PAMDA datasets as training data for a machine learning model, including functional enzymes derived from our bacterial selections on the 16 NGNN PAMs and random (non-selected) enzymes from the SpCas9(6AA) library. We reasoned that including some inactive enzymes in our training set would provide information about combinations of amino acids that lead to non-functional enzymes. To account for the imbalanced nature of our training data towards NGG-targeting enzymes and relaxed variants that are most active on NGTG PAMs (Fig. 1f), we assigned a label to each training example based on its most active PAM and randomly oversampled to balance across PAM classes. We trained machine learning models to predict the rate constant k on each of the 64 PAMs (positions 2–4) when provided with a 6AA sequence as an input (Fig. 2a), and compared the ability of different machine learning models to extrapolate to amino acid combinations not encountered in the training set. Linear regression, random forest and neural network models were tested in combination with different feature encodings as inputs to the model (one-hot encoding of each amino acid substitution; one-hot encoding of all single plus pairwise amino acid combinations; and Georgiev47, a physiochemical descriptor that can improve performance of some machine learning models  for protein engineering25; Extended Data Fig.3a). Model architectures and amino acid encoding were compared using an internal fivefold cross-validation (Extended Data Fig.3a)."
+crispr,Q2.3,Learning PAM preference from amino acid sequence,"When predicting the impact of the single E1219V mutation, PAMmla produced a predicted PAM profile remarkably similar to the experimental data for xCas9 (Fig. 2i), supporting previous evidence that",the single E1219V mutation was the major contributor to the altered PAM of xCas9 (ref. 3).,
+crispr,Q1.1,Machine learning-assisted prediction of PAM variant enzymes,... to discover novel PAM variant enzymes by predicting the PAM profiles for each of the 64 million possible enzymes in the SpCas9(6AA) library (Supplementary Fig. 7).,,"We then utilized PAMmla ... The resulting enzymes were sorted by their predicted PAM profiles on activity alone (kPAM) or selectivity (kPAM/sum(kall_PAMs)) for each of the 16 NGNN PAMs (Fig. 3a). Among the top predicted enzymes for each criterion and PAM, we chose between 3 and 10 enzymes to experimentally validate PAMmla predictions using HT-PAMDA (for 281 enzymes; Fig. 3b, Supplementary Table2 and Supplementary Fig.8a–c)."
+crispr,Q1.1,Machine learning-assisted prediction of PAM variant enzymes,We investigated potential functional roles of the amino acid substitutions in PAMmla-predicted enzymes (Supplementary Note 6).,(SHAP)48 ,"Using shapely additive explanations (SHAP)48 analysis of machine learning feature importance (Extended Data Fig. 4) and structural modelling (Extended Data Fig.5),"
+crispr,Q1.2,Specificity of PAMmla-predicted enzymes,"...PAMmla-predicted enzymes with altered PAM requirements should encounter fewer potential off-targets due to their more limited targeting ranges. To test this hypothesis,","SpCas9 enzymes with relaxed PAM requirements are more prone to off-target editing as they search a larger fraction of the genome and thus encounter a larger number of potential off-target sites3,6,21. ... GUIDE-seq2 (ref. 53)","we utilized a cell-based unbiased genome-wide off-target assay, GUIDE-seq2 (ref. 53), to identify nuclease-cleaved off-target sites."
+crispr,Q1.2,Specificity of PAMmla-predicted enzymes,"To verify the on-target and off-target benefits of PAMmla versus generalist enzymes in human patient-derived cells, ","Patients with X-CGD are highly susceptible to invasive infections and hyperinflammation that results in substantial morbidity and early mortality. CYBB mutations may be correctable through ex vivo editing of haematopoietic stem cells54,55. ","we sought to correct a CYBB mutation in cells from an individual with X-linked chronic granulomatous disease (X-CGD). ... Using patient-derived Epstein–Barr virus-transformed B cells harbouring the CYBBT362I mutation,"
+crispr,Q1.1,PAMmla-enabled allele-specific editing in vivo,... to investigate specificity improvements with the allele-selective PAMmla enzymes.,,we performed off-target analyses via GUIDE-seq2
+crispr,Q1.1,PAMmla-enabled allele-specific editing in vivo,"To examine potential structural determinants of the PAM-selective preferences of MRRWMR and KRHWMR, ",,we modelled their mutations and investigated their contributions to PAMmla-predicted rates on NGTG and NGGG PAMs using SHAP (Fig. 5h–k and Extended Data Fig.11a–e).
+crispr,Q1.1,PAMmla-enabled allele-specific editing in vivo,We assessed the in vivo editing efficiency and allele specificity of MRRWMR and KRHWMR in mouse retinas.,,Subretinal plasmid injections in humanized heterozygous WT-hRHO–GFP/P23H-hRHO–RFP mice at postnatal days 0–2 (P0–P2) were performed before in vivo electroporation.
+mechanical,Q1.1,Tumour gene expression altered by TME,To study the influence of the local microenvironment on tumour invasion,,"we applied spatially resolved transcriptomics and single-cell
+RNA sequencing (scRNA-seq) to a transgenic zebrafish model of
+BRAFV600E-driven melanoma (Fig. 1a)"
+mechanical,Q2.3,Tumour gene expression altered by TME,"Tumours from this model fre-
+quently invade into adjacent tissues, including the underlying dermis
+and muscle. Across fish, we found a conserved ‘interface’ transcrip-
+tional cell state that occurs where tumour cells invade into the micro-
+environment6 (12.1% of zebrafish tumour cells; Fig. 1a).","‘interface’ transcrip-
+tional cell state that occurs where tumour cells invade into the micro-
+environment6",N/A
+mechanical,Q1.1,Tumour gene expression altered by TME,"To investigate whether these interface cells occur in patients, ","recently published human melanoma scRNA-seq dataset
+of 7,186 tumour and stromal cells from 31 patients with untreated
+or immunotherapy-resistant melanoma7","we
+analysed a recently published human melanoma scRNA-seq dataset
+of 7,186 tumour and stromal cells from 31 patients with untreated
+or immunotherapy-resistant melanoma7 (Fig. 1b and Extended Data
+Fig. 1a). We scored tumour cells for the relative expression of inter-
+face genes from our zebrafish transcriptomic datasets."
+mechanical,Q1.1,Tumour gene expression altered by TME,"a subpopulation of human tumour cells highly upregulated interface markers ... mostly from immunotherapy-resistant patients. To better understand the nature of these
+cells","A previous study defined at least four cell states that encompass
+the melanoma differentiation trajectory (melanocytic, transitory, neu-
+ral crest-like and undifferentiated)2 ","we compared our interface population to human melanoma cell
+states...We scored tumour and interface
+cells for the relative expression of gene modules encompassing the
+entire melanoma cell differentiation trajectory and classified cells into
+each of the four states on the basis of their expression of gene mod-
+ules annotated for that state2."
+mechanical,Q2.3,Tumour gene expression altered by TME,"Interface cells downregulated MITF
+and SOX10 and upregulated SOX9 (Fig. 1f and Extended Data Fig. 1g).
+Classical melanocyte pigmentation genes were minimally expressed
+by interface cells relative to the tumour bulk, including MITF (log2 fold
+change (FC) = −5.19), TYRP1 (log2FC = −7.75) and PMEL (log2FC = −8.78)
+(Fig. 1f, Extended Data Fig. 1g and Supplementary Table 1)... Unexpect-
+edly, interface cells also upregulated genes involved in neuronal
+development, including SOX11 (log2FC = 5.15), NNAT (log2FC = 8.61),
+NEUROD1 (log2FC = 6.22) and NEFM (log2FC = 6.19) (Fig. 1g and Sup-
+plementary Table 1). Gene set enrichment analysis (GSEA) revealed that
+transcriptional programs linked to cell fate specification and neuronal
+development were highly enriched in interface cells (Fig. 1h,i).","Melanoma behaviour is regulated by phenotype switching, in which
+cells transition between differentiated/proliferative and undifferen-
+tiated/invasive states. The transition between the proliferative and
+invasive states is regulated by the transcription factors MITF, SOX9
+and SOX10, among others8. MITF and SOX10 regulate melanocyte dif-
+ferentiation and proliferation9,10, whereas SOX9 is associated with the
+undifferentiated invasive state11.","These
+data indicate that interface cells adopt an invasive state with markers
+of neuronal development."
+mechanical,Q1.1,Confinement induces a neuronal state,"To examine factors within the local TME that may drive the interface
+state",,"we performed histology on tissue sections from our transgenic
+zebrafish melanoma model, focusing on the invasive front."
+mechanical,Q2.4,Confinement induces a neuronal state,"Tumour
+cells invading into the TME showed elongated nuclei compared with
+the bulk tumour mass (Fig. 1j,k). ","A previous study showed that tumour
+nuclei become highly elongated when squeezing through mechanically
+restrictive environments12. Although numerous factors probably influ-
+ence tumour invasion, ","we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour."
+mechanical,Q1.2,Confinement induces a neuronal state,"we hypothesized that mechanical forces exerted
+on the cell/nucleus may cause stable changes in gene expression and
+tumour cell behaviour. To test this hypothesis,","a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13","we adapted a system to confine human mela-
+noma cells (A375 cell line) in vitro at predefined heights (3 µm) using a
+polydimethylsiloxane piston and micropatterned coverslips13 (Fig. 1l)."
+mechanical,Q2.3,Confinement induces a neuronal state,"confined cells did not
+upregulate apoptosis markers cleaved caspase-3, annexin V or cleaved
+PARP (Extended Data Fig. 2a–f)...Post-confinement, cells recovered typi-
+cal morphology within 24 h without widespread cell death (Extended
+Data Fig. 2g).",,Confinement in vitro was not cytotoxic
+mechanical,Q1.1,Confinement induces a neuronal state,To profile confinement-induced changes in gene expression,,"we confined A375 cells for approximately 18 h and performed
+bulk RNA-seq."
+mechanical,Q2.4,Confinement induces a neuronal state,"Principal component analysis revealed considerable transcriptional alterations induced by confinement (Fig. 1m and Sup-
+plementary Table 2). ... confined cells
+upregulated several neuronal pathways (Fig. 1n and Supplementary
+Table 2). We calculated the overlap between the human interface gene
+signature and the confined melanoma gene signature (Extended Data
+Fig. 2h and Supplementary Table 3). Pathway analysis showed that
+many of the co-regulated genes were related to neuronal development (Extended Data Fig. 2i and Supplementary Table 3).",Similar to human interface cells,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity."
+mechanical,Q2.2,Confinement remodels the cytoskeleton,"These data indicate
+that confinement causes interface cells to adopt a neuronal identity. ","Neuronal development relies on microtubule (MT) architecture,
+influencing almost every aspect of neuronal structure and function14.
+The cytoskeleton often transmits force within and between cells and
+remodels in response to mechanical stimuli15. Recent reports indicate
+that the MT cytoskeleton is stabilized by force to protect confined cells
+from damage16.","We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment."
+mechanical,Q1.2,Confinement remodels the cytoskeleton,"We hypothesized that melanoma cells hijack neuronal
+mechanisms to allow them to invade into the mechanically confined
+microenvironment.",,"We used our in vitro confinement system to char-
+acterize how force remodels the MT cytoskeleton by imaging A375 cells
+labelled with the MT vital dye SiR-tubulin."
+mechanical,Q2.4,Confinement remodels the cytoskeleton,"Confinement extensively
+remodelled the MT cytoskeleton; within 2–4 h, curved MTs began encir-
+cling the cell and nuclear periphery (Fig. 2a,b)...We also observed loss of a central
+MT organizing centre with radial MTs,","This was reminiscent of a previous study that showed that MTs bend to prevent buckling
+or rupture in response to force16...reminiscent of neurons with
+centrosome-independent MT organization14,17.","These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons."
+mechanical,Q1.2,Confinement remodels the cytoskeleton,"These results indicate
+that confined melanoma cells rapidly undergo structural changes in
+the MT cytoskeleton resembling neurons.","Acetylated tubulin mediates neuronal architecture and function
+and marks axonal MTs18. Tubulin acetylation stabilizes MTs and thus
+the cell against mechanical pressure19. Curved MTs, such as those we
+observed in confined cells (Fig. 2a,b), are also indicative of long-lived,
+stabilized MTs19.","We performed immunofluorescence on sections from
+adult fish with transgenic BRAFV600E-driven melanomas ... Confining A375 cells in vitro"
+mechanical,Q2.4,Confinement remodels the cytoskeleton,"We noticed that in confined cells, the hyperacetylated tubulin net-
+work was often perinuclear (Fig. 2f,g) ","As the stiffest and
+largest organelle, the nucleus is vulnerable to confinement-induced
+stress, with confined migration often causing nuclear envelope rup-
+ture and DNA damage20,21. During migration through confined spaces,
+neurons assemble a perinuclear network of acetylated tubulin to pro-
+tect the nucleus22,23. ","and hypothesized that this net-
+work may provide structural support to the nucleus."
+mechanical,Q1.2,Confinement remodels the cytoskeleton,"We confirmed the stability of the perinuclear MT
+network ","nocodazole, which induces
+MT disassembly through an acetylation-independent mechanism24.
+Acetylated MTs are resistant to nocodazole19.","by treating confined cells with nocodazole,"
+mechanical,Q2.3,Confinement remodels the cytoskeleton,"We generated a stable A375 cell line, in which
+the main eukaryotic tubulin acetyltransferase (ATAT1) was inactivated
+using CRISPR (Extended Data Fig. 3a,b), and found that this almost
+completely abolished acetylated tubulin, including the perinuclear
+network (Extended Data Fig. 3c–e). ",,"This indicates that ATAT1 is the
+acetyltransferase that responds to mechanical stress in melanoma
+cells by stabilizing the tubulin cytoskeleton."
+mechanical,Q3.1,Confinement remodels the cytoskeleton,"This indicates that ATAT1 is the
+acetyltransferase that responds to mechanical stress in melanoma
+cells by stabilizing the tubulin cytoskeleton","In addition to acetylation, MTs exhibit a variety of post-translational
+modifications (PTMs), including tyrosination, glutamylation, glycylation
+and methylation, which influence MT stability25.","To clarify the composi-
+tion of the perinuclear tubulin network"
+mechanical,Q1.1,Confinement remodels the cytoskeleton,"To clarify the composi-
+tion of the perinuclear tubulin network",,"we used immunofluorescence
+to characterize MT PTMs in confined melanoma cells."
+mechanical,Q2.3,Confinement remodels the cytoskeleton,"However, most MTs in confined and
+unconfined A375 cells were highly tyrosinated (Extended Data Fig. 4a–d), ...
+Although confined perinuclear MTs were occasionally
+tyrosinated and rarely detyrosinated (Extended Data Fig. 4a–d), there
+was no specific enrichment of these PTMs in the perinuclear network,
+as observed for acetylated MTs. Similar results were observed for poly-
+glutamylated MTs (Extended Data Fig. 4e,f). No polyglycylated MTs
+were found in either condition (Extended Data Fig. 4g,h).","Detyrosination
+has been linked to stabilized MTs26 ... probably owing to the high concentrations of tyrosine and tyrosinase in melanoma27","This indicates
+that acetylation is the primary PTM mediating the assembly and/or
+stability of the perinuclear tubulin network."
+mechanical,Q1.2,Confined invasive cells upregulate HMGB2,"Our results indicate that confinement induces a neuronal identity in
+interface melanoma cells, characterized by changes in cytoskeletal
+architecture and gene expression. ",,"We examined our zebrafish and
+human transcriptomic datasets to identify potential confinement-
+induced mediators of this state. "
+mechanical,Q2.3,Confined invasive cells upregulate HMGB5,"In invading tumour cells, HMGB2
+was only upregulated in elongated or misshaped tumour cells that
+appeared to be under mechanical pressure from adjacent tissues
+(Fig. 3e–g), ",,indicating that confinement induces HMGB2 upregulation
+mechanical,Q2.3,Confined invasive cells upregulate HMGB7,"Using time-lapse
+confocal microscopy of A375 cells stably expressing HMGB2–GFP, we
+found nuclear HMGB2–GFP concentrations increased linearly over
+approximately 16 h (0.269 ± 0.020-fold per hour) to a final concentra-
+tion of 1.76 ± 0.072-fold relative to initial concentrations (Extended
+Data Fig. 5a,b). We also examined the concentrations of HMG family
+members HMGB1 and HMGA1, which were transcriptionally upregu-
+lated in interface cells to a lesser extent than HMGB2, and quantified no
+change in their expression upon confinement (Extended Data Fig. 5c–f),",,"indicating that confinement-induced upregulation of HMGB2 is not a
+general property of all HMG family members."
+mechanical,Q2.3,Confined invasive cells upregulate HMGB9,"As in the zebrafish, the
+invasive front in human samples often contained elongated nuclei
+with high HMGB2 and acetylated tubulin expression, although with
+expected interpatient variability (Extended Data Fig. 6a–e). Of the 40
+patient samples analysed, 20 (50%) contained putative interface cells
+(elongated nuclei, HMGB2+ and AcTub+), nine (22.5%) contained cells
+exhibiting perinuclear acetylated tubulin enrichment only (AcTub+ and
+HMGB2−), three (7.5%) contained cells with elongated HMGB2+ nuclei
+but no acetylated tubulin (AcTub− and HMGB2+) and the remaining eight (20%) showed no enrichment of HMGB2 or acetylated tubulin
+(Extended Data Fig. 6d,e).",,"This validates our scRNA-seq analyses,
+indicating that interface cells are present in human samples (Fig. 1c)."
+mechanical,Q1.1,Confined invasive cells upregulate HMGB10,"We then investigated whether the upregulation of HMGB2 and acety-
+lated tubulin by confined cells is melanoma-specific or exhibited across
+other cancer types. ",,"We focused on two cancer types probably influ-
+enced by mechanical stress in vivo: pancreatic ductal adenocarcinoma
+and bladder cancer."
+mechanical,Q1.1,Confined invasive cells upregulate HMGB12,"To rule
+out a potential pro-invasive role for these transcription factors upon
+mechanical stress in melanoma, ","Mechanical stress can be associated with nuclear translocation of
+transcription factors, such as YAP, as well as epithelial–mesenchymal
+transition inducers, including Twist, Snail and SMAD3 (ref. 30). ","we quantified their expression in confined
+A375 cells."
+mechanical,Q2.1,HMGB2 upregulation requires nesprin 2,"To investigate how mechanical confinement induces HMGB2 upregu-
+lation,    ",,"we focused on the MT cytoskeleton, hypothesizing that the
+perinuclear acetylated tubulin network (Fig. 2f,g) may propagate
+confinement-induced force to the nucleus."
+mechanical,Q1.2,HMGB2 upregulation requires nesprin 2,"To confirm that the perinu-
+clear network is upstream of HMGB2 enrichment in the confinement
+response,",,"we generated stable A375 cell lines in which HMGB2 was inac-
+tivated using CRISPR (Extended Data Fig. 8a–c)."
+mechanical,Q1.1,HMGB2 upregulation requires nesprin 2,"to determine whether the acetylated tubulin network influences
+HMGB2 upregulation.  ","Tubulin acetylation is mediated by the acetyl-
+transferase ATAT1 (ref. 31) and deacetylation by HDAC6 (ref. 32). ... HDAC6 inhibitor tubacin33","We modulated tubulin dynamics and acetylation state in confined
+cells ... We first treated A375 cells with the HDAC6 inhibitor tubacin33,"
+mechanical,Q1.1,HMGB2 upregulation requires nesprin 2,"To stabilize MTs independent of acetylation,  ","which binds β-tubulin and prevents tubulin
+monomer incorporation into MT filaments and thus should not
+influence the acetylation state of HMGB2 or other proteins34.","we treated confined cells
+with paclitaxel (Taxol), "
+mechanical,Q2.4,HMGB2 upregulation requires nesprin 2,"Taxol
+(100 nM) significantly increased HMGB2 accumulation in confined
+cells (P = 0.00230; Extended Data Fig. 9g,h), with an accumulation
+rate remarkably similar to tubacin-treated cells (0.338 ± 0.0425-fold
+per hour versus 0.353 ± 0.0364-fold per hour; P = 0.961; Extended Data
+Fig. 9i). ",,"Although we cannot rule out off-target effects of tubacin on
+HMGB2, similar results in Taxol-treated and tubacin-treated cells indi-
+cate that confinement-induced HMGB2 enrichment is linked to MT
+stability, rather than acetylation state or other HDAC6 functions."
+mechanical,Q1.2,HMGB2 upregulation requires nesprin 2,"To confirm the role of perinuclear acetylated tubulin in mediating
+HMGB2 accumulation  ","Nocodazole abolishes most MT
+networks, with the exception of stabilized acetylated tubulin filaments24.","we treated A375[HMGB2–GFP] cells with noco-
+dazole before applying confinement."
+mechanical,Q2.4,HMGB2 upregulation requires nesprin 2,"We quantified HMGB2 accumulation in confined A375–
+ATAT1KO cells lacking acetylated tubulin (Extended Data Fig. 3c–e). Unexpectedly, HMGB2 accumulation was not impaired in ATAT1KO
+cells (Extended Data Fig. 3f),",,"suggesting that acetylated tubulin is
+sufficient but not necessary for the enrichment of HMGB2 in response
+to confinement."
+mechanical,Q1.1,HMGB2 upregulation requires nesprin 2,"Thus, we investigated other factors that may cooperate with the MT
+cytoskeleton to promote upregulation of HMGB2 in confined cells",TurboID35,"using
+TurboID35 to perform proximity labelling proteomics targeting HMGB2
+interactors (Fig. 3l and Supplementary Table 4)."
+mechanical,Q2.4,HMGB2 upregulation requires nesprin 2,"One highly enriched
+protein was nesprin 2 (gene name: SYNE2) ... (Fig. 3m and Supplemen-
+tary Table 4). ","a component of the linker
+of nucleoskeleton and cytoskeleton (LINC) complex that connects the
+cytoskeleton, nuclear lamina and chromatin36","We hypothesized that nesprin 2 may be required for enrich-
+ment of HMGB2 upon confinement."
+mechanical,Q2.3,HMGB2 upregulation requires nesprin 2,"Accordingly, confined A375 cells
+upregulated nesprin 2 (Extended Data Fig. 10a,b), and targeting SYNE2
+with short interfering RNA (siRNA) (Extended Data Fig. 10c) abolished
+the confinement-mediated accumulation of HMGB2 (Fig. 3n,o) and
+perinuclear tubulin network (Fig. 3p,q).",,"This indicates that nesprin 2
+and the tubulin cytoskeleton interact to upregulate HMGB2."
+mechanical,Q2.3,HMGB2 upregulation requires nesprin 2,"One highly enriched
+protein was nesprin 2 (gene name: SYNE2), a component of the linker
+of nucleoskeleton and cytoskeleton (LINC) complex that connects the
+cytoskeleton, nuclear lamina and chromatin36","The LINC complex cooperates with the nuclear lamina to tune
+nuclear stiffness36. ",N/A
+mechanical,Q2.4,HMGB2 upregulation requires nesprin 2,"Lamin A/C increased by approximately 3-fold in
+confined cells (P = 1.28 × 10−162; Extended Data Fig. 10d,e)",,"suggesting that the nuclear lamina was remodelled in response to confinement,  "
+mechanical,Q1.2,HMGB2 upregulation requires nesprin 2,suggesting that the nuclear lamina was remodelled in response to confinement,,which we validated by means of atomic force microscopy (AFM)
+mechanical,Q2.3,HMGB2 upregulation requires nesprin 2,"suggesting that the nuclear lamina was remodelled in response to confinement which we validated by means of atomic force microscopy (AFM)
+showing increased nuclear stiffness in confined cells (Extended Data
+Fig. 10f,g).",,"Together, our results demonstrate that confined melanoma
+cells remodel cytoskeletal and nuclear structures to reinforce the cell
+against mechanical force, resulting in LINC complex-mediated HMGB2
+upregulation and nuclear stiffening."
+mechanical,Q2.2,Force affects HMGB2–chromatin dynamics,"Our results indicate that the LINC complex and tubulin cytoskel-
+eton cooperate to stabilize the nucleus against mechanical stress
+and upregulate HMGB2. ","HMGB2 typically binds chromatin without
+sequence specificity and bends DNA to relieve mechanical strain37.","Confinement-induced nuclear shape changes could thus increase
+the strain on chromatin and create a densely packed nuclear envi-
+ronment that affects HMGB2 dynamics. "
+mechanical,Q1.2,Force affects HMGB2–chromatin dynamics,"Confinement-induced nuclear shape changes could thus increase
+the strain on chromatin and create a densely packed nuclear envi-
+ronment that affects HMGB2 dynamics. ",,"We used fluorescence recov-
+ery after photobleaching (FRAP) to characterize nuclear HMGB2
+dynamics upon confinement. "
+mechanical,Q2.4,HMGB2 targets plasticity-associated loci,"Our FRAP analysis indicates that confinement upregulates HMGB2 and
+stabilizes its interactions with chromatin; . ",,"therefore, we propose that this
+could affect chromatin accessibility"
+mechanical,Q1.2,HMGB2 targets plasticity-associated loci,"confinement upregulates HMGB2 and
+stabilizes its interactions with chromatin; ... therefore, we propose that this
+could affect chromatin accessibility",,"Assay for transposase-accessible
+chromatin (ATAC) sequencing (ATAC-seq) of A375 cells overexpressing
+HMGB2"
+mechanical,Q2.4,HMGB2 targets plasticity-associated loci,"Homer de novo motif analysis
+identified conserved transcription factor binding motifs enriched within the promoter of open chromatin regions upon HMGB2 overex-
+pression (HMGB2OE). The top-ranked motif was an AP-1 motif (Fig. 4k;
+P = 1 × 10−49) ...
+Other highly ranked motifs included PRDM4, ... (Fig. 4k; P = 1 × 10−12), and SOX9, ... (Fig. 4k; P = 1 × 10−11).","...implicated in melanoma and melanocyte plasticity40,41... which functions in neural
+development42 ... a critical regulator of
+the pro-invasive phenotype switch in melanoma43","These data indicate that HMGB2 upregulation increases chromatin
+accessibility at loci associated with plasticity and a neuronal pheno-
+type, promoting a confinement-induced dedifferentiation program."
+mechanical,Q1.1,HMGB2 targets plasticity-associated loci,To clarify potential HMGB2 targets,a double-crosslinking approach44,"we performed chromatin immu-
+noprecipitation (ChIP) sequencing (ChIP–seq) targeting HMGB2 in
+A375 cells using a double-crosslinking approach44 (Extended Data
+Fig. 11a). We generated a peak atlas by comparing peaks present in cells
+expressing baseline concentrations of HMGB2 to those not present in
+HMGB2KO cells"
+mechanical,Q2.4,HMGB2 targets plasticity-associated loci,"After manual filtering to remove intergenic,
+low-quality or non-specific peaks, we identified a final high-confidence
+set of 96 targets (Extended Data Fig. 11b and Supplementary Table 6).
+We observed HMGB2 binding at promoter regions of several AP-1 sig-
+nalling genes, including FOSL1, JUNB and JUND (Extended Data Fig. 11c
+and Supplementary Table 6),",,"validating our ATAC-seq results and sup-
+porting the pro-invasive role of HMGB2."
+mechanical,Q2.3,HMGB2 targets plasticity-associated loci,"HMGB2OE cells adopted a mesenchymal-like and invasive morphology
+relative to empty vector controls (Extended Data Fig. 11g). The most
+highly upregulated gene was UNC5D ... (Extended Data Fig. 11h and Supplemen-
+tary Table 7). Other upregulated neuronal genes included DCC, SH3GL2
+and NPX2 (Extended Data Fig. 11h,i and Supplementary Table 7). GSEA
+revealed an overrepresentation of neuronal genes within enriched
+pathways (Extended Data Fig. 11j,k and Supplementary Table 7).","UNC5D, a netrin receptor promoting neu-
+ronal survival and migration47",N/A
+mechanical,Q2.4,HMGB2 targets plasticity-associated loci,"several invasive genes were also
+upregulated (MAGEA1, SPP1, CTAG2 and GDF6; Extended Data Fig. 11i
+and Supplementary Table 7).",,Supporting a pro-invasive role for HMGB2
+mechanical,Q2.2,HMGB2 targets plasticity-associated loci,Supporting a pro-invasive role for HMGB2,,"These data indicate that HMGB2 alters
+chromatin architecture to promote an invasive neuronal state."
+mechanical,Q1.2,HMGB2 drives invasion through Notch and BRN2,"Phenotypic plasticity in melanoma is controlled by a regulatory axis of melanocytic transcription factors (MITF) driving proliferation versus invasive factors (BRN2, SOX9 and AP-1) that also slow proliferation. We investigated whether HMGB2 drives invasion through these fac-
+tors.",,"Using the SKMEL5 melanocytic cell line, we created a stable line
+expressing V5-tagged HMGB2 and performed ChIP–seq targeting V5
+and HMGB2 (Extended Data Fig. 12a). "
+mechanical,Q2.4,HMGB2 drives invasion through Notch and BRN2,"However, loss of HMGB2 did not meaningfully alter MITF expression (log2FC = 0.157;
+Extended Data Fig. 12e–g and Supplementary Table 9), ",,"indicating that
+HMGB2 may regulate pro-invasive factors instead. "
+mechanical,Q2.4,HMGB2 drives invasion through Notch and BRN2,"HMGB2 robustly
+bound the promoter of Notch signalling genes in both A375 (Extended
+Data Fig. 11d and Supplementary Table 6) and SKMEL5 (Extended Data
+Fig. 12d and Supplementary Table 8) cells. Notch family genes were also
+upregulated by human interface cells (DLL1, DLL3 and DLK2; Supple-
+mentary Table 1) and confined human melanoma cells (NOTCH2NLA,
+DLK2 and DLL4; Supplementary Table 2). ","Notch signalling promotes
+melanoma invasion through brain-2 (BRN2, also known as POU3F2)
+(ref. 48), a well-characterized pro-invasive transcription factor in mela-
+noma49 that also functions in neuronal development50. ","This indicates that invasive and neuronal phenotypes in confined interface cells are
+induced by HMGB2-mediated upregulation of Notch/BRN2 signal-
+ling. "
+mechanical,Q1.1,HMGB2 mediates phenotype switching,"Confined A375 cells downregulated many proliferation-related pathways. To visualize the influence of confinement on this trade-off,",FastFUCCI cell cycle sensor54,"we generated
+an A375 cell line stably expressing the FastFUCCI cell cycle sensor54."
+mechanical,Q2.3,HMGB2 mediates phenotype switching,"Upon confinement, all initially mitotic cells (mAG+ and S/G2–M phase)
+rapidly lost mAG fluorescence",,"indicating cell cycle exit (Fig. 5c,d)."
+mechanical,Q1.1,HMGB2 mediates phenotype switching,To directly test the role of HMGB2 in melanoma invasion,,"we used
+in vitro invasion assays (Fig. 5e) "
+mechanical,Q2.4,HMGB2 mediates phenotype switching,"and found that targeting HMGB2 with
+siRNA significantly impaired invasion (P = 0.0133; Fig. 5f,g), whereas
+overexpression of HMGB2 increased invasion (P = 0.0180; Fig. 5h,i).","Previous studies identified a fast amoeboid mode of migration induced
+by confinement and low adhesion13,55–57. ","We quantified minimal migra-
+tion of confined A375 cells"
+mechanical,Q2.3,HMGB2 mediates phenotype switching,"We quantified minimal migra-
+tion of confined A375 cells (mean velocity = 0.0838 ± 0.0025 µm min−1;
+Extended Data Fig. 13a–c)",,"which indicates that fast amoeboid migra-
+tion is not a major contributor to confinement-induced phenotypic
+plasticity in our system."
+mechanical,Q2.3,HMGB2 mediates phenotype switching,"To test the role of HMGB2 in phenotype
+switching in vivo",,"we generated BRAFV600E melanomas in zebrafish, in
+which zebrafish hmgb2a and hmgb2b were inactivated by CRISPR. "
+mechanical,Q2.3,HMGB2 mediates phenotype switching,"Loss
+of hmgb2 and hmgb2b markedly increased melanoma growth, with
+tumours growing almost 2-fold larger by 10 weeks (P = 0.0193; Fig. 5j–l)
+while also appearing less invasive than non-targeting controls (Fig. 5m).",,"These data indicate that HMGB2 is required for the invasive state, and
+that its loss pushes melanoma cells towards a hyperproliferative state."
+mechanical,Q2.4,HMGB2 mediates phenotype switching,"HMGB family proteins contain three functional domains: A-box and
+B-box DNA-binding domains and an acidic tail region58 (Extended Data
+Fig. 14a).",an acidic tail region58,"We investigated the functional domains that control HMGB2
+localization and activity in melanoma."
+mechanical,Q2.3,HMGB2 mediates phenotype switching,"when we transplanted cells expressing
+each deletion construct into mice (Extended Data Fig. 14g), as expected,
+there was no significant difference in tumour growth rates (Extended
+Data Fig. 14h,i) or acetylated tubulin at the invasive front (Extended
+Data Fig. 14j), ",,"demonstrating that either HMGB2 DNA-binding domain
+is sufficient to maintain protein function."
+mechanical,Q1.2,HMGB2 is associated with drug tolerance,"We examined how the confined invasive state affects
+therapeutic response, hypothesizing that the HMGB2-high neuronal
+state induced by confinement may promote drug tolerance",,"To test
+this, we treated confined cells with Taxol to stabilize MTs."
+mechanical,Q2.4,HMGB2 is associated with drug tolerance,"Unconfined
+cells rapidly displayed fragmented nuclear morphology and underwent
+apoptosis, whereas confined cells were almost completely resistant
+to Taxol-induced cell death (Extended Data Fig. 13d).","Taxol induces
+cancer cell death through cell cycle arrest60","indicating that confine-
+ment may cause melanoma cells to exit the cell cycle"
+mechanical,Q2.2,HMGB2 is associated with drug tolerance,"indicating that confine-
+ment may cause melanoma cells to exit the cell cycle","in accordance
+with a pro-invasive phenotype switch associated with downregulation
+of proliferation8.",N/A
+mechanical,Q1.1,HMGB2 is associated with drug tolerance,We then tested the role of HMGB2 in drug tolerance in vivo,"dabrafenib and
+trametinib, widely used targeted therapies in melanoma61 (Fig. 5n).","by
+transplanting human melanoma cells overexpressing HMGB2 into
+athymic mice and treating the resulting tumours with dabrafenib and
+trametinib"
+mechanical,Q2.4,HMGB2 is associated with drug tolerance,"HMGB2 overexpression significantly impaired melanoma response to
+dabrafenib/trametinib in vivo (P = 0.043; Fig. 5o, Extended Data Fig. 13e
+and Supplementary Table 10). ",,"Together, our results support a role for
+confinement-mediated upregulation of HMGB2 inducing a pro-invasive
+and drug-tolerant state in melanoma (Extended Data Fig. 15)."
+taurine,Q1.1,Temporal changes in leukaemia niche,"To define temporal changes in non-immune bone marrow micro-
+environment populations during myeloid leukaemia progression",which can grow in unirradiated mouse recipients,"we used bcCML LSCs...(Extended Data Fig. 1a,b). Bone marrow stromal populations
+(leukaemia−CD45−TER119−) were isolated from leukaemic cohorts at
+distinct stages of disease progression and analysed using scRNA-seq
+(Fig. 1a). "
+taurine,Q2.4,Temporal changes in leukaemia niche,"Gene-expression-based clustering identified 21 lineage clusters with transitional subsets covering endothelial cells, chondrocytes, fibroblasts, pericytes, mesenchymal stromal cells (MSCs) and osteo-associated populations (Fig. 1b and Extended Data Fig.1c,d) and showed significant remodelling with disease progression (Fig. 1c,d). 
+Our flow-cytometry-based analyses of an independent cohort of leukaemic mice validated these changes, showing increases in MSCs, osteolineage and arteriolar endothelial cells, with a concomitant decline in sinusoidal endothelial populations (Fig. 1e,f and Extended Data Fig.1e). Clustering analyses of genes expressed in major lineages identified gene sets with similar changes in expression (Extended Data Fig. 1f),",,suggesting that these may represent altered stromal cell fate
+taurine,Q2.4,Temporal changes in leukaemia niche,"Pathway analysis showed that osteoblast differentiation and bone mineralization were downregulated in MSCs and osteo-associated cells, and focal adhesion and cell migration were downregulated in endothelial populations (Fig. 1g and Extended Data Fig. 2a).",,indicating that MSC and endothelial function may be impaired with disease progression
+taurine,Q1.1,Ligand–receptor interactome,"To define the functional relevance of microenvironmental changes on leukaemogenesis, ",,"we focused on proteins expressed on LSC cell surface that act as receptors for niche-driven signals. To identify LSC receptors associated with disease progression, we performed RNA-seq analysis of human AML and bcCML CD34+ cells, and healthy donor bone marrow CD34+ haematopoietic stem and progenitor cells (HSPCs; Extended Data Fig.2b)."
+taurine,Q1.1,Ligand–receptor interactome,"To identify signals that are functionally relevant for disease progression, ",cell surface genes19 ... genome-wide invivo leukaemia CRISPR screen6,we found cell surface genes19 that drop out by twofold or more in our genome-wide invivo leukaemia CRISPR screen6.
+taurine,Q1.1,Ligand–receptor interactome,"This identified 13 cell surface signals common to both bcCML and AML, 18 unique to AML and 7 unique to bcCML. Of these 38 genes, 16 were misannotated as cell surface in the reference dataset19 and were removed from further analysis (Methods and Extended Data Fig. 2c,d). ... to identify ligands for these receptors, ",especially those that were significantly upregulated in our TME scRNA-seq data and in the human AML immune microenvironment20,We used NicheNet and the published literature ... (Extended Data Fig. 2e).
+taurine,Q1.1,Ligand–receptor interactome,"We next determined whether disease progression could alter the expression of LSC-specific TME ligands,",,Bone marrow stromal populations (leukaemia−CD45−TER119−) were isolated from leukaemic cohorts at distinct stages of disease progression and analysed using scRNA-seq (Fig. 1a).
+taurine,Q2.4,TME signals support leukaemogenesis,We therefore generated a unique map of TME ligands for 15 LSC receptors that are essential for disease progression (Fig. 2a).,,Multiple TME–LSC signalling axes identified in our interactome may have a functional role in leukaemia progression.
+taurine,Q2.4,TME signals support leukaemogenesis,"Of the 22 genes upregulated in human LSCs, only low-density lipoprotein receptor (LDLR) and SLC6A6 were significantly associated with poor prognosis in AML (Fig. 2a–c and Extended Data Fig. 4a,b).",,We therefore tested the functional requirement of  TME-derived ligands of LDLR and SLC6A6 on LSC growth.
+taurine,Q2.4,TME signals support leukaemogenesis,"One of the primary LDLR ligands, apolipoprotein E (APOE)21, was highly expressed in MSCs (Extended Data Fig.3d). ",,"To test the role of APOE from MSCs on LSC function,"
+taurine,Q1.2,TME signals support leukaemogenesis,"To test the role of APOE from MSCs on LSC function,",,we co-cultured bcCML LSCs with MSCs transduced with short hairpin RNAs (shRNAs) targeting Apoe or LacZ (control; Extended Data Fig. 4c).
+taurine,Q2.4,TME signals support leukaemogenesis,"Our experiments indicate that Slc6a6 expression can be directly induced by oncogenes (Extended Data Fig. 4g). ... While the leukaemia TME did not express enzymes required for β-alanine synthesis (Gadl1 and Cndp1), those needed for taurine biosynthesis were expressed in osteo-associated cells (Cdo1 and Csad; Extended Data Fig.4h,i).","SLC6A6 encodes TAUT, which has high affinity for the non-essential amino acid taurine, and low affinity for β-alanine (taurine Km = 4.5 μM versus β-alanine Km = 56 μM)22.","To test whether CDO1 is expressed in the human leukaemia TME,"
+taurine,Q1.1,TME signals support leukaemogenesis,"To test whether CDO1 is expressed in the human leukaemia TME, ",,we performed an scRNA-seq analysis of CD45− stromal cells from three myelodysplastic syndrome (MDS) and AML bone marrow aspirates.
+taurine,Q2.4,TME signals support leukaemogenesis,"While CDO1 protein was expressed in undifferentiated human AML MSCs, its expression increased during invitro mouse and human AML MSC osteogenic differentiation (Extended Data Fig.5a–c).",,"Thus, CDO1 may be broadly expressed in immature MSCs as well as differentiating osteolineage cells in human bone marrow."
+taurine,Q1.1,TME signals support leukaemogenesis,"To determine a functional role of taurine from osteolineage cells, ",,we tested the impact of inhibiting taurine biosynthesis in mouse and human leukaemia bone-marrow-derived MSCs on co-cultured leukaemia cells.
+taurine,Q2.3,TME signals support leukaemogenesis,"Our experiments showed that mouse LSCs co-cultured with osteolineage cells lacking Cdo1 expression were significantly less viable (about 2-fold lower than the controls) and formed fewer colonies (3.4-fold less than controls), which could be rescued by supplementing cultures with taurine (Extended Data Fig. 5e–g). Similarly, inhibiting CDO1 in osteolineage cultures from MSCs derived from patients with AML impaired survival and colony-formation of co-cultured AML cells from the same patient by 2- to 3.2-fold (Fig. 2h,i and Extended Data Fig. 5h), ",,indicating that taurine produced by osteolineage cells promotes LSC growth and survival.
+taurine,Q2.3,TME signals support leukaemogenesis,"Consistent with a functional role of taurine from the TME in leukaemia progression, taurine levels were 1.7-fold higher in leukaemic bone marrow interstitial fluid as compared to the controls (Fig. 2j).","In mice, the majority of taurine is synthesized in the liver from cysteine24.","To determine whether taurine produced locally in the bone marrow niche is essential for leukaemia growth, "
+taurine,Q1.1,TME signals support leukaemogenesis,"To determine whether taurine produced locally in the bone marrow niche is essential for leukaemia growth, ",,"we generated a new Cdo1fl/fl mouse model and crossed it to MSC/osteolineage-specific Prrx1-cre mice (Extended Data Fig.5i–k). We used these as recipients for LSCs and monitored survival, and the impact on bone marrow microenvironment populations. "
+taurine,Q2.3,TME signals support leukaemogenesis,Our experiments showed that Cdo1fl/flPrrx1-cre+ mice lived around 13.5% longer than the controls ... (Fig. 2k).,,"indicating that taurine produced locally in the leukaemia TME can support disease progression, at least in part "
+taurine,Q2.3,TME signals support leukaemogenesis,"We did not find any significant changes in the composition of TME in Cdo1fl/flPrrx1-cre+ leukaemic mice as compared to the controls (Extended Data Fig.5l–n), ",,suggesting that leukaemia-driven remodelling of the bone marrow niche does not depend on taurine produced by osteolineage cells.
+taurine,Q2.3,TME signals support leukaemogenesis,"Our experiments showed that the colony-forming ability of mouse LSCs and patient-derived AML cells increased by 1.2- to 3.3-fold in the presence of taurine (Extended Data Fig. 5o–q). Taurine supplements could significantly accelerate disease progression in immunocompetent mice (around threefold higher likelihood of death relative to the controls; Extended Data Fig. 5r),",,indicating that taurine can promote leukaemic progression.
+taurine,Q2.3,TME signals support leukaemogenesis,"Co-culture with MSCs lacking Apoe expression led to significant reduction in both the viability and colony-forming ability of LSCs (around 2.1-fold lower than the controls; Extended Data Fig.4d–f). 
+taurine produced by osteolineage cells promotes LSC growth and survival. 
+...
+taurine produced locally in the leukaemia TME can support disease progression, at least in part (Fig. 2k). 
+...
+taurine can promote leukaemic progression. ",,"Collectively, these data indicate a key role of taurine and APOE from the bone marrow niche in sustaining LSCs."
+taurine,Q2.4,TME signals support leukaemogenesis,"As SLC6A6 expression was significantly enriched in both human bcCML and AML LSCs as compared to the controls, ",,"we focused our studies on SLC6A6, it may be broadly required for growth of aggressive leukaemias. "
+taurine,Q1.1,TAUT loss impairs leukaemogenesis,To determine whether TAUT has a functional role in leukaemia progression,"While Slc6a6-knockout mice are born at Mendelian ratios, they can develop ageing-related defects in bone mass and retinal degeneration25–27.","we used global Slc6a6-knockout mice25 (Fig. 3a,b)."
+taurine,Q2.3,TAUT loss impairs leukaemogenesis,"Our experiments showed that TAUT loss in LSCs significantly reduced their ability to grow when co-cultured with osteolineage cells expressing either control shRNA or shRNA against Cdo1 (shCdo1; Extended Data Fig. 6a), ",,indicating that they could not respond to taurine being  produced by the niche.
+taurine,Q2.3,TAUT loss impairs leukaemogenesis,"TAUT loss impaired initiation of bcCML in mouse models (3.9-fold higher likelihood of survival; Fig. 3c,d), which could not be rescued with taurine supplements (Extended Data Fig.6b). TAUT loss also led to functional depletion in bcCML LSCs, as indicated by a 2.3-fold reduction in their colony-forming ability (Fig. 3e), as well as a marked increase in the survival of mice transplanted with Slc6a6−/− LSCs (40%) relative to control LSCs (0%) in secondary transplant assays (21.2-fold higher likelihood of survival; Fig. 3f). The 8.5-fold reduction in colony-forming ability of bcCML LSCs from secondary transplants ... (Fig. 3g,h). ",,suggests that these leukaemias remain dependent on TAUT expression and taurine uptake for their continued propagation
+taurine,Q2.4,TAUT loss impairs leukaemogenesis,We noted no significant differences in bone marrow microenvironmental populations of mice bearing Slc6a6−/− leukaemias as compared to the controls ... (Extended Data Fig. 6c–g).,,"indicating that leukaemia-driven niche remodelling possibly reflects the extent of the tumour burden, and may be independent of taurine levels within leukaemia cells "
+taurine,Q1.1,TAUT loss impairs leukaemogenesis,"To determine whether TAUT is broadly required for de novo AML growth, ",,we tested the impact of its loss on initiation of leukaemia driven by MLL-AF9/NRAS(G12V) and by AML-ETO9a/NRAS(G12V).
+taurine,Q2.3,TAUT loss impairs leukaemogenesis,"Slc6a6−/− KIT+ AML LSCs from established disease formed 2.9-fold fewer colonies compared with the controls (Fig. 3l), ",,indicating that TAUT loss depleted functional LSCs.
+taurine,Q2.3,TAUT loss impairs leukaemogenesis,"Our experiments showed that TAUT loss markedly delays the initiation of MLL-driven AML relative to the control (6.1-fold higher likelihood of survival; Fig. 3i–k). Slc6a6−/− KIT+ AML LSCs from established disease formed 2.9-fold fewer colonies compared with the controls (Fig. 3l), ... Consistent with a key role of TAUT expression in myeloid leukaemia initiation, TAUT loss in disease driven by AML-ETO9a resulted in a marked increase in survival (70%) relative to the controls (0%) (36.3-fold higher likelihood of survival; Fig. 3m,n). At the cellular level, TAUT loss led to a 2.4- to 3.6-fold reduction in primitive Lin−CD150−FLT3+SCA1+ LSCs6 (Fig. 3o). Furthermore, TAUT loss increased necrosis and theLin+ differentiated cells (Fig. 3p and Extended Data Fig. 6h) and promoted cell proliferation (Fig. 3q). ",,"These data demonstrate a critical requirement for TAUT in the initiation, self-renewal and propagation of myeloid leukaemia. "
+taurine,Q1.1,TAUT loss impairs leukaemogenesis,We next tested the impact of TAUT loss on normal haematopoiesis.,global Slc6a6-knockout mice25,"we used global Slc6a6-knockout mice25 (Fig. 3a,b)."
+taurine,Q2.4,TAUT loss impairs leukaemogenesis,"Our analysis indicates that TAUT loss does not severely impact bone marrow cellularity, or the total numbers of HSCs, progenitors and differentiated cells at steady-state (Extended Data Fig. 7a–e). While TAUT loss did not impair initial HSC engraftment (1 month after transplant), donor chimerism dropped over time (Extended Data Fig.7f,g). Although overall bone marrow chimerism 4 months after transplant was 2.4-fold lower in Slc6a6−/− HSC recipients as compared to Slc6a6+/+ HSC recipients, these Slc6a6−/− HSCs were able to contribute to all haematopoietic lineages (Extended Data Fig.7h–k). Serial transplantation of Slc6a6+/+ and Slc6a6−/− bone marrow cells showed a similar loss in Slc6a6−/− engraftment over time (Extended Data Fig.7l–q). ",,"These results suggest that, while TAUT loss does not impair steady-state haematopoiesis, it can impact long-term HSC self-renewal and maintenance."
+taurine,Q2.4,TAUT loss impairs leukaemogenesis,"These results suggest that, while TAUT loss does not impair steady-state haematopoiesis, it can impact long-term HSC self-renewal and maintenance.","These data are consistent with previous studies showing that genetic loss of LSC-enriched genes such as CD981, STAU26, MSI228,29, BRD430 and BCL231 can impair HSC self-renewal. However, therapeutic inhibition of CD98 showed minimal toxicity in AML phase I trials1 and BCL2 inhibitors are approved for AML therapy. ",It is therefore possible that non-genetic approaches using small-molecule inhibitors or gene silencing may identify a therapeutic window for TAUT targeting in human cells.
+taurine,Q3.1,TAUT loss impairs leukaemogenesis,It is therefore possible that non-genetic approaches using small-molecule inhibitors or gene silencing may identify a therapeutic window for TAUT targeting in human cells.,,We therefore tested the impact of TAUT inhibition on growth and proliferation of normal human HSPCs as well as patient-derived AML cells.
+taurine,Q2.4,TAUT is essential for human AML growth,"Our analyses of available gene expression datasets indicate that SLC6A6 expression is enriched in leukaemia stem/progenitors as compared to more mature blasts (Extended Data Fig. 8a). While SLC6A6 is broadly expressed in AML irrespective of karyotype or FAB subtype (TCGA; Extended Data Fig.8b), increased expression correlates with venetoclax resistance (BEAT-AML; Fig. 4a). SLC6A6 expression is also enriched in reactive oxygen species (ROS)-low LSCs from human monocytic AMLs (subtype clinically associated with venetoclax resistance; CD45bright SSChighCD117−CD11b+CD68+) compared with primitive AML (Fig. 4b; CD45medSSClowCD117+CD11b−CD68−)32. We find increased SLC6A6 expression in leukaemia cells carrying RAS mutations as compared to wild-type cells, ... (Fig. 4c). SLC6A6 is also highly expressed in relapsed AML originating from stem/progenitor like cells compared with more committed populations34 (Extended Data Fig. 8c). ",...consistent with data correlating RAS mutations with venetoclax resistance33,"These data collectively indicate that inhibiting SLC6A6 may be of value across AML subtypes, including those commonly associated with venetoclax resistance."
+taurine,Q1.1,TAUT is essential for human AML growth,"To determine whether small-molecule inhibitors of TAUT can effectively block leukaemia growth,","6-aminomethyl3-methyl-4H-1,2,4-benzothiadiazine-1,1-dioxide hydrochloride35 (TAG) and guanidinoethyl sulphonate36 (GES; ","we used two well-characterized structural analogues of taurine that inhibit uptake: 6-aminomethyl3-methyl-4H-1,2,4-benzothiadiazine-1,1-dioxide hydrochloride35 (TAG) and guanidinoethyl sulphonate36 (GES; Extended Data Fig.8d,e)."
+taurine,Q2.3,TAUT is essential for human AML growth,"TAG and GES treatment led to a substantial reduction in colonies formed by Slc6a6+/+ mouse LSCs but not Slc6a6−/− cells (Extended Data Fig.8f–h). Importantly, while TAG and GES impaired growth of primary human AML cells in colony assays by 1.8- to 20-fold, they did not impact normal human CD34+ HSPC colony growth (Fig. 4d,e). ... Our experiments showed that venetoclax reduced the viability of mouse Slc6a6−/− LSCs by 3.2-fold and lowered their colony formation by 13.2-fold as compared to the controls (Extended Data Fig.8i,j). While TAG, GES or venetoclax alone could impair mouse LSC colony formation by 1.4- to 3.9-fold, their combination was synergistic and led to 2.3- to 7.2-fold fewer colonies as compared to the controls (Extended Data Fig.8k–m). While primary human AML cells that were treated with GES, TAG or venetoclax alone formed 1.3- to 8.3-fold fewer colonies as compared to the controls, combining the treatments substantially impaired colony formation by 2.4- to 150-fold. ",,These data indicate that taurine inhibitors can synergize with venetoclax in blocking the growth of human AML cells (Fig. 4f–h).
+taurine,Q1.1,TAUT is essential for human AML growth,We next tested whether venetoclax can exacerbate the impact of TAUT loss and/or inhibition on LSC function.,,We next tested whether venetoclax can exacerbate the impact of TAUT loss and/or inhibition on LSC function.
+taurine,Q2.3,TAUT is essential for human AML growth,"As TAG and GES did not effectively block taurine uptake in vivo (Extended Data Fig.9a–j),",,we used shRNA-based approaches to determine the impact of inhibiting TAUT expression on human AML growth.
+taurine,Q1.1,TAUT is essential for human AML growth,to determine the impact of inhibiting TAUT expression on human AML growth.,,we used shRNA-based approaches
+taurine,Q2.4,TAUT is essential for human AML growth,"These data indicate that taurine inhibitors can synergize with venetoclax in blocking the growth of human AML cells (Fig. 4f–h). ... Knocking down SLC6A6 expression using two independent shRNAs significantly impaired taurine uptake by 2.2 to 3.4-fold, as well as the colony-forming ability of human bcCML, AML and MDS cell lines by 2- to 12-fold (Extended Data Fig. 9k–p). Our experiments showed that SLC6A6 knockdown in samples from patients with AML reduced their colony-forming ability by 2.33- to 9.12-fold as compared to the controls (Fig. 4i). By contrast, SLC6A6 knockdown did not impact colonies formed by normal human CD34+ HSPCs (Fig. 4j). Importantly, while SLC6A6 knockdown reduced the engraftment of primary AML cells by 1.2- to 40-fold in patient-derived xenograft models (Fig. 4k,l), it did not significantly impair engraftment of normal human CD34+ HSPCs in xenograft models (Fig. 4m). ",,"Collectively, our data identify a critical requirement for SLC6A6 expression in primary human AML growth and indicate that blocking taurine transport may be of value in aggressive myeloid leukaemias."
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,"To establish the mechanisms by which taurine uptake in leukaemia cells promotes disease progression, ",,we determined metabolic changes in the absence of taurine.
+taurine,Q2.4,Taurine drives glycolysis in leukaemia,"Our untargeted metabolomic analysis of mouse LSCs identified significant downregulation of glycolysis/TCA related pathways and metabolites such as pyruvate, glyceraldehyde-3-phosphate and 3-phosphoglycerate in Slc6a6−/− cells, ... (Fig. 5a–c and Extended Data Fig. 10a). ",,suggesting that taurine may regulate energy metabolism
+taurine,Q2.4,Taurine drives glycolysis in leukaemia,"Consistent with this, we noted a 1.3- to 1.8-fold reduction in basal glycolysis, glycolytic capacity, maximal oxygen consumption and spare respiratory capacity in Slc6a6−/− LSCs as compared to the controls (Fig. 5d,e and Extended Data Fig.10b).",,"To functionally test the role of glycolysis and TCA associated metabolites, "
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,"To functionally test the role of glycolysis and TCA associated metabolites, ",,we determined whether bypassing these could rescue Slc6a6−/− defects.
+taurine,Q2.4,Taurine drives glycolysis in leukaemia,"Our experiments showed that the colony-forming ability of Slc6a6−/− LSCs could be significantly rescued by pyruvate, sodium acetate and lactate, but not glucagon (Fig. 5f and Extended Data Fig.10c–e). ",,"These data suggest that glycolysis, and not gluconeogenesis, is the primary downstream effector of taurine in leukaemia cells."
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,We next tested whether taurine contributed to any cellular metabolite,,by determining 13C-taurine incorporation in K562 leukaemia cells.
+taurine,Q2.4,Taurine drives glycolysis in leukaemia,"Our untargeted metabolomic approach identified 13C label only in known taurine conjugates, N-acetyl taurine and glutaurine (Extended Data Fig.10f,g). Membrane-permeable taurine fully rescued colonies formed by Slc6a6−/− cells (Fig. 5g), and N-acetyl-taurine partly rescued this defect (Extended Data Fig.10h), ...  By contrast, glutaurine was unable to rescue the Slc6a6−/− colony formation (Extended Data Fig.10i). ",perhaps by breakdown to taurine and acetate37.,"These experiments indicate that taurine, and not a secondary metabolite, promotes leukaemia growth due to an indirect effect on glycolysis, possibly through downstream signalling."
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,"To identify signals downstream of taurine, ",,we performed RNA-seq as well as phosphoproteome and total-proteome analyses of primary  mouse leukaemia cells (Fig. 5h).
+taurine,Q2.3,Taurine drives glycolysis in leukaemia,"The 932 downregulated genes primarily constituted pathways associated with glycolysis (Fig. 5i and Extended Data Fig.11b–d), ... (Fig. 5c).",consistent with reduced abundance of glycolysis associated metabolites in these cells,N/A
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,"To determine effectors of glycolytic downregulation on TAUT loss, ",,we performed gene set enrichment analysis.
+taurine,Q2.4,Taurine drives glycolysis in leukaemia,This identified profound downregulation of oncogenic MYC and mTOR pathways (Fig. 5j and Extended Data Fig. 11c).,"As mTOR signalling is known to regulate expression of glycolysisrelated genes38,",we tested whether TAUT loss impairs mTOR activation.
+taurine,Q1.1,Taurine drives glycolysis in leukaemia,we tested whether TAUT loss impairs mTOR activation.,mTOR activation with MHY148539,Western blot analysis ... global phosphoproteome and total-proteome analyses ... TAUT inhibition with TAG and GES ... acute treatment in vitro and long-term taurine dosing in vivo ... Inhibiting mTOR with rapamycin ... mTOR activation with MHY148539 ... membrane-permeable taurine 
+taurine,Q2.3,Taurine drives glycolysis in leukaemia,"Western blot analysis showed that TAUT loss results in a 2.2- to 3-fold reduction in activated mTOR, p70S6k and pEIF4B as compared to the controls (Fig. 5k–m and Extended Data Fig. 11e). Our global phosphoproteome and total-proteome analyses also showed reduced expression of phosphorylated proteins associated with mTOR signalling, as well as 3.3-fold reduced BCL2 and 1.5-fold increased LC3A expression in the absence of TAUT (Extended Data Fig. 11f,g). Like TAUT loss, TAUT inhibition with TAG and GES downregulated glycolysis-related gene expression (Extended Data Fig.11h,i) and impaired phosphorylation of mTOR signalling (Extended Data Fig. 12a,b). Consistent with a direct impact of taurine on mTOR signalling, acute treatment in vitro and long-term taurine dosing in vivo could activate mTOR signalling (Extended Data Fig.12c–h). Inhibiting mTOR with rapamycin impaired the growth of wild-type cells but did not impact Slc6a6−/− cells in vitro or invivo (Fig. 5n and Extended Data Fig.12i,k). By contrast, mTOR activation with MHY148539 rescued the colony-forming ability of Slc6a6−/− LSCs to 60% of the control, and membrane-permeable taurine rescued mTOR activation (Fig. 5o and Extended Data Fig. 12j–l).",,"Collectively, these data indicate that mTOR signalling has a key role downstream of taurine in leukaemia cells."
+taurine,Q2.2,Taurine drives glycolysis in leukaemia,... mTOR signalling has a key role downstream of taurine in leukaemia cells. ,"Amino acid availability can be sensed by RAG GTPases to facilitate mTORC1 localization to the outer lysosomal membrane40 and its interaction with RHEB GTPases41, thereby promoting mTORC1 activation. ",We hypothesized that taurine may activate mTOR by promoting its interaction with RAG GTPases.
+taurine,Q1.2,Taurine drives glycolysis in leukaemia,We hypothesized that taurine may activate mTOR by promoting its interaction with RAG GTPases.,,"To test this, we determined the effect of expressing constitutively active RAGA(Q66L) or RHEB(Q64L) on the colony-forming ability of Slc6a6 wild-type and null cells. ... Finally, we directly tested whether taurine could promote mTOR interactions with lysosomes in wild-type and Slc6a6−/− leukaemia cells expressing RAGA(Q66L) (Fig. 5q)."
+taurine,Q2.3,Taurine drives glycolysis in leukaemia,"Our experiments showed that, while RHEB(Q64L) partially rescued Slc6a6−/− colony formation, this could be fully rescued by RAGA(Q66L) (Fig. 5p). Furthermore, mTOR phosphorylation in Slc6a6−/− cells could be rescued by RAGA(Q66L) (Extended Data Fig. 12m). ... Our immunofluorescence-based analysis showed that, at the baseline, Slc6a6−/− cells have 1.2-fold lower mTOR–LAMP1 interaction, which could be fully rescued by RAGA(Q66L). Taurine supplements increased mTOR–LAMP1 co-localization to levels seen in cells expressing RAGA(Q66L). However, this interaction could not be increased further by adding taurine to RAGA(Q66L)-expressing cells (Fig. 5r,s), ",consistent with our colony-forming assays (Extended Data Fig. 12n).,"Collectively, our studies show that the taurine–TAUT axis regulates glycolysis in myeloid leukaemia cells by promoting RAG-mediated activation of mTOR signalling."
+ultrasensitive,Q2.3,Pre-analytical factors affecting cfRNA,"we observed that cfRNA is highly frag
+mented and does not contain detectable 18S and 28S rRNA peaks 
+(Extended Data Fig. 1a), ","As previously described1,8,11, ",indicating high levels of degradation.
+ultrasensitive,Q2.4,Pre-analytical factors affecting cfRNA,"In blood 
+samples from healthy donors with no history of cancer, the median 
+concentration of cfRNA was 220 pg per millilitre plasma, representing 
+the equivalent of approximately 20 cells (n = 117; Extended Data Fig. 1b).",,We therefore began by evaluating factors that affected cfRNA recovery and downstream expression analysis (Supplementary Note).
+ultrasensitive,Q1.1,Pre-analytical factors affecting cfRNA,"We next optimized multiple steps in 
+the assay workflow, including removal of contaminating DNA, comple
+mentary DNA (cDNA) synthesis and end repair.",,"We next optimized multiple steps in 
+the assay workflow, including removal of contaminating DNA, comple
+mentary DNA (cDNA) synthesis and end repair."
+ultrasensitive,Q1.1,Platelet genes are enriched in cfRNA,"We next characterized expression differences between cellular and 
+cfRNA ",,"by applying RARE-seq to cfRNA and matched leukocyte RNA from 
+ten healthy adults. "
+ultrasensitive,Q2.4,Platelet genes are enriched in cfRNA,"Only two haematopoietic cell types were enriched in cfRNA — erythroid 
+precursors and platelets — ",,"suggesting their contributions to the cfRNA 
+pool during erythropoiesis and megakaryocytopoiesis."
+ultrasensitive,Q1.1,Platelet genes are enriched in cfRNA,"Therefore, we investigated whether expression contributions from platelet contamination could be algorithmically eliminated. ",,"To do so, we developed an in silico approach to remove unwanted gene expression driven by varying platelet contamination levels (Fig. 1i). This approach aims to separate wanted variation (that is, cancer-associated gene expression differences) from unwanted 
+variation (that is, technical or biological noise) by performing factor analysis of expression from negative control genes for which only 
+unwanted variation is expected to be present (Methods)."
+ultrasensitive,Q1.1,Enhancing sensitivity of ctRNA detection,"We therefore hypothesized that selectively capturing genes absent from or lowly expressed in healthy control cfRNA could enhance detection of non-haematopoietic tissue or disease signatures and expand the utility of RARE-seq to a wide range of clinical applications. To test this, ",,"we identified such ‘rare abundance genes’ (RAGs) using whole-coding transcriptome RARE-seq data from healthy 
+cfRNA samples (n = 50) and RNA-seq data from healthy whole-blood 
+samples (n = 307) from the GTEx project16 (Fig. 2a).  We defined RAGs 
+based on consistent low or absent expression in cfRNA and whole blood 
+(n = 5,632 genes; Extended Data Fig. 3a and Supplementary Table 1). "
+ultrasensitive,Q1.1,Enhancing sensitivity of ctRNA detection,We next profiled five healthy cfRNA samples,,"using both whole-coding 
+transcriptome and RAG capture panels using RARE-seq. "
+ultrasensitive,Q1.1,Enhancing sensitivity of ctRNA detection,"To score the presence of a gene signature of interest in cfRNA samples, ",,"we developed an analytical framework 
+to compute a cfRNA gene signature enrichment score by comparing the expression of pre-defined signature genes in a sample of interest to 
+a ‘meta-reference’ consisting of cfRNA samples from healthy controls and using bootstrapping to estimate its significance (Fig. 2g; Methods).  An important advantage of this approach is that unlike machine 
+learning-based methods, it does not require a large training cohort of 
+patient cfRNA samples, as it leverages existing gene expression datasets 
+to define gene signatures and associated gene-wise weights based on 
+their expression levels in the tissue or condition of interest."
+ultrasensitive,Q1.1,Enhancing sensitivity of ctRNA detection,"the LOD95 for RAG RARE-seq was 0.05% (Fig. 2h), more than 50-fold more sensitive than for whole-coding transcriptome RARE-seq (2.8%; Fig. 2i), demonstrating the value of targeting RAGs. To experimentally confirm this result,",,"we created in vitro dilution series, by spiking NCI-H1975 RNA into healthy 
+donor cfRNA at defined concentrations. "
+ultrasensitive,Q1.1,Detection of non-small-cell lung cancer,"Having developed and optimized RARE-seq, we focused the remainder 
+of our study on generating proof-of-concept data for cfRNA analysis 
+across several clinical applications",,"Given the higher analytic sensitivity 
+observed by capturing RAGs, we used RAG-focused RARE-seq for these 
+experiments. "
+ultrasensitive,Q1.1,Detection of non-small-cell lung cancer,"First, we investigated performance for tumour-naive 
+detection of lung adenocarcinomas (LUADs), the most common type 
+of non-small-cell lung cancer (NSCLC).",,"We analysed cfRNA from 139 
+patients with LUAD (n = 20 patients with stage I, n = 8 patients with 
+stage II, n = 15 patients with stage III and n = 96 patients with stage IV)  
+and 50 controls without cancer, including 26 risk-matched controls 
+with a history of substantial tobacco exposure collected at the time 
+of low-dose computed tomography (LDCT) screening for lung cancer."
+ultrasensitive,Q1.1,Detection of non-small-cell lung cancer,"To further quantify the enrichment of LUAD-derived transcripts, 
+","TCGA17 ... Cancer Cell Line Encyclopedia (CCLE)18, whole blood (GTEx16)","we applied the cfRNA enrichment score framework developed above using a LUAD-specific gene signature (LUAD Sig; n = 72 genes) identi
+fied using RNA-seq data from LUAD tumours within TCGA17, LUAD cell 
+lines from the Cancer Cell Line Encyclopedia (CCLE)18, whole blood 
+(GTEx16) and meta-reference cfRNA controls (Methods). "
+ultrasensitive,Q1.1,Detection of non-small-cell lung cancer,We also explored the ability to genotype cancer-derived somatic mutations using RARE-seq.,,"We therefore developed a custom ctRNA genotyping approach to detect clinically actionable variants, including single-nucleotide variants (SNVs), insertions or deletions (indels), splice variants and gene fusions, in recurrent NSCLC oncogenes. To ensure specificity, putative variants were censored if their 
+variant allele frequency did not significantly exceed the background 
+error rate observed in a subset of withheld controls (n = 50; Extended 
+Data Fig. 5a; Methods). Performance was assessed in 136 patients with 
+stage IV LUAD with known variants from previous tumour or ctDNA 
+genotyping, as well as 97 healthy and LDCT controls (Supplementary 
+Table 4)."
+ultrasensitive,Q1.1,Identifying resistance to EGFR therapies,"We next assessed the performance of RARE-seq for identifying 
+genetic mechanisms of resistance.",,"To detect MET pathway activa
+tion caused by MET amplification using ctRNA, we developed a MET 
+amplification signature (METamp Sig) containing nine genes differen
+tially expressed in three EGFR-mutant NSCLC cell lines with acquired 
+resistance due to MET amplification (Methods). "
+ultrasensitive,Q1.1,Tissue-of-origin determination in ctRNA,"We also wanted to test whether the same RARE-seq assay could be 
+used to detect other cancer types.",,"We therefore analysed plasma 
+samples from patients with three types of other carcinomas: pancre
+atic adenocarcinoma (PAAD; n = 10 patients with stage IV), prostate 
+adenocarcinoma (PRAD; n = 1 patient with stage III and n = 8 patients 
+with stage IV) and liver hepatocellular carcinoma (LIHC; n = 3 patients 
+with stage I, n = 5 patients with stage II and n = 2 patients with stage IV).  
+Cancer-specific gene signatures were generated for each cancer type 
+and evaluated using the cfRNA enrichment score framework (Sup
+plementary Table 7)."
+ultrasensitive,Q1.1,Application to non-malignant conditions,"We also explored several potential applications of RARE-seq beyond 
+oncological settings, by first testing whether cfRNA expression might 
+reveal lung injury caused by benign pulmonary conditions.",,"We profiled cfRNA from 3 patients with chronic obstructive pulmonary disorder, 7 patients with active COVID-19 infections (n = 13 timepoints) 
+and 19 patients admitted to the intensive care unit with evidence of pulmonary injury (including 9 patients with acute respiratory distress syndrome)."
+ultrasensitive,Q2.4,Application to non-malignant conditions,"Across these diverse pulmonary conditions, lung-derived 
+cfRNA was detectable in 49% of patients using a normal lung gene 
+expression signature derived from GTEx16 (Fig. 5d and Supplemen
+tary Table 8). By contrast, among adult participants without known 
+pulmonary conditions (n = 42), lung cfRNA was detected in 14%, with 
+detection being significantly more frequent in current smokers than in 
+former- or never-smokers (45.5% versus 3.6%, P = 0.004; Fig. 5e).","lung cfRNA is induced by ongoing injury to pulmonary epithelium caused by recent exposure to tobacco smoke23,24","This result suggests that lung cfRNA is induced by ongoing injury to pulmonary epithelium caused by recent exposure to tobacco smoke23,24. "
+ultrasensitive,Q2.4,Application to non-malignant conditions,"Conversely, in patients with known pulmonary conditions, detection 
+was significantly greater in those who were on a ventilator at the time 
+of blood collection (Fig. 5f), ","reflecting insult to pulmonary epithelium from 
+mechanical ventilation25","probably reflecting the severity of the 
+pulmonary condition as well as insult to pulmonary epithelium from 
+mechanical ventilation25."
+ultrasensitive,Q1.1,Application to non-malignant conditions,"...we explored whether RARE-seq might have 
+utility for simultaneously tracking RNA-based treatments and their 
+effects on the host. To do so, ",,"we longitudinally profiled plasma from 
+five individuals receiving mRNA-based COVID-19 vaccinations (n = 20 
+timepoints). We performed RARE-seq on these samples using the RAG 
+capture panel supplemented with baits targeting the sequence of the 
+mRNA vaccine (Extended Data Fig. 3c)."
+breast_cancer,Q2.3,Mutational landscapes and cancer drivers,"BCL11B, ... was mutated in 23 patients at much higher frequency than random expectation.","which encodes a transcription factor that is involved in chromatic remodelling, gene regulation and mammary stem cell self-renewal18,19, ",N/A
+breast_cancer,Q2.3,Mutational landscapes and cancer drivers,"Similarly, RREB1, ... was truncated in 26 patients, suggesting that its disruption could affect oncogenic pathways.","which encodes a zinc finger transcription factor that regulates Ras and TGFβ signalling and directly binds the p53 promoter20–22,",N/A
+breast_cancer,Q2.3,Mutational landscapes and cancer drivers,"higher ploidy and increased homologous recombination DNA repair deficiency (HRD) for double-strand DNA breaks (Extended Data Fig.3a,b).","Tumours with TP53 mutations frequently exhibited genomic instability25, characterized by ",N/A
+breast_cancer,Q2.3,Mutational landscapes and cancer drivers,"TP53 mutations were positively associated with the level of intratumour genetic heterogeneity (calculated by mutant allele tumour heterogeneity (MATH) scoring with tumour WGS4), particularly in basal-like subtypes (Extended Data Fig.3c shows MATH scores associated with different TP53 mutations),",,indicating more active late-stage mutagenesis and emergence of potent subclones in TP53-mutant tumours.
+breast_cancer,Q2.4,Mutational landscapes and cancer drivers,"Notably, higher MATH scores were associated with poorer overall survival, particularly in TP53-mutant tumours (hazard ratio 1.66, 95% confidence interval 1.08–2.74; P = 0.048; Extended Data Fig.3d,e), ",,"suggesting that intratumoural heterogeneity, as measured by MATH score, is associated with clinical outcomes and deserves further investigation as a potential prognostic factor."
+breast_cancer,Q1.1,Key mutational signatures,"To systematically explore the mutational processes that shape alterations in breast cancer genomes,",mutational signature analysis2,"we performed a comprehensive mutational signature analysis2 (Methods, Supplementary Discussion3 and Supplementary Fig. 4)."
+breast_cancer,Q2.4,Key mutational signatures,"Individuals with HRD (n = 66) exhibited significantly superior disease-free survival compared with those with homologous recombination DNA repair-proficient (HRP) cancer (hazard ratio 0.10, 95% confidence interval 0.02–0.54; P = 0.006; Fig. 2f); ","this difference was more pronounced than in a previous study with a targeted panel-based assay28, ",highlighting the potential of WGS for more specific clinical evaluation of HRD.
+breast_cancer,Q2.4,Key mutational signatures,"Of note, the population allele frequency of the germline deletion was 31.8% in our cohort (present in 736 individuals, 131 being homozygous and 605 heterozygous; Fig. 2g and Extended Data Fig. 4b), significantly higher than the frequency in the European population29 (31.8% versus 8.5%; P < 0.001 by two-sided chi-square test), ",,suggesting an East Asian origin.
+breast_cancer,Q2.3,Key mutational signatures,"A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts ... the deletion was not substantially enriched in patients with breast cancer compared with the background Korean population (51.0%, 844 out of 1,654 individuals, with 150 being homozygous and 694 heterozygous; P = 0.276 by two-sided chi-square test; Fig. 2g),  ","A germline deletion involving APOBEC3A and APOBEC3B (APOBEC3A/B), which effectively generates APOBEC3AAPOBEC3B fusion transcripts, has been suggested to predispose to APOBEC-mediated hypermutations29 (Extended Data Fig.4a). ... Contrary to previous reports30,31, ",suggesting that it is not a strong cancer-predisposing germline variant.
+breast_cancer,Q1.1,Frequently rearranged genes,"To determine the structural variation landscape, ","A key mutational process in cancer is structural variation, which acts to amplify, delete or reorder chromosomal material at scales that range from single genes to entire chromosomes32","we generated a DNA interaction map between 5-Mb segments across the entire genome (Fig. 3a), along with large-scale copy number amplification patterns (CNAs; G-score)."
+breast_cancer,Q2.3,Frequently rearranged genes,"For example, 15 breast cancers carried an interchromosomal translocation between chromosomes 8 and 11, which brought CCND1, and ZNF703 and FGFR1 (ZNF703/FGFR1) into close proximity (mostly luminal B type; 73.3%, 11 out of 15; Fig. 3a, top left).","Of note, the interaction was observed in lung cancer33, and was also reported to be associated with reduced benefit from aromatase inhibitors in metastatic breast cancer34.",N/A
+breast_cancer,Q2.4,Frequently rearranged genes,"Another frequent interchromosomal translocation involved the ERBB2 locus on chromosome 17 and a locus on chromosome 20 (observed in 30 participants), ... (Fig. 3a, top right). ... structural variations involving the ERBB2 locus were clustered with super-enhancers genome-wide (P = 0.028 by permutation test; Fig. 3b), which translocated super-enhancers in about 90 kb from the ERBB2 locus (Fig. 3c). Tumours with extragenic structural variants in the vicinity (within 1 Mb) showed significantly higher ERBB2 gene expression levels than their gene copy number (log2 fold change >1, q-value <0.10; Fig. 3d). They often carried extragenic structural variants in the vicinity (within 1 Mb) with a cancer cell fraction (CCF) of approximately 1 (Fig. 3e), and distal breakpoints significantly enriched near breast cancer-specific super-enhancers35 (Fig. 3f).","where breast cancer super-enhancers were enriched35 ... Structural variations can influence  transcription by disrupting enhancer–promoter interactions, chromatin topology and long-range regulatory elements36. In line with this idea, ",Our observation overall suggests a possible enhancer-hijacking mechanism for transcriptional activation in breast cancer genomes.
+breast_cancer,Q2.4,Frequently rearranged genes,"In addition, we found gene truncation events associated with structural variation. A total of 28 genes, including the well-established tumour suppressors RB1, PTEN and RUNX1, exhibited significant downregulation due to gene-truncating structural variants, ... (Fig. 3g). ",,reinforcing their tumour suppressor role in breast cancer
+breast_cancer,Q2.4,Frequently rearranged genes,"The fraction of variant-supporting reads suggests that most of the fusion events are clonal or near-clonal, ",,implicating them in tumour initiation.
+breast_cancer,Q2.4,Frequently rearranged genes,"In the gene-level analysis, NRG1, which encodes a small ligand of ERBB family kinase receptors, was frequently affected by 166 structural variants in 110 cases (8%, 110 out of 1,364; Extended Data Fig.8; top 2). Although gene disruption was the most frequent outcome (72.9%, 121 out of 166 structural variants), oncogenic fusions were sometimes formed with various partner genes40 (n = 17; Fig. 3i), collectively sixfold more frequently than previous reports41 (1.25% versus 0.2%). Of note, the EGF-like domain of NRG1 was retained in all 17 fusion cases, ",oncogenic fusions were sometimes formed with various partner genes40 ... sixfold more frequently than previous reports41 (1.25% versus 0.2%),supporting their oncogenic effect.
+breast_cancer,Q1.1,Hotspots of focal amplifications,"To explore these events in breast cancers,","Focal amplification, which increases the copy number of short-segment DNA (typically up to 3 Mb in size, with a copy number gain greater than 3 compared with flanking regions), is a prominent signature in many human cancers42,43.","we calculated the recurrence score of focal amplifications across the genome, referred to as F-score (Fig. 4a)."
+breast_cancer,Q2.4,Hotspots of focal amplifications,"Notably, ZNF703 exhibited higher amplification levels than FGFR1 on chromosome 8, ",,suggesting its oncogenic role in breast cancer.
+breast_cancer,Q2.4,Hotspots of focal amplifications,"Notably, ERBB2 expression exhibited mutual exclusivity with the other oncogenes, ... (Extended Data Fig.9c).",,suggesting a redundant oncogenic mechanism between ERBB2 and the other three genes in breast tumorigenesis
+breast_cancer,Q2.4,Hotspots of focal amplifications,"Of note, more than 40% of the ERBB2, FGFR1, ZNF703 and CCND1 focal amplifications were formed by extrachromosomal DNA (ecDNA) (Fig. 4c), ",,"suggesting that ecDNA is the primary mechanism of focal amplification42,44."
+breast_cancer,Q2.4,Clinical effect of ERBB2 focal gain,"Out of 75 individuals with HER2-positive tumours who received neoadjuvant TCHP regimens (docetaxel (microtubule inhibitor), carboplatin (platinum intercalator), trastuzumab and pertuzumab (anti-HER2 inhibitors)), 38 showed pathologic complete response (pCR) (Fig. 4e and Supplementary Table 4). … cases with pCR (n = 38) exhibited significantly higher ERBB2 expression (P < 0.001, two-sided Student’s t-test) and a greater frequency of ERBB2 focal amplification (P = 0.001, two-sided Fisher’s exact test; Extended Data Fig.9f–h (external validation in the TransNEO cohort46)).  ... Notably, in our cohort, tumours with ERBB2  copy number of 33 or more were significantly more likely to be ecDNA-positive (P = 0.003; Fig. 4f, right); however, ERBB2 amplification by ecDNA was not associated with pCR rates (P = 0.540). ","Of note, ecDNA is generally associated with poor prognosis across multiple cancer types47.","Our observation suggests that absolute copy number. rather than the amplification mechanism, may be a more relevant predictor of therapeutic response. It also indicates that ERBB2-amplifying ecDNA may be an actionable target for anti-HER2 therapy."
+breast_cancer,Q2.4,Long-segmental copy number gains,"The timing analysis with the burden of co-amplified, pre-amplification somatic base substitutions yielded the acquisition timing of the frequent long-segmental CNAs in breast cancer in molecular time49 (Extended Data Fig. 10). Most of the recurrent long-segmental CNAs were acquired by 20% of molecular time, when recent common ancestral cells of a cancer emerge, which should be decades earlier than tumour diagnosis. ",the acquisition timing of the frequent long-segmental CNAs in breast cancer in molecular time49 ...  consistent with a previous report50,"This implies that acquisition of the long-segmental CNAs is an early evolutionary event in breast cancer, which is presumably acquired in early puberty ... Our findings also suggest that full neoplastic transformation can take decades from the first event of genomic instability."
+breast_cancer,Q2.3,Long-segmental copy number gains,"The most common CNAs occurred at 8q21.13, with a relative timing of 0.15 (IQR 0.08–0.25) and a median copy number gain of 5.5 (IQR 4.0–8.0). This amplification was associated with poor overall survival (hazard ratio 1.67, 95% confidence interval 1.09–2.55; P = 0.019).","This region contains the MYC oncogene, which has been linked to treatment resistance and poor survival across various solid tumours, including breast cancer51.",N/A
+breast_cancer,Q2.3,Long-segmental copy number gains,"The 9p23 gain was associated with 823 differentially expressed genes genome-wide (282 upregulated and 531 downregulated; Extended Data Fig.11c), including PSIP1, ",which has been reported to be negatively correlated with survival of patients with TNBC53.,N/A
+breast_cancer,Q2.4,Long-segmental copy number gains,"long-segmental amplifications (typically larger than 1 Mb), often chromosome- or arm-level alterations, were common in breast cancers (Fig. 3a). ... Late-stage CNA acquisitions were more frequently observed in HRD breast cancers (P < 0.001; Extended Data Fig. 11d,e) ... For instance, in one case with HRD (no. 635; Fig. 4j), the rate of CNA acquisition was substantially increased from about 75% of the molecular time, which we speculate is the time of complete inactivation of the homologous recombination-mediated DNA repair pathway.",,This implies that the rate of large-segmental CNAs is accelerated when a tumour cell acquires the HRD phenotype
+breast_cancer,Q2.4,Long-segmental copy number gains,"in one case with HRD (no. 635; Fig. 4j), the rate of CNA acquisition was substantially increased from about 75% of the molecular time, ",,which we speculate is the time of complete inactivation of the homologous recombination-mediated DNA repair pathway.
+breast_cancer,Q2.4,Long-segmental copy number gains,"By contrast, in another case with HRD (no. 703; Fig. 4k), there was no such late CNA acquisition stage. The cancer developed talazoparib resistance after ten months of the second-line palliative treatment. In line with the resistance, post-therapy cancer genome exhibited an 8-bp deletion in the vicinity of the germline 1-bp deletion in BRCA1, ... (Fig. 4l). ",,which is likely to have converted an HRD tumour back to HRP
+breast_cancer,Q2.4,Long-segmental copy number gains,"From the timing analysis (Fig. 4k, bottom), ",,"we believe that the rescuing mutation could be acquired in about 50% of the molecular time in one of the cells in the primary cancer tissue, which could lead to talazoparib resistance."
+breast_cancer,Q1.1,Potential biomarkers from whole genomes,"Finally, we explored the potential utility of whole-genome results",,by integrating genomic profiles and clinical records.
+breast_cancer,Q2.3,Potential biomarkers from whole genomes,"First, we observed that an increased MATH score, ... was associated with worse progression-free survival (PFS) in first-line anti-HER2 therapies against HER2-positive breast cancer.","which is indicative of higher intratumoural heterogeneity,",N/A
+breast_cancer,Q2.3,Potential biomarkers from whole genomes,"Similarly, we identified high TMB, and HRD scores were associated with worse PFS in CDK4/6 inhibitor plus endocrine therapy, ... (Fig. 5d–g).",a first-line palliative treatment recently developed for hormone receptor-positive a first-line palliative treatment recently developed for hormone receptor-positive,N/A
+breast_cancer,Q2.4,Potential biomarkers from whole genomes,"Multivariate Cox proportional hazards analysis indicated HRD as the single most significant factor predicting favourable PFS to the treatment (hazard ratio 10.20, 95% confidence interval 1.68–61.80; P = 0.012; Fig. 5g), ",,"warranting validation in larger, prospective studies."
+breast_cancer,Q2.4,Potential biomarkers from whole genomes,"In gene set enrichment analysis (GSEA), these HRD tumours showed significant enrichment of pathways related to cell cycle progression, DNA repair and mitotic checkpoint activation, ... (Extended Data Fig.12).",,suggesting that these tumours may exhibit increased reliance on cell cycle regulatory mechanisms
+breast_cancer,Q2.4,Potential biomarkers from whole genomes,"Of note, PTEN mutations were exclusively present in individuals who experienced progression on the treatment, ... (P = 0.042, two-sided Fisher’s exact test; Fig. 5d).",,suggesting that they had a negative impact on the treatment
