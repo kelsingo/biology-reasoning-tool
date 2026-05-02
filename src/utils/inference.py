@@ -4,11 +4,47 @@ import time
 import argparse
 import os
 import yaml
+import threading
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-def send_request(url, pload_config, data, request_id):
+class GeminiRateLimiter:
+    """Simple token bucket rate limiter for Gemini API calls."""
+    # Source: https://oneuptime.com/blog/post/2026-02-17-how-to-manage-quotas-and-rate-limits-for-gemini-api-requests-in-vertex-ai/view
+
+    def __init__(self, requests_per_minute=20):
+        self.rate = requests_per_minute / 60.0  # Convert to per-second
+        self.tokens = requests_per_minute
+        self.max_tokens = requests_per_minute
+        self.last_refill = time.monotonic()
+        self.lock = threading.Lock()
+
+    def acquire(self):
+        """Wait until a token is available, then consume it."""
+        while True:
+            with self.lock:
+                # Refill tokens based on elapsed time
+                now = time.monotonic()
+                elapsed = now - self.last_refill
+                self.tokens = min(
+                    self.max_tokens,
+                    self.tokens + elapsed * self.rate
+                )
+                self.last_refill = now
+
+                if self.tokens >= 1:
+                    self.tokens -= 1
+                    return
+                sleep_time = (1 - self.tokens) / self.rate
+            # Wait a short time before trying again
+            time.sleep(sleep_time)
+
+def send_request(url, pload_config, data, request_id, rate_limiter=None):
     """Sends a single request to the vLLM server."""
+    # Apply rate limiting if provided
+    if rate_limiter:
+        rate_limiter.acquire()
+    
     headers = {"Content-Type": "application/json"}
     prompt = data.get("prompt")
     
@@ -51,8 +87,15 @@ def send_request(url, pload_config, data, request_id):
     
     return request_id, result_entry, error_entry
 
-def run_inference(config_path, input_file, results_file):
-    """Run batch inference with config file using ThreadPoolExecutor."""
+def run_inference(config_path, input_file, results_file, rate_limit=20):
+    """Run batch inference with config file using ThreadPoolExecutor.
+    
+    Args:
+        config_path: Path to YAML config file
+        input_file: Path to JSONL input file
+        results_file: Path to output JSONL file
+        rate_limit: Number of requests per minute (default: 20, which is 1 request every 3 seconds)
+    """
     with open(config_path, "r") as f:
         config = yaml.safe_load(f)
     
@@ -74,13 +117,17 @@ def run_inference(config_path, input_file, results_file):
     errors = {}
     start_time = time.time()
 
+    # Create rate limiter (convert seconds between requests to requests per minute)
+    rate_limiter = GeminiRateLimiter(requests_per_minute=rate_limit)
+    
     print(f"Starting inference with {concurrent_requests} concurrent workers...")
+    print(f"Rate limit: 1 request every {60/rate_limit} seconds ({rate_limit:.2f} requests/minute)")
 
     # USE THREADPOOLEXECUTOR INSTEAD OF RAW THREADS
     with ThreadPoolExecutor(max_workers=concurrent_requests) as executor:
         # Submit all tasks to the pool
         future_to_req = {
-            executor.submit(send_request, url, pload_config, data, i): i 
+            executor.submit(send_request, url, pload_config, data, i, rate_limiter): i 
             for i, data in enumerate(dataset)
         }
 
@@ -140,6 +187,7 @@ if __name__ == "__main__":
     parser.add_argument("--config", type=str, required=True, help="YAML config file")
     parser.add_argument("--input-file", type=str, required=True, help="JSONL file with input prompts")
     parser.add_argument("--results-file", type=str, required=True, help="Output file for results (JSONL)")
+    parser.add_argument("--rate-limit", type=int, default=20, help="Number of requests per minute (default: 20)")
     args = parser.parse_args()
 
-    run_inference(args.config, args.input_file, args.results_file)
+    run_inference(args.config, args.input_file, args.results_file, rate_limit=args.rate_limit)
