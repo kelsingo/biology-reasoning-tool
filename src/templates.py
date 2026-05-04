@@ -581,3 +581,52 @@ Return your response in the following JSON format:
 **Input (Observation):**
 {{main_content}}
 """.strip()
+
+TEMPLATE_EVALUATION = """
+You will be given a main content (e.g., a research objective, mechanistic statement, or observation) and two reasoning instances derived from it:
+
+- Reasoning 1: Ground truth
+- Reasoning 2: Model prediction
+
+Each reasoning instance consists of:
+- (`context`): supporting background, evidence, or prior knowledge
+- (`outcome`): the inferred experiment, mechanism, conclusion, or related research question
+
+Your task is to compare Reasoning 1 and Reasoning 2 and determine whether they are:
+
+SAME:
+Reasoning 2 fully captures the meaning of Reasoning 1. Additional details are allowed as long as they do not contradict.
+
+OVERLAPPED:
+Reasoning 2 partially captures Reasoning 1 but misses important components. No contradictions.
+
+COMPLETELY DIFFERENT:
+Reasoning 2 does not match Reasoning 1, or contains contradictions.
+
+---
+
+## Important Instructions:
+- Base your judgment on semantic meaning, not wording similarity
+- Consider both context and outcome jointly
+- Use the main content as the reference anchor
+
+---
+
+## Output format (JSON):
+```json
+{
+  "main_content": "...",
+  "reasoning_1": {
+    "context": "...",
+    "outcome": "..."
+  },
+  "reasoning_2": {
+    "context": "...",
+    "outcome": "..."
+  },
+  "evaluation": "SAME | OVERLAPPED | COMPLETELY DIFFERENT",
+  "explanation": "..."
+}
+
+""".strip() 
+
